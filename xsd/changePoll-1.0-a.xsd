@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <schema targetNamespace="urn:ietf:params:xml:ns:changePoll-1.0"
+         xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"
+         xmlns:eppcom="urn:ietf:params:xml:ns:eppcom-1.0"
+         xmlns="http://www.w3.org/2001/XMLSchema"
+         elementFormDefault="qualified">
+ <!--
+ Import common element types.
+ -->
+   <import namespace="urn:ietf:params:xml:ns:eppcom-1.0"
+           schemaLocation="eppcom-1.0.xsd"/>
+           
+   <annotation>
+     <documentation>
+       Extensible Provisioning Protocol v1.0
+       Change Poll Mapping Schema.
+     </documentation>
+   </annotation>
+   <element name="trnData" type="changePoll:trnDataType"/>
+   
+ <!--
+ poll response elements for transactions.
+ -->
+   <complexType name="trnDataType">
+     <sequence>
+       <element name="objId" type="eppcom:labelType"/>
+       <element name="objType" type="changePoll:objTypeType"/>
+       <element name="operation" type="changePoll:operationType"/>
+       <element name="trnDate" type="dateTime"/>
+<!--
+       <element name="trnDetails" type="changePoll:trnDetails" 
+       minOccurs="0" maxOccurs="1" />
+-->
+     </sequence>
+   </complexType>
+ 
+   <simpleType name="objTypeType">
+     <restriction base="token">
+       <enumeration value="domain"/>
+       <enumeration value="contact"/>
+       <enumeration value="host"/>
+     </restriction>
+   </simpleType>
+   
+   <simpleType name="operationType">
+     <restriction base="token">
+       <enumeration value="add"/>
+       <enumeration value="delete"/>
+       <enumeration value="update"/>
+       <enumeration value="renew"/>
+       <enumeration value="transfer"/>
+     </restriction>
+   </simpleType>
+ <!--
+ End of schema.
+ -->
+ </schema>

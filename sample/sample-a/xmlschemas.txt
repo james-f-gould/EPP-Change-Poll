@@ -1,0 +1,6 @@
+../../xsd/eppcom-1.0.xsd
+../../xsd/epp-1.0.xsd
+../../xsd/host-1.0.xsd
+../../xsd/domain-1.0.xsd
+../../xsd/contact-1.0.xsd
+../../xsd/changePoll-1.0-a.xsd
