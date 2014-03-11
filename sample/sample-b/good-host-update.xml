@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+   <response>
+      <result code="1301">
+         <msg lang="en-US">Command completed successfully; ack to dequeue</msg>
+      </result>
+      <msgQ id="201" count="1">
+         <qDate>2013-10-22T14:25:57.0Z</qDate>
+         <msg>Registry initiated update of Host</msg>
+      </msgQ>
+    <resData>
+      <host:infData
+       xmlns:host="urn:ietf:params:xml:ns:host-1.0">
+        <host:name>ns1.example.tld</host:name>
+        <host:roid>NS1_EXAMPLE1-REP</host:roid>
+        <host:status s="linked"/>
+        <host:status s="serverUpdateProhibited"/>
+        <host:status s="serverDeleteProhibited"/>
+        <host:addr ip="v4">192.0.2.2</host:addr>
+        <host:addr ip="v4">192.0.2.29</host:addr>
+        <host:addr ip="v6">1080:0:0:0:8:800:200C:417A</host:addr>
+        <host:clID>ClientX</host:clID>
+        <host:crID>ClientY</host:crID>
+        <host:crDate>2012-04-03T22:00:00.0Z</host:crDate>
+        <host:upID>ClientY</host:upID>
+        <host:upDate>2013-10-22T14:25:57.0Z</host:upDate>
+      </host:infData>
+    </resData>
+    <extension>
+      <changePoll:changeData 
+        xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0">
+        <changePoll:operation>update</changePoll:operation>
+        <changePoll:date>2013-10-23T14:25:57.0Z</changePoll:date>
+        <changePoll:reason>Host Lock</changePoll:reason>
+      </changePoll:changeData>
+    </extension>
+    <trID>
+      <clTRID>ABC-12345</clTRID>
+      <svTRID>54321-XYZ</svTRID>
+    </trID>
+   </response>
+</epp>

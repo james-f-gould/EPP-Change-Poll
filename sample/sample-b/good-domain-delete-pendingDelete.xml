@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+   <response>
+      <result code="1301">
+         <msg lang="en-US">Command completed successfully; ack to dequeue</msg>
+      </result>
+      <msgQ id="200" count="1">
+         <qDate>2013-10-22T14:25:57.0Z</qDate>
+         <msg>Registry initiated Delete of Domain</msg>
+      </msgQ>
+      <resData>
+        <domain:infData
+          xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
+          <domain:name>example.tld</domain:name>
+          <domain:roid>EXAMPLE1-REP</domain:roid>
+          <domain:status s="pendingDelete"/>
+          <domain:status s="serverUpdateProhibited"/>
+          <domain:registrant>jd1234</domain:registrant>
+          <domain:contact type="admin">sh8013</domain:contact>
+          <domain:contact type="tech">sh8013</domain:contact>
+          <domain:clID>ClientX</domain:clID>
+          <domain:crID>ClientY</domain:crID>
+          <domain:crDate>2012-04-03T22:00:00.0Z</domain:crDate>
+          <domain:upID>ClientY</domain:upID>
+          <domain:upDate>2013-10-22T14:25:57.0Z</domain:upDate>
+          <domain:exDate>2014-04-03T22:00:00.0Z</domain:exDate>
+        </domain:infData>      
+      </resData>
+      <extension>
+        <changePoll:changeData 
+          xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0">
+          <changePoll:operation>delete</changePoll:operation>
+          <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
+          <changePoll:reason>Court order</changePoll:reason>
+        </changePoll:changeData>
+        <rgp:infData xmlns:rgp="urn:ietf:params:xml:ns:rgp-1.0">
+          <rgp:rgpStatus s="redemptionPeriod"/>
+        </rgp:infData>
+      </extension>
+      <trID>
+         <clTRID>ABC-12345</clTRID>
+         <svTRID>54321-XYZ</svTRID>
+      </trID>
+   </response>
+</epp>
