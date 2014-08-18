@@ -2,11 +2,12 @@
 <epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
    <response>
       <result code="1301">
-         <msg lang="en-US">Command completed successfully; ack to dequeue</msg>
+         <msg lang="en-US">
+       Command completed successfully; ack to dequeue</msg>
       </result>
       <msgQ id="201" count="1">
          <qDate>2013-10-22T14:25:57.0Z</qDate>
-         <msg>Registry initiated update of Domain</msg>
+         <msg>Registry initiated update of domain.</msg>
       </msgQ>
     <resData>
       <domain:infData
@@ -31,7 +32,7 @@
       <changePoll:changeData 
         xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0">
         <changePoll:operation>update</changePoll:operation>
-        <changePoll:date>2013-10-23T14:25:57.0Z</changePoll:date>
+        <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
         <changePoll:reason>URS Lock</changePoll:reason>
       </changePoll:changeData>
     </extension>

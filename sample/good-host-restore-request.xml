@@ -29,9 +29,11 @@
     <extension>
       <changePoll:changeData 
         xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0">
-        <changePoll:operation>update</changePoll:operation>
+        <changePoll:operation op="request">restore</changePoll:operation>
         <changePoll:date>2013-10-23T14:25:57.0Z</changePoll:date>
-        <changePoll:reason>Host Lock</changePoll:reason>
+        <changePoll:svTRID>54321-XYZ</changePoll:svTRID>
+        <changePoll:userID>jsmith</changePoll:userID>
+        <changePoll:reason>Request to Customer Support</changePoll:reason>
       </changePoll:changeData>
     </extension>
     <trID>

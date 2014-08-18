@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+   <response>
+      <result code="1301">
+         <msg>Command completed successfully; ack to dequeue</msg>
+      </result>
+      <msgQ id="200" count="1">
+         <qDate>2013-10-22T14:25:57.0Z</qDate>
+         <msg>Registry purged domain with pendingDelete status.</msg>
+      </msgQ>
+      <resData>
+        <domain:infData
+          xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
+          <domain:name>example.tld</domain:name>
+          <domain:roid>EXAMPLE1-REP</domain:roid>
+          <domain:clID>ClientX</domain:clID>
+        </domain:infData>      
+      </resData>
+      <extension>
+        <changePoll:changeData 
+          xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0">
+          <changePoll:operation>
+            autoPurge</changePoll:operation>
+          <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
+          <changePoll:reason>
+            Past pendingDelete 5 day period
+          </changePoll:reason>
+        </changePoll:changeData>
+      </extension>
+      <trID>
+         <clTRID>ABC-12345</clTRID>
+         <svTRID>54321-XYZ</svTRID>
+      </trID>
+   </response>
+</epp>

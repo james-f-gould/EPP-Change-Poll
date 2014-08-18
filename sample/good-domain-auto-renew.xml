@@ -6,7 +6,7 @@
       </result>
       <msgQ id="201" count="1">
          <qDate>2013-10-22T14:25:57.0Z</qDate>
-         <msg>Registry initiated Sync of Domain Expiration Date</msg>
+         <msg>Registry initiated Auto Renew of Domain</msg>
       </msgQ>
     <resData>
       <domain:infData
@@ -28,10 +28,8 @@
     <extension>
       <changePoll:changeData 
         xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0">
-        <changePoll:operation name="sync">custom</changePoll:operation>
-        <changePoll:date>2013-10-23T14:25:57.0Z</changePoll:date>
-        <changePoll:reason>Bulk request to synchronize expiration dates
-        </changePoll:reason>
+        <changePoll:operation>autoRenew</changePoll:operation>
+        <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
       </changePoll:changeData>
     </extension>
     <trID>

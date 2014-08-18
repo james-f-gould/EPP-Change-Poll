@@ -1,60 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
  <schema targetNamespace="urn:ietf:params:xml:ns:changePoll-1.0"
-         xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"
          xmlns:eppcom="urn:ietf:params:xml:ns:eppcom-1.0"
+         xmlns:epp="urn:ietf:params:xml:ns:epp-1.0"
+         xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"
          xmlns="http://www.w3.org/2001/XMLSchema"
          elementFormDefault="qualified">
- <!--
- Import common element types.
- -->
-   <import namespace="urn:ietf:params:xml:ns:eppcom-1.0"
-           schemaLocation="eppcom-1.0.xsd"/>
-           
+  
+  <!--
+  Import common element types.
+  -->
+  <import namespace="urn:ietf:params:xml:ns:eppcom-1.0"
+          schemaLocation="eppcom-1.0.xsd"/> 
+  <import namespace="urn:ietf:params:xml:ns:epp-1.0"
+          schemaLocation="epp-1.0.xsd"/> 
+  
+  
    <annotation>
      <documentation>
        Extensible Provisioning Protocol v1.0
        Change Poll Mapping Schema.
      </documentation>
    </annotation>
+
+   <!--
+    Change element.
+   -->
    <element name="changeData" type="changePoll:changeDataType"/>
    
- <!--
- poll response elements for transactions.
- -->
+   <!--
+    Attributes associated with the change.
+   -->
    <complexType name="changeDataType">
      <sequence>
        <element name="operation" type="changePoll:operationType"/>
        <element name="date" type="dateTime"/>
-       <element name="reason" type="token" minOccurs="0"/>
-<!--
-       <element name="trnDetails" type="changePoll:trnDetails" 
-       minOccurs="0" maxOccurs="1" />
--->
+       <element name="svTRID" type="epp:trIDStringType" 
+         minOccurs="0"/>
+       <element name="userID" type="eppcom:clIDType" 
+         minOccurs="0"/>
+       <element name="reason" type="eppcom:reasonType" 
+         minOccurs="0"/>
      </sequence>
    </complexType>
  
+   <!--
+    Enumerated list of operations, with extensibility via "custom".
+   -->
    <simpleType name="operationEnum">
      <restriction base="token">
-       <enumeration value="add"/>
+       <enumeration value="create"/>
        <enumeration value="delete"/>
-       <enumeration value="update"/>
        <enumeration value="renew"/>
        <enumeration value="transfer"/>
+       <enumeration value="update"/>
+       <enumeration value="restore"/>
        <enumeration value="autoRenew"/>
        <enumeration value="autoDelete"/>
+       <enumeration value="autoPurge"/>
        <enumeration value="custom"/>
      </restriction>
    </simpleType>
    
+   <!--
+    Transform operation type
+   -->
   <complexType name="operationType">
     <simpleContent>
       <extension base="changePoll:operationEnum">
-        <attribute name="name" type="token"/>
+        <attribute name="op" type="token"/>
       </extension>
     </simpleContent>
   </complexType>
-   
-   
+      
  <!--
  End of schema.
  -->

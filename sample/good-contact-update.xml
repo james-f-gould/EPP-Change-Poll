@@ -49,7 +49,8 @@
       <changePoll:changeData 
         xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0">
         <changePoll:operation>update</changePoll:operation>
-        <changePoll:date>2013-10-23T14:25:57.0Z</changePoll:date>
+        <changePoll:date>1999-12-03T09:00:00.0Z</changePoll:date>
+        <changePoll:userID>csr</changePoll:userID>
         <changePoll:reason>Custom Support request</changePoll:reason>
       </changePoll:changeData>
     </extension>
