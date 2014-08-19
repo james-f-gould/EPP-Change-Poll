@@ -168,21 +168,21 @@
         The enumerated list of &lt;changePoll:operation&gt; values include:</t>
         
 		  <t><list hangIndent="4" style="hanging">
-				<t hangText="&lt;create&gt;">Create operation as defined in <xref target="RFC5730"/>.</t>			  
-				<t hangText="&lt;delete&gt;">Delete operation as defined in <xref target="RFC5730"/>.  If the delete operation results in an immediate 
+				<t hangText="create">Create operation as defined in <xref target="RFC5730"/>.</t>			  
+				<t hangText="delete">Delete operation as defined in <xref target="RFC5730"/>.  If the delete operation results in an immediate 
 				purge of the object, then the "op" attribute MUST be set to "purge".</t>				  
-				<t hangText="&lt;renew&gt;">Renew operation as defined in <xref target="RFC5730"/>.</t>			  
-				<t hangText="&lt;transfer&gt;">Transfer operation as defined in <xref target="RFC5730"/> with the OPTIONAL 
+				<t hangText="renew">Renew operation as defined in <xref target="RFC5730"/>.</t>			  
+				<t hangText="transfer">Transfer operation as defined in <xref target="RFC5730"/> with the OPTIONAL 
 				"op" attribute defining the transfer type with the possible values of "request", "approve", "cancel", and "reject".</t>			  
-				<t hangText="&lt;update&gt;">Update operation as defined in <xref target="RFC5730"/>.</t>			  
-				<t hangText="&lt;restore&gt;">Restore operation as defined in <xref target="RFC3915"/> with the OPTIONAL 
+				<t hangText="update">Update operation as defined in <xref target="RFC5730"/>.</t>			  
+				<t hangText="restore">Restore operation as defined in <xref target="RFC3915"/> with the OPTIONAL 
 				"op" attribute defining the restore type with the possible value of "request" and "report".</t>	
-				<t hangText="&lt;autoRenew&gt;">Auto renew operation executed by the server.</t>	
-				<t hangText="&lt;autoDelete&gt;">Auto delete operation executed by the server.  If the "autoDelete" operation results in an immediate 
+				<t hangText="autoRenew">Auto renew operation executed by the server.</t>	
+				<t hangText="autoDelete">Auto delete operation executed by the server.  If the "autoDelete" operation results in an immediate 
 				purge of the object, then the "op" attribute MUST be set to "purge".</t>	
-				<t hangText="&lt;autoPurge&gt;">Auto purge operation executed by the server when removing the object 
+				<t hangText="autoPurge">Auto purge operation executed by the server when removing the object 
 				after it had the "pendingDelete" status.</t>	
-				<t hangText="&lt;custom&gt;">Custom operation that uses the "op" attribute to define the custom operation name.</t> 						
+				<t hangText="custom">Custom operation that uses the "op" attribute to define the custom operation name.</t> 						
 		  </list></t>
                     
       </section> 
@@ -219,10 +219,15 @@
         to an object defined in an EPP Object Mapping, by a client other than the sponsoring 
         client, MAY result in extending the &lt;info&gt; response of the object for 
         inserting an EPP poll message with the operation detail.  
-        The sponsoring client will then receive the latest 
+        The sponsoring client will then receive the  
         state of the object with operation detail like what, who, when, and why the object 
-        was changed.  The &lt;changePoll:changeData&gt; element includes the operation detail with 
-        the following child elements:</t>
+        was changed.  The  The &lt;changePoll:changeData&gt; element contains the operation detail along 
+        with an indication of whether the object reflects the state before or after the operation using the 
+        OPTIONAL "state" attribute, with the possible values of "before" or "after" and with a default value of "after".  
+        The server MAY support providing both the "before" state and "after" state to the operation, by using one 
+        poll message for the "before" state and one poll message for the "after" state.  The "before" state 
+        poll message MUST be inserted prior to the "after" state.  
+        The &lt;changePoll:changeData&gt; element includes the operation detail with the following child elements:</t>
 
 		 <t><list hangIndent="4" style="hanging">
 			  <t hangText="&lt;changePoll:operation&gt;">Transform operation executed on the object as defined 
@@ -240,7 +245,8 @@
 
        <figure>
             <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; 
-            extension for a URS lock transaction on the example.tld domain name:</preamble>
+            extension for a URS lock transaction on the example.tld domain name, with the 
+            "before" state:</preamble>
 
             <artwork><![CDATA[
 S:<?xml version="1.0" encoding="UTF-8"?>
@@ -252,7 +258,58 @@ S:       Command completed successfully; ack to dequeue</msg>
 S:      </result>
 S:      <msgQ id="201" count="1">
 S:         <qDate>2013-10-22T14:25:57.0Z</qDate>
-S:         <msg>Registry initiated update of Domain</msg>
+S:         <msg>Registry initiated update of domain.</msg>
+S:      </msgQ>
+S:    <resData>
+S:      <domain:infData
+S:       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
+S:        <domain:name>example.tld</domain:name>
+S:        <domain:roid>EXAMPLE1-REP</domain:roid>
+S:        <domain:status s="ok"/>
+S:        <domain:registrant>jd1234</domain:registrant>
+S:        <domain:contact type="admin">sh8013</domain:contact>
+S:        <domain:contact type="tech">sh8013</domain:contact>
+S:        <domain:clID>ClientX</domain:clID>
+S:        <domain:crID>ClientY</domain:crID>
+S:        <domain:crDate>2012-04-03T22:00:00.0Z</domain:crDate>
+S:        <domain:exDate>2014-04-03T22:00:00.0Z</domain:exDate>
+S:      </domain:infData>
+S:    </resData>
+S:    <extension>
+S:      <changePoll:changeData 
+S:        xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"
+S:        state="before">
+S:        <changePoll:operation>update</changePoll:operation>
+S:        <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
+S:        <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
+S:        <changePoll:userID>ClientZ</changePoll:userID>
+S:        <changePoll:reason>URS Lock</changePoll:reason>
+S:      </changePoll:changeData>
+S:    </extension>
+S:    <trID>
+S:      <clTRID>ABC-12345</clTRID>
+S:      <svTRID>54321-XYZ</svTRID>
+S:    </trID>
+S:   </response>
+S:</epp>]]></artwork>
+       </figure>
+
+       <figure>
+            <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; 
+            extension for a URS lock transaction on the example.tld domain name, with the 
+            "after" state:</preamble>
+
+            <artwork><![CDATA[
+S:<?xml version="1.0" encoding="UTF-8"?>
+S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
+S:   <response>
+S:      <result code="1301">
+S:         <msg lang="en-US">
+S:       Command completed successfully; ack to dequeue</msg>
+S:      </result>
+S:      <msgQ id="202" count="1">
+S:         <qDate>2013-10-22T14:25:57.0Z</qDate>
+S:         <msg>Registry initiated update of domain.</msg>
 S:      </msgQ>
 S:    <resData>
 S:      <domain:infData
@@ -275,9 +332,12 @@ S:      </domain:infData>
 S:    </resData>
 S:    <extension>
 S:      <changePoll:changeData 
-S:        xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0">
+S:        xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"
+S:        state="after">
 S:        <changePoll:operation>update</changePoll:operation>
 S:        <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
+S:        <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
+S:        <changePoll:userID>ClientZ</changePoll:userID>
 S:        <changePoll:reason>URS Lock</changePoll:reason>
 S:      </changePoll:changeData>
 S:    </extension>
@@ -291,14 +351,15 @@ S:</epp>]]></artwork>
        
        <figure>
             <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; 
-            extension for a custom "sync" operation on the example.tld domain name:</preamble>
+            extension for a custom "sync" operation on the example.tld domain name, with 
+            the default "after" state:</preamble>
 
             <artwork><![CDATA[
 S:<?xml version="1.0" encoding="UTF-8"?>
 S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
 S:   <response>
 S:      <result code="1301">
-S:       Command completed successfully; ack to dequeue</msg>
+S:         <msg>Command completed successfully; ack to dequeue</msg>
 S:      </result>
 S:      <msgQ id="201" count="1">
 S:         <qDate>2013-10-22T14:25:57.0Z</qDate>
@@ -327,6 +388,8 @@ S:        xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0">
 S:        <changePoll:operation op="sync">custom
 S:        </changePoll:operation>
 S:        <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
+S:        <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
+S:        <changePoll:userID>Bulk-Batch</changePoll:userID>
 S:        <changePoll:reason lang="en">Bulk Request
 S:        </changePoll:reason>
 S:      </changePoll:changeData>
@@ -342,7 +405,7 @@ S:</epp>]]></artwork>
        <figure>
             <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; 
             extension for a "delete" operation on the example.tld domain name that is 
-            immediately purged:</preamble>
+            immediately purged, with the default "after" state:</preamble>
 
             <artwork><![CDATA[
 S:<?xml version="1.0" encoding="UTF-8"?>
@@ -370,6 +433,8 @@ S:          xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0">
 S:          <changePoll:operation op="purge">
 S:            delete</changePoll:operation>
 S:          <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
+S:          <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
+S:          <changePoll:userID>ClientZ</changePoll:userID>
 S:          <changePoll:reason>Court order</changePoll:reason>
 S:        </changePoll:changeData>
 S:      </extension>
@@ -384,7 +449,7 @@ S:</epp>]]></artwork>
        <figure>
             <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; 
             extension for an "autoPurge" operation on the example.tld domain name that  
-            previously had the "pendingDelete" status:</preamble>
+            previously had the "pendingDelete" status, with the default "after" state:</preamble>
 
             <artwork><![CDATA[
 S:<?xml version="1.0" encoding="UTF-8"?>
@@ -426,7 +491,8 @@ S:</epp>]]></artwork>
 
        <figure>
             <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; 
-            extension for an "update" operation on the ns1.example.tld host:</preamble>
+            extension for an "update" operation on the ns1.example.tld host, with 
+            the default "after" state:</preamble>
 
             <artwork><![CDATA[
 S:<?xml version="1.0" encoding="UTF-8"?>
@@ -598,6 +664,8 @@ BEGIN
        <element name="reason" type="eppcom:reasonType" 
          minOccurs="0"/>
      </sequence>
+    <attribute name="state" type="changePoll:stateType" 
+      default="after"/>
    </complexType>
  
    <!--
@@ -615,6 +683,16 @@ BEGIN
        <enumeration value="autoDelete"/>
        <enumeration value="autoPurge"/>
        <enumeration value="custom"/>
+     </restriction>
+   </simpleType>
+   
+   <!--
+    Enumerated of state of the object in the poll message.
+   -->
+   <simpleType name="stateType">
+     <restriction base="token">
+       <enumeration value="before"/>
+       <enumeration value="after"/>
      </restriction>
    </simpleType>
    

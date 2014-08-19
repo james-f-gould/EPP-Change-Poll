@@ -41,6 +41,8 @@
        <element name="reason" type="eppcom:reasonType" 
          minOccurs="0"/>
      </sequence>
+    <attribute name="state" type="changePoll:stateType" 
+      default="after"/>
    </complexType>
  
    <!--
@@ -58,6 +60,16 @@
        <enumeration value="autoDelete"/>
        <enumeration value="autoPurge"/>
        <enumeration value="custom"/>
+     </restriction>
+   </simpleType>
+   
+   <!--
+    Enumerated of state of the object in the poll message.
+   -->
+   <simpleType name="stateType">
+     <restriction base="token">
+       <enumeration value="before"/>
+       <enumeration value="after"/>
      </restriction>
    </simpleType>
    

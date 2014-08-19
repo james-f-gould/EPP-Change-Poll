@@ -2,18 +2,21 @@
 <epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
    <response>
       <result code="1301">
-         <msg>Command completed successfully; ack to dequeue</msg>
+         <msg lang="en-US">
+       Command completed successfully; ack to dequeue</msg>
       </result>
-      <msgQ id="201" count="1">
+      <msgQ id="202" count="1">
          <qDate>2013-10-22T14:25:57.0Z</qDate>
-    <msg>Registry initiated Sync of Domain Expiration Date</msg>
+         <msg>Registry initiated update of domain.</msg>
       </msgQ>
     <resData>
       <domain:infData
        xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
         <domain:name>example.tld</domain:name>
         <domain:roid>EXAMPLE1-REP</domain:roid>
-        <domain:status s="ok"/>
+        <domain:status s="serverUpdateProhibited"/>
+        <domain:status s="serverDeleteProhibited"/>
+        <domain:status s="serverTransferProhibited"/>
         <domain:registrant>jd1234</domain:registrant>
         <domain:contact type="admin">sh8013</domain:contact>
         <domain:contact type="tech">sh8013</domain:contact>
@@ -27,14 +30,13 @@
     </resData>
     <extension>
       <changePoll:changeData 
-        xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0">
-        <changePoll:operation op="sync">custom
-        </changePoll:operation>
+        xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"
+        state="after">
+        <changePoll:operation>update</changePoll:operation>
         <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
         <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
-        <changePoll:userID>Bulk-Batch</changePoll:userID>
-        <changePoll:reason lang="en">Bulk Request
-        </changePoll:reason>
+        <changePoll:userID>ClientZ</changePoll:userID>
+        <changePoll:reason>URS Lock</changePoll:reason>
       </changePoll:changeData>
     </extension>
     <trID>

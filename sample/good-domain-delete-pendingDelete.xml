@@ -31,6 +31,8 @@
           xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0">
           <changePoll:operation>delete</changePoll:operation>
           <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
+          <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
+          <changePoll:userID>ClientZ</changePoll:userID>
           <changePoll:reason>Court order</changePoll:reason>
         </changePoll:changeData>
         <rgp:infData xmlns:rgp="urn:ietf:params:xml:ns:rgp-1.0">

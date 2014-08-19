@@ -23,6 +23,8 @@
           xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0">
           <changePoll:operation>autoDelete</changePoll:operation>
           <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
+          <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
+          <changePoll:userID>autoDelete-Batch</changePoll:userID>
         </changePoll:changeData>
       </extension>
       <trID>

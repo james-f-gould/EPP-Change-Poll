@@ -23,6 +23,8 @@
           <changePoll:operation op="purge">
             delete</changePoll:operation>
           <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
+          <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
+          <changePoll:userID>ClientZ</changePoll:userID>
           <changePoll:reason>Court order</changePoll:reason>
         </changePoll:changeData>
       </extension>

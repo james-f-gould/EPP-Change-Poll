@@ -14,25 +14,24 @@
        xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
         <domain:name>example.tld</domain:name>
         <domain:roid>EXAMPLE1-REP</domain:roid>
-        <domain:status s="serverUpdateProhibited"/>
-        <domain:status s="serverDeleteProhibited"/>
-        <domain:status s="serverTransferProhibited"/>
+        <domain:status s="ok"/>
         <domain:registrant>jd1234</domain:registrant>
         <domain:contact type="admin">sh8013</domain:contact>
         <domain:contact type="tech">sh8013</domain:contact>
         <domain:clID>ClientX</domain:clID>
         <domain:crID>ClientY</domain:crID>
         <domain:crDate>2012-04-03T22:00:00.0Z</domain:crDate>
-        <domain:upID>ClientY</domain:upID>
-        <domain:upDate>2013-10-22T14:25:57.0Z</domain:upDate>
         <domain:exDate>2014-04-03T22:00:00.0Z</domain:exDate>
       </domain:infData>
     </resData>
     <extension>
       <changePoll:changeData 
-        xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0">
+        xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"
+        state="before">
         <changePoll:operation>update</changePoll:operation>
         <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
+        <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
+        <changePoll:userID>ClientZ</changePoll:userID>
         <changePoll:reason>URS Lock</changePoll:reason>
       </changePoll:changeData>
     </extension>

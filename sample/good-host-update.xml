@@ -30,6 +30,8 @@
         xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0">
         <changePoll:operation>update</changePoll:operation>
         <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
+        <changePoll:svTRID>54321-XYZ</changePoll:svTRID>
+        <changePoll:userID>ClientZ</changePoll:userID>
         <changePoll:reason>Host Lock</changePoll:reason>
       </changePoll:changeData>
     </extension>
