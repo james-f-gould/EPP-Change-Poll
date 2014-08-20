@@ -96,17 +96,18 @@
     </author>
 
 
-    <date day="18" month="August" year="2014"/>
+    <date day="20" month="August" year="2014"/>
 
     <abstract>
       <t>This document describes an Extensible Provisioning Protocol (EPP)
-      extension for notifying clients of server-side operations on objects that 
-      the client sponsors.  A server-side operation can match many 
-      different use cases including regular batches, customer support actions, 
+      extension for notifying clients of operations they are not directly involved in, 
+      on objects that the client sponsors.  An operation can match many 
+      different use cases like regular batches, customer support actions, 
       and bulk updates based on customer requests or court orders.  Since the 
       client is not directly involved or knowledgable of these operations, 
       the extension is used along with an EPP object mapping 
-      to provide the resulting state of the post-operation object 
+      to provide the resulting state of the post-operation object, 
+      and optionally a pre-operation object, 
       with the operation meta-data of what, when, who, and why.</t>
     </abstract>
         
@@ -118,15 +119,18 @@
       <xref target="RFC5730">Extensible Provisioning Protocol (EPP)</xref>.
       This mapping, an extension to EPP object mappings like the <xref
       target="RFC5731">EPP domain name mapping</xref>, is used to notify 
-      clients of server-side operations on objects that the client sponsors.  
+      clients of operations they are not directly involved in, 
+      on objects that the client sponsors.  
       It is up to server policy to determine what transform operations and 
-      clients to notify of server-side operations.  
+      clients to notify.  
       Using this extension clients can 
       more easily keep their systems in-sync with the objects stored in the 
-      server.  When a server-side change occurs that a client needs to be 
+      server.  When a change occurs that a client needs to be 
       notified of, a poll message can be inserted by the server for 
       consumption by the client using the EPP &lt;poll&gt; command and 
-      response defined in <xref target="RFC5730"/>.</t>
+      response defined in <xref target="RFC5730"/>.  The extension supports 
+      the server including a "before" operation poll message and an "after" 
+      operation poll message.</t>
 
       <section title="Conventions Used in This Document">
         <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
@@ -161,28 +165,28 @@
       
       <section anchor="operation" title="Operation">
         
-        <t>An operation consists of any transform server-side operation that impacts 
-        objects that the client is responsible for and SHOULD be notified of.  The 
+        <t>An operation consists of any transform operation that impacts 
+        objects that the client sponsers and SHOULD be notified of.  The 
         &lt;changePoll:operation&gt; element defines the operation.  The OPTIONAL "op" 
         attribute is used to define a sub-operation or the name of a "custom" operation.  
         The enumerated list of &lt;changePoll:operation&gt; values include:</t>
         
 		  <t><list hangIndent="4" style="hanging">
-				<t hangText="create">Create operation as defined in <xref target="RFC5730"/>.</t>			  
-				<t hangText="delete">Delete operation as defined in <xref target="RFC5730"/>.  If the delete operation results in an immediate 
+				<t hangText="&quot;create&quot;">Create operation as defined in <xref target="RFC5730"/>.</t>			  
+				<t hangText="&quot;delete&quot;">Delete operation as defined in <xref target="RFC5730"/>.  If the delete operation results in an immediate 
 				purge of the object, then the "op" attribute MUST be set to "purge".</t>				  
-				<t hangText="renew">Renew operation as defined in <xref target="RFC5730"/>.</t>			  
-				<t hangText="transfer">Transfer operation as defined in <xref target="RFC5730"/> with the OPTIONAL 
+				<t hangText="&quot;renew&quot;">Renew operation as defined in <xref target="RFC5730"/>.</t>			  
+				<t hangText="&quot;transfer&quot;">Transfer operation as defined in <xref target="RFC5730"/> with the OPTIONAL 
 				"op" attribute defining the transfer type with the possible values of "request", "approve", "cancel", and "reject".</t>			  
-				<t hangText="update">Update operation as defined in <xref target="RFC5730"/>.</t>			  
-				<t hangText="restore">Restore operation as defined in <xref target="RFC3915"/> with the OPTIONAL 
-				"op" attribute defining the restore type with the possible value of "request" and "report".</t>	
-				<t hangText="autoRenew">Auto renew operation executed by the server.</t>	
-				<t hangText="autoDelete">Auto delete operation executed by the server.  If the "autoDelete" operation results in an immediate 
+				<t hangText="&quot;update&quot;">Update operation as defined in <xref target="RFC5730"/>.</t>			  
+				<t hangText="&quot;restore&quot;">Restore operation as defined in <xref target="RFC3915"/> with the OPTIONAL 
+				"op" attribute defining the restore type with the possible values of "request" and "report".</t>	
+				<t hangText="&quot;autoRenew&quot;">Auto renew operation executed by the server.</t>	
+				<t hangText="&quot;autoDelete&quot;">Auto delete operation executed by the server.  If the "autoDelete" operation results in an immediate 
 				purge of the object, then the "op" attribute MUST be set to "purge".</t>	
-				<t hangText="autoPurge">Auto purge operation executed by the server when removing the object 
+				<t hangText="&quot;autoPurge&quot;">Auto purge operation executed by the server when removing the object 
 				after it had the "pendingDelete" status.</t>	
-				<t hangText="custom">Custom operation that uses the "op" attribute to define the custom operation name.</t> 						
+				<t hangText="&quot;custom&quot;">Custom operation that uses the "op" attribute to define the custom operation name.</t> 						
 		  </list></t>
                     
       </section> 
@@ -213,7 +217,7 @@
         <t>This extension does not add any elements to the EPP &lt;info&gt; command
         described in the <xref target="RFC5730"/>.</t>
         
-        <t>This extension adds transaction detail of the server-side operations to the 
+        <t>This extension adds transaction detail of the operations to the 
         EPP &lt;info&gt; poll response, as described in <xref target="RFC5730"/>, 
         of an EPP Object Mapping like <xref target="RFC5731"/>.  Any transform operation 
         to an object defined in an EPP Object Mapping, by a client other than the sponsoring 
@@ -221,19 +225,19 @@
         inserting an EPP poll message with the operation detail.  
         The sponsoring client will then receive the  
         state of the object with operation detail like what, who, when, and why the object 
-        was changed.  The  The &lt;changePoll:changeData&gt; element contains the operation detail along 
-        with an indication of whether the object reflects the state before or after the operation using the 
-        OPTIONAL "state" attribute, with the possible values of "before" or "after" and with a default value of "after".  
-        The server MAY support providing both the "before" state and "after" state to the operation, by using one 
-        poll message for the "before" state and one poll message for the "after" state.  The "before" state 
-        poll message MUST be inserted prior to the "after" state.  
+        was changed.  The &lt;changePoll:changeData&gt; element contains the operation detail along 
+        with an indication of whether the object reflects the state before or after the operation, using the 
+        OPTIONAL "state" attribute, with the possible values of "before" or "after", and with a default value of "after".  
+        The server MAY support providing the "before" state and "after" state to the operation, by using one 
+        poll message for the "before" state and one poll message for the "after" state.  When using the "before" state poll message, 
+        it MUST be inserted prior to the "after" state poll message.  
         The &lt;changePoll:changeData&gt; element includes the operation detail with the following child elements:</t>
 
 		 <t><list hangIndent="4" style="hanging">
 			  <t hangText="&lt;changePoll:operation&gt;">Transform operation executed on the object as defined 
 			  in <xref target="operation"/>.</t>
 			  <t hangText="&lt;changePoll:date&gt;">Date and time when the operation was executed.</t>
-			  <t hangText="&lt;changePoll:svTRID&gt;">OPTIONAL server transaction identifier of the operation.</t>
+			  <t hangText="&lt;changePoll:svTRID&gt;">Server transaction identifier of the operation.</t>
 			  <t hangText="&lt;changePoll:userID&gt;">OPTIONAL user identifier of user that executed the operation.</t>
 			  <t hangText="&lt;changePoll:reason&gt;">OPTIONAL reason for executing the operation.  If present, 
 			  this element contains the server-specific text to help explain the reason the operation was executed.  
@@ -476,6 +480,7 @@ S:          xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0">
 S:          <changePoll:operation>
 S:            autoPurge</changePoll:operation>
 S:          <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
+S:          <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
 S:          <changePoll:reason>
 S:            Past pendingDelete 5 day period
 S:          </changePoll:reason>
@@ -527,6 +532,8 @@ S:      <changePoll:changeData
 S:        xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0">
 S:        <changePoll:operation>update</changePoll:operation>
 S:        <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
+S:        <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
+S:        <changePoll:userID>ClientZ</changePoll:userID>
 S:        <changePoll:reason>Host Lock</changePoll:reason>
 S:      </changePoll:changeData>
 S:    </extension>
@@ -657,8 +664,7 @@ BEGIN
      <sequence>
        <element name="operation" type="changePoll:operationType"/>
        <element name="date" type="dateTime"/>
-       <element name="svTRID" type="epp:trIDStringType" 
-         minOccurs="0"/>
+       <element name="svTRID" type="epp:trIDStringType"/>
        <element name="userID" type="eppcom:clIDType" 
          minOccurs="0"/>
        <element name="reason" type="eppcom:reasonType" 

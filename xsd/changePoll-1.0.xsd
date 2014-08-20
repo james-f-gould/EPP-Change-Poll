@@ -34,8 +34,7 @@
      <sequence>
        <element name="operation" type="changePoll:operationType"/>
        <element name="date" type="dateTime"/>
-       <element name="svTRID" type="epp:trIDStringType" 
-         minOccurs="0"/>
+       <element name="svTRID" type="epp:trIDStringType"/>
        <element name="userID" type="eppcom:clIDType" 
          minOccurs="0"/>
        <element name="reason" type="eppcom:reasonType" 

@@ -404,9 +404,9 @@
 
   <meta name="dct.creator" content="Gould, J. and T. Tran" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-gould-change-poll-00" />
-  <meta name="dct.issued" scheme="ISO8601" content="2014-8-18" />
-  <meta name="dct.abstract" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of server-side operations on objects that the client sponsors.  A server-side operation can match many different use cases including regular batches, customer support actions, and bulk updates based on customer requests or court orders.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object with the operation meta-data of what, when, who, and why." />
-  <meta name="description" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of server-side operations on objects that the client sponsors.  A server-side operation can match many different use cases including regular batches, customer support actions, and bulk updates based on customer requests or court orders.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object with the operation meta-data of what, when, who, and why." />
+  <meta name="dct.issued" scheme="ISO8601" content="2014-8-20" />
+  <meta name="dct.abstract" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations they are not directly involved in, on objects that the client sponsors.  An operation can match many different use cases like regular batches, customer support actions, and bulk updates based on customer requests or court orders.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why." />
+  <meta name="description" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations they are not directly involved in, on objects that the client sponsors.  An operation can match many different use cases like regular batches, customer support actions, and bulk updates based on customer requests or court orders.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why." />
 
 </head>
 
@@ -428,12 +428,12 @@
   <td class="right">T. Tran</td>
 </tr>
 <tr>
-  <td class="left">Expires: February 19, 2015</td>
+  <td class="left">Expires: February 21, 2015</td>
   <td class="right">Neustar</td>
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">August 18, 2014</td>
+  <td class="right">August 20, 2014</td>
 </tr>
 
     	
@@ -446,14 +446,14 @@
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
 </h1>
-<p>This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of server-side operations on objects that the client sponsors.  A server-side operation can match many different use cases including regular batches, customer support actions, and bulk updates based on customer requests or court orders.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object with the operation meta-data of what, when, who, and why.</p>
+<p>This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations they are not directly involved in, on objects that the client sponsors.  An operation can match many different use cases like regular batches, customer support actions, and bulk updates based on customer requests or court orders.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why.</p>
 <h1 id="rfc.status">
   <a href="#rfc.status">Status of This Memo</a>
 </h1>
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on February 19, 2015.</p>
+<p>This Internet-Draft will expire on February 21, 2015.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -493,7 +493,7 @@
   </ul>
 
   <h1 id="rfc.section.1"><a href="#rfc.section.1">1.</a> Introduction</h1>
-<p id="rfc.section.1.p.1">This document describes an extension mapping for version 1.0 of the <a href="#RFC5730">Extensible Provisioning Protocol (EPP)</a> <cite title="NONE">[RFC5730]</cite>.  This mapping, an extension to EPP object mappings like the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite>, is used to notify clients of server-side operations on objects that the client sponsors.  It is up to server policy to determine what transform operations and clients to notify of server-side operations.  Using this extension clients can more easily keep their systems in-sync with the objects stored in the server.  When a server-side change occurs that a client needs to be notified of, a poll message can be inserted by the server for consumption by the client using the EPP &lt;poll&gt; command and response defined in <a href="#RFC5730">[RFC5730]</a>.</p>
+<p id="rfc.section.1.p.1">This document describes an extension mapping for version 1.0 of the <a href="#RFC5730">Extensible Provisioning Protocol (EPP)</a> <cite title="NONE">[RFC5730]</cite>.  This mapping, an extension to EPP object mappings like the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite>, is used to notify clients of operations they are not directly involved in, on objects that the client sponsors.  It is up to server policy to determine what transform operations and clients to notify.  Using this extension clients can more easily keep their systems in-sync with the objects stored in the server.  When a change occurs that a client needs to be notified of, a poll message can be inserted by the server for consumption by the client using the EPP &lt;poll&gt; command and response defined in <a href="#RFC5730">[RFC5730]</a>.  The extension supports the server including a "before" operation poll message and an "after" operation poll message.</p>
 <h1 id="rfc.section.1.1"><a href="#rfc.section.1.1">1.1.</a> Conventions Used in This Document</h1>
 <p id="rfc.section.1.1.p.1">The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a href="#RFC2119">RFC 2119</a> <cite title="NONE">[RFC2119]</cite>.</p>
 <p id="rfc.section.1.1.p.2">XML is case sensitive. Unless stated otherwise, XML specifications and examples provided in this document MUST be interpreted in the character case presented in order to develop a conforming implementation.</p>
@@ -502,29 +502,29 @@
 <h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#attrs" id="attrs">Object Attributes</a></h1>
 <p id="rfc.section.2.p.1">This extension adds additional elements to EPP object mappings like the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite>. Only those new elements are described here.</p>
 <h1 id="rfc.section.2.1"><a href="#rfc.section.2.1">2.1.</a> <a href="#operation" id="operation">Operation</a></h1>
-<p id="rfc.section.2.1.p.1">An operation consists of any transform server-side operation that impacts objects that the client is responsible for and SHOULD be notified of.  The &lt;changePoll:operation&gt; element defines the operation.  The OPTIONAL "op" attribute is used to define a sub-operation or the name of a "custom" operation.  The enumerated list of &lt;changePoll:operation&gt; values include:</p>
+<p id="rfc.section.2.1.p.1">An operation consists of any transform operation that impacts objects that the client sponsers and SHOULD be notified of.  The &lt;changePoll:operation&gt; element defines the operation.  The OPTIONAL "op" attribute is used to define a sub-operation or the name of a "custom" operation.  The enumerated list of &lt;changePoll:operation&gt; values include:</p>
 <p/>
 
 <dl>
-  <dt>create</dt>
+  <dt>"create"</dt>
   <dd style="margin-left: 4">Create operation as defined in <a href="#RFC5730">[RFC5730]</a>.</dd>
-  <dt>delete</dt>
+  <dt>"delete"</dt>
   <dd style="margin-left: 4">Delete operation as defined in <a href="#RFC5730">[RFC5730]</a>.  If the delete operation results in an immediate purge of the object, then the "op" attribute MUST be set to "purge".</dd>
-  <dt>renew</dt>
+  <dt>"renew"</dt>
   <dd style="margin-left: 4">Renew operation as defined in <a href="#RFC5730">[RFC5730]</a>.</dd>
-  <dt>transfer</dt>
+  <dt>"transfer"</dt>
   <dd style="margin-left: 4">Transfer operation as defined in <a href="#RFC5730">[RFC5730]</a> with the OPTIONAL "op" attribute defining the transfer type with the possible values of "request", "approve", "cancel", and "reject".</dd>
-  <dt>update</dt>
+  <dt>"update"</dt>
   <dd style="margin-left: 4">Update operation as defined in <a href="#RFC5730">[RFC5730]</a>.</dd>
-  <dt>restore</dt>
-  <dd style="margin-left: 4">Restore operation as defined in <a href="#RFC3915">[RFC3915]</a> with the OPTIONAL "op" attribute defining the restore type with the possible value of "request" and "report".</dd>
-  <dt>autoRenew</dt>
+  <dt>"restore"</dt>
+  <dd style="margin-left: 4">Restore operation as defined in <a href="#RFC3915">[RFC3915]</a> with the OPTIONAL "op" attribute defining the restore type with the possible values of "request" and "report".</dd>
+  <dt>"autoRenew"</dt>
   <dd style="margin-left: 4">Auto renew operation executed by the server.</dd>
-  <dt>autoDelete</dt>
+  <dt>"autoDelete"</dt>
   <dd style="margin-left: 4">Auto delete operation executed by the server.  If the "autoDelete" operation results in an immediate purge of the object, then the "op" attribute MUST be set to "purge".</dd>
-  <dt>autoPurge</dt>
+  <dt>"autoPurge"</dt>
   <dd style="margin-left: 4">Auto purge operation executed by the server when removing the object after it had the "pendingDelete" status.</dd>
-  <dt>custom</dt>
+  <dt>"custom"</dt>
   <dd style="margin-left: 4">Custom operation that uses the "op" attribute to define the custom operation name.</dd>
 </dl>
 <h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#commands" id="commands">EPP Command Mapping</a></h1>
@@ -535,7 +535,7 @@
 <p id="rfc.section.3.1.1.p.1">This extension does not add any elements to the EPP &lt;check&gt; command or &lt;check&gt; response described in the <a href="#RFC5730">[RFC5730]</a>.</p>
 <h1 id="rfc.section.3.1.2"><a href="#rfc.section.3.1.2">3.1.2.</a> <a href="#infoCommand" id="infoCommand">EPP &lt;info&gt; Command</a></h1>
 <p id="rfc.section.3.1.2.p.1">This extension does not add any elements to the EPP &lt;info&gt; command described in the <a href="#RFC5730">[RFC5730]</a>.</p>
-<p id="rfc.section.3.1.2.p.2">This extension adds transaction detail of the server-side operations to the EPP &lt;info&gt; poll response, as described in <a href="#RFC5730">[RFC5730]</a>, of an EPP Object Mapping like <a href="#RFC5731">[RFC5731]</a>.  Any transform operation to an object defined in an EPP Object Mapping, by a client other than the sponsoring client, MAY result in extending the &lt;info&gt; response of the object for inserting an EPP poll message with the operation detail.  The sponsoring client will then receive the state of the object with operation detail like what, who, when, and why the object was changed.  The  The &lt;changePoll:changeData&gt; element contains the operation detail along with an indication of whether the object reflects the state before or after the operation using the OPTIONAL "state" attribute, with the possible values of "before" or "after" and with a default value of "after".  The server MAY support providing both the "before" state and "after" state to the operation, by using one poll message for the "before" state and one poll message for the "after" state.  The "before" state poll message MUST be inserted prior to the "after" state.  The &lt;changePoll:changeData&gt; element includes the operation detail with the following child elements:</p>
+<p id="rfc.section.3.1.2.p.2">This extension adds transaction detail of the operations to the EPP &lt;info&gt; poll response, as described in <a href="#RFC5730">[RFC5730]</a>, of an EPP Object Mapping like <a href="#RFC5731">[RFC5731]</a>.  Any transform operation to an object defined in an EPP Object Mapping, by a client other than the sponsoring client, MAY result in extending the &lt;info&gt; response of the object for inserting an EPP poll message with the operation detail.  The sponsoring client will then receive the state of the object with operation detail like what, who, when, and why the object was changed.  The &lt;changePoll:changeData&gt; element contains the operation detail along with an indication of whether the object reflects the state before or after the operation, using the OPTIONAL "state" attribute, with the possible values of "before" or "after", and with a default value of "after".  The server MAY support providing the "before" state and "after" state to the operation, by using one poll message for the "before" state and one poll message for the "after" state.  When using the "before" state poll message, it MUST be inserted prior to the "after" state poll message.  The &lt;changePoll:changeData&gt; element includes the operation detail with the following child elements:</p>
 <p/>
 
 <dl>
@@ -544,7 +544,7 @@
   <dt>&lt;changePoll:date&gt;</dt>
   <dd style="margin-left: 4">Date and time when the operation was executed.</dd>
   <dt>&lt;changePoll:svTRID&gt;</dt>
-  <dd style="margin-left: 4">OPTIONAL server transaction identifier of the operation.</dd>
+  <dd style="margin-left: 4">Server transaction identifier of the operation.</dd>
   <dt>&lt;changePoll:userID&gt;</dt>
   <dd style="margin-left: 4">OPTIONAL user identifier of user that executed the operation.</dd>
   <dt>&lt;changePoll:reason&gt;</dt>
@@ -755,6 +755,7 @@ S:          xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"&gt;
 S:          &lt;changePoll:operation&gt;
 S:            autoPurge&lt;/changePoll:operation&gt;
 S:          &lt;changePoll:date&gt;2013-10-22T14:25:57.0Z&lt;/changePoll:date&gt;
+S:          &lt;changePoll:svTRID&gt;12345-XYZ&lt;/changePoll:svTRID&gt;
 S:          &lt;changePoll:reason&gt;
 S:            Past pendingDelete 5 day period
 S:          &lt;/changePoll:reason&gt;
@@ -800,6 +801,8 @@ S:      &lt;changePoll:changeData
 S:        xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"&gt;
 S:        &lt;changePoll:operation&gt;update&lt;/changePoll:operation&gt;
 S:        &lt;changePoll:date&gt;2013-10-22T14:25:57.0Z&lt;/changePoll:date&gt;
+S:        &lt;changePoll:svTRID&gt;12345-XYZ&lt;/changePoll:svTRID&gt;
+S:        &lt;changePoll:userID&gt;ClientZ&lt;/changePoll:userID&gt;
 S:        &lt;changePoll:reason&gt;Host Lock&lt;/changePoll:reason&gt;
 S:      &lt;/changePoll:changeData&gt;
 S:    &lt;/extension&gt;
@@ -865,8 +868,7 @@ BEGIN
      &lt;sequence&gt;
        &lt;element name="operation" type="changePoll:operationType"/&gt;
        &lt;element name="date" type="dateTime"/&gt;
-       &lt;element name="svTRID" type="epp:trIDStringType" 
-         minOccurs="0"/&gt;
+       &lt;element name="svTRID" type="epp:trIDStringType"/&gt;
        &lt;element name="userID" type="eppcom:clIDType" 
          minOccurs="0"/&gt;
        &lt;element name="reason" type="eppcom:reasonType" 
