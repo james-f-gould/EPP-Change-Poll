@@ -5,8 +5,8 @@
 Network Working Group                                           J. Gould
 Internet-Draft                                            VeriSign, Inc.
 Intended status: Standards Track                                 T. Tran
-Expires: February 21, 2015                                       Neustar
-                                                         August 20, 2014
+Expires: May 11, 2015                                            Neustar
+                                                        November 7, 2014
 
 
   Change Poll Extension for the Extensible Provisioning Protocol (EPP)
@@ -40,7 +40,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on February 21, 2015.
+   This Internet-Draft will expire on May 11, 2015.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Gould & Tran            Expires February 21, 2015               [Page 1]
+Gould & Tran              Expires May 11, 2015                  [Page 1]
 
-Internet-Draft                 changePoll                    August 2014
+Internet-Draft                 changePoll                  November 2014
 
 
    publication of this document.  Please review these documents
@@ -109,9 +109,9 @@ Table of Contents
 
 
 
-Gould & Tran            Expires February 21, 2015               [Page 2]
+Gould & Tran              Expires May 11, 2015                  [Page 2]
 
-Internet-Draft                 changePoll                    August 2014
+Internet-Draft                 changePoll                  November 2014
 
 
 1.1.  Conventions Used in This Document
@@ -165,9 +165,9 @@ Internet-Draft                 changePoll                    August 2014
 
 
 
-Gould & Tran            Expires February 21, 2015               [Page 3]
+Gould & Tran              Expires May 11, 2015                  [Page 3]
 
-Internet-Draft                 changePoll                    August 2014
+Internet-Draft                 changePoll                  November 2014
 
 
    "restore"  Restore operation as defined in [RFC3915] with the
@@ -216,28 +216,30 @@ Internet-Draft                 changePoll                    August 2014
    detail along with an indication of whether the object reflects the
    state before or after the operation, using the OPTIONAL "state"
    attribute, with the possible values of "before" or "after", and with
-   a default value of "after".  The server MAY support providing the
-   "before" state and "after" state to the operation, by using one poll
+   a default value of "after".  The "state" attribute describes the
+   state of the response data or <resData> block returned in the poll
 
 
 
-Gould & Tran            Expires February 21, 2015               [Page 4]
+Gould & Tran              Expires May 11, 2015                  [Page 4]
 
-Internet-Draft                 changePoll                    August 2014
+Internet-Draft                 changePoll                  November 2014
 
 
-   message for the "before" state and one poll message for the "after"
-   state.  When using the "before" state poll message, it MUST be
-   inserted prior to the "after" state poll message.  The
-   <changePoll:changeData> element includes the operation detail with
-   the following child elements:
+   response.  The server MAY support providing the "before" state and
+   "after" state to the operation, by using one poll message for the
+   "before" state and one poll message for the "after" state.  When
+   using the "before" state poll message, it MUST be inserted prior to
+   the "after" state poll message.  The <changePoll:changeData> element
+   includes the operation detail with the following child elements:
 
    <changePoll:operation>  Transform operation executed on the object as
        defined in Section 2.1.
    <changePoll:date>  Date and time when the operation was executed.
    <changePoll:svTRID>  Server transaction identifier of the operation.
    <changePoll:userID>  OPTIONAL user identifier of user that executed
-       the operation.
+       the operation.  The <changePoll:userID> element MUST be defined
+       when the user is a non-systematic user.
    <changePoll:reason>  OPTIONAL reason for executing the operation.  If
        present, this element contains the server-specific text to help
        explain the reason the operation was executed.  This text MUST be
@@ -275,16 +277,15 @@ Internet-Draft                 changePoll                    August 2014
 
 
 
-
-
-Gould & Tran            Expires February 21, 2015               [Page 5]
+Gould & Tran              Expires May 11, 2015                  [Page 5]
 
-Internet-Draft                 changePoll                    August 2014
+Internet-Draft                 changePoll                  November 2014
 
 
    Example poll <info> response with the <changePoll:changeData>
    extension for a URS lock transaction on the example.tld domain name,
-   with the "before" state:
+   with the "before" state.  The "before" state is reflected in the
+   <resData> block:
 
    S:<?xml version="1.0" encoding="UTF-8"?>
    S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
@@ -332,15 +333,15 @@ Internet-Draft                 changePoll                    August 2014
 
 
 
-
-Gould & Tran            Expires February 21, 2015               [Page 6]
+Gould & Tran              Expires May 11, 2015                  [Page 6]
 
-Internet-Draft                 changePoll                    August 2014
+Internet-Draft                 changePoll                  November 2014
 
 
    Example poll <info> response with the <changePoll:changeData>
    extension for a URS lock transaction on the example.tld domain name,
-   with the "after" state:
+   with the "after" state.  The "after" state is reflected in the
+   <resData> block:
 
 
 
@@ -388,10 +389,9 @@ Internet-Draft                 changePoll                    August 2014
 
 
 
-
-Gould & Tran            Expires February 21, 2015               [Page 7]
+Gould & Tran              Expires May 11, 2015                  [Page 7]
 
-Internet-Draft                 changePoll                    August 2014
+Internet-Draft                 changePoll                  November 2014
 
 
    S:<?xml version="1.0" encoding="UTF-8"?>
@@ -419,7 +419,7 @@ Internet-Draft                 changePoll                    August 2014
    S:        <domain:clID>ClientX</domain:clID>
    S:        <domain:crID>ClientY</domain:crID>
    S:        <domain:crDate>2012-04-03T22:00:00.0Z</domain:crDate>
-   S:        <domain:upID>ClientY</domain:upID>
+   S:        <domain:upID>ClientZ</domain:upID>
    S:        <domain:upDate>2013-10-22T14:25:57.0Z</domain:upDate>
    S:        <domain:exDate>2014-04-03T22:00:00.0Z</domain:exDate>
    S:      </domain:infData>
@@ -445,14 +445,15 @@ Internet-Draft                 changePoll                    August 2014
 
 
 
-Gould & Tran            Expires February 21, 2015               [Page 8]
+Gould & Tran              Expires May 11, 2015                  [Page 8]
 
-Internet-Draft                 changePoll                    August 2014
+Internet-Draft                 changePoll                  November 2014
 
 
    Example poll <info> response with the <changePoll:changeData>
    extension for a custom "sync" operation on the example.tld domain
-   name, with the default "after" state:
+   name, with the default "after" state.  The "after" state is reflected
+   in the <resData> block:
 
 
 
@@ -500,10 +501,9 @@ Internet-Draft                 changePoll                    August 2014
 
 
 
-
-Gould & Tran            Expires February 21, 2015               [Page 9]
+Gould & Tran              Expires May 11, 2015                  [Page 9]
 
-Internet-Draft                 changePoll                    August 2014
+Internet-Draft                 changePoll                  November 2014
 
 
    S:<?xml version="1.0" encoding="UTF-8"?>
@@ -528,7 +528,7 @@ Internet-Draft                 changePoll                    August 2014
    S:        <domain:clID>ClientX</domain:clID>
    S:        <domain:crID>ClientY</domain:crID>
    S:        <domain:crDate>2012-04-03T22:00:00.0Z</domain:crDate>
-   S:        <domain:upID>ClientY</domain:upID>
+   S:        <domain:upID>ClientZ</domain:upID>
    S:        <domain:upDate>2013-10-22T14:25:57.0Z</domain:upDate>
    S:        <domain:exDate>2014-04-03T22:00:00.0Z</domain:exDate>
    S:      </domain:infData>
@@ -540,8 +540,8 @@ Internet-Draft                 changePoll                    August 2014
    S:        </changePoll:operation>
    S:        <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
    S:        <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
-   S:        <changePoll:userID>Bulk-Batch</changePoll:userID>
-   S:        <changePoll:reason lang="en">Bulk Request
+   S:        <changePoll:userID>ClientZ</changePoll:userID>
+   S:        <changePoll:reason lang="en">Customer sync request
    S:        </changePoll:reason>
    S:      </changePoll:changeData>
    S:    </extension>
@@ -557,14 +557,15 @@ Internet-Draft                 changePoll                    August 2014
 
 
 
-Gould & Tran            Expires February 21, 2015              [Page 10]
+Gould & Tran              Expires May 11, 2015                 [Page 10]
 
-Internet-Draft                 changePoll                    August 2014
+Internet-Draft                 changePoll                  November 2014
 
 
    Example poll <info> response with the <changePoll:changeData>
    extension for a "delete" operation on the example.tld domain name
-   that is immediately purged, with the default "after" state:
+   that is immediately purged, with the default "after" state.  The
+   "after" state is reflected in the <resData> block:
 
    S:<?xml version="1.0" encoding="UTF-8"?>
    S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
@@ -612,16 +613,16 @@ Internet-Draft                 changePoll                    August 2014
 
 
 
-
-Gould & Tran            Expires February 21, 2015              [Page 11]
+Gould & Tran              Expires May 11, 2015                 [Page 11]
 
-Internet-Draft                 changePoll                    August 2014
+Internet-Draft                 changePoll                  November 2014
 
 
    Example poll <info> response with the <changePoll:changeData>
    extension for an "autoPurge" operation on the example.tld domain name
    that previously had the "pendingDelete" status, with the default
-   "after" state:
+   "after" state.  The "after" state is reflected in the <resData>
+   block:
 
    S:<?xml version="1.0" encoding="UTF-8"?>
    S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
@@ -668,15 +669,15 @@ Internet-Draft                 changePoll                    August 2014
 
 
 
-
-Gould & Tran            Expires February 21, 2015              [Page 12]
+Gould & Tran              Expires May 11, 2015                 [Page 12]
 
-Internet-Draft                 changePoll                    August 2014
+Internet-Draft                 changePoll                  November 2014
 
 
    Example poll <info> response with the <changePoll:changeData>
    extension for an "update" operation on the ns1.example.tld host, with
-   the default "after" state:
+   the default "after" state.  The "after" state is reflected in the
+   <resData> block:
 
    S:<?xml version="1.0" encoding="UTF-8"?>
    S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
@@ -724,10 +725,9 @@ Internet-Draft                 changePoll                    August 2014
 
 
 
-
-Gould & Tran            Expires February 21, 2015              [Page 13]
+Gould & Tran              Expires May 11, 2015                 [Page 13]
 
-Internet-Draft                 changePoll                    August 2014
+Internet-Draft                 changePoll                  November 2014
 
 
 3.1.3.  EPP <transfer> Command
@@ -781,9 +781,9 @@ Internet-Draft                 changePoll                    August 2014
 
 
 
-Gould & Tran            Expires February 21, 2015              [Page 14]
+Gould & Tran              Expires May 11, 2015                 [Page 14]
 
-Internet-Draft                 changePoll                    August 2014
+Internet-Draft                 changePoll                  November 2014
 
 
 4.1.  Change Poll Extension Schema
@@ -837,9 +837,9 @@ Internet-Draft                 changePoll                    August 2014
 
 
 
-Gould & Tran            Expires February 21, 2015              [Page 15]
+Gould & Tran              Expires May 11, 2015                 [Page 15]
 
-Internet-Draft                 changePoll                    August 2014
+Internet-Draft                 changePoll                  November 2014
 
 
       <!--
@@ -893,9 +893,9 @@ Internet-Draft                 changePoll                    August 2014
 
 
 
-Gould & Tran            Expires February 21, 2015              [Page 16]
+Gould & Tran              Expires May 11, 2015                 [Page 16]
 
-Internet-Draft                 changePoll                    August 2014
+Internet-Draft                 changePoll                  November 2014
 
 
 5.  Change History
@@ -949,9 +949,9 @@ Internet-Draft                 changePoll                    August 2014
 
 
 
-Gould & Tran            Expires February 21, 2015              [Page 17]
+Gould & Tran              Expires May 11, 2015                 [Page 17]
 
-Internet-Draft                 changePoll                    August 2014
+Internet-Draft                 changePoll                  November 2014
 
 
 Authors' Addresses
@@ -1005,4 +1005,4 @@ Authors' Addresses
 
 
 
-Gould & Tran            Expires February 21, 2015              [Page 18]
+Gould & Tran              Expires May 11, 2015                 [Page 18]

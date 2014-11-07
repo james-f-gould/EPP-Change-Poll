@@ -96,7 +96,7 @@
     </author>
 
 
-    <date day="20" month="August" year="2014"/>
+    <date day="7" month="November" year="2014"/>
 
     <abstract>
       <t>This document describes an Extensible Provisioning Protocol (EPP)
@@ -227,7 +227,8 @@
         state of the object with operation detail like what, who, when, and why the object 
         was changed.  The &lt;changePoll:changeData&gt; element contains the operation detail along 
         with an indication of whether the object reflects the state before or after the operation, using the 
-        OPTIONAL "state" attribute, with the possible values of "before" or "after", and with a default value of "after".  
+        OPTIONAL "state" attribute, with the possible values of "before" or "after", and with a default value of "after".  The 
+        "state" attribute describes the state of the response data or &lt;resData&gt; block returned in the poll response.  
         The server MAY support providing the "before" state and "after" state to the operation, by using one 
         poll message for the "before" state and one poll message for the "after" state.  When using the "before" state poll message, 
         it MUST be inserted prior to the "after" state poll message.  
@@ -238,7 +239,8 @@
 			  in <xref target="operation"/>.</t>
 			  <t hangText="&lt;changePoll:date&gt;">Date and time when the operation was executed.</t>
 			  <t hangText="&lt;changePoll:svTRID&gt;">Server transaction identifier of the operation.</t>
-			  <t hangText="&lt;changePoll:userID&gt;">OPTIONAL user identifier of user that executed the operation.</t>
+			  <t hangText="&lt;changePoll:userID&gt;">OPTIONAL user identifier of user that executed the operation.  
+			  The &lt;changePoll:userID&gt; element MUST be defined when the user is a non-systematic user.</t>
 			  <t hangText="&lt;changePoll:reason&gt;">OPTIONAL reason for executing the operation.  If present, 
 			  this element contains the server-specific text to help explain the reason the operation was executed.  
 			  This text MUST be represented in the response language previously negotiated with the client; an 
@@ -250,7 +252,7 @@
        <figure>
             <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; 
             extension for a URS lock transaction on the example.tld domain name, with the 
-            "before" state:</preamble>
+            "before" state.  The "before" state is reflected in the &lt;resData&gt; block:</preamble>
 
             <artwork><![CDATA[
 S:<?xml version="1.0" encoding="UTF-8"?>
@@ -301,7 +303,7 @@ S:</epp>]]></artwork>
        <figure>
             <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; 
             extension for a URS lock transaction on the example.tld domain name, with the 
-            "after" state:</preamble>
+            "after" state. The "after" state is reflected in the &lt;resData&gt; block:</preamble>
 
             <artwork><![CDATA[
 S:<?xml version="1.0" encoding="UTF-8"?>
@@ -329,7 +331,7 @@ S:        <domain:contact type="tech">sh8013</domain:contact>
 S:        <domain:clID>ClientX</domain:clID>
 S:        <domain:crID>ClientY</domain:crID>
 S:        <domain:crDate>2012-04-03T22:00:00.0Z</domain:crDate>
-S:        <domain:upID>ClientY</domain:upID>
+S:        <domain:upID>ClientZ</domain:upID>
 S:        <domain:upDate>2013-10-22T14:25:57.0Z</domain:upDate>
 S:        <domain:exDate>2014-04-03T22:00:00.0Z</domain:exDate>
 S:      </domain:infData>
@@ -356,7 +358,7 @@ S:</epp>]]></artwork>
        <figure>
             <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; 
             extension for a custom "sync" operation on the example.tld domain name, with 
-            the default "after" state:</preamble>
+            the default "after" state.  The "after" state is reflected in the &lt;resData&gt; block:</preamble>
 
             <artwork><![CDATA[
 S:<?xml version="1.0" encoding="UTF-8"?>
@@ -381,7 +383,7 @@ S:        <domain:contact type="tech">sh8013</domain:contact>
 S:        <domain:clID>ClientX</domain:clID>
 S:        <domain:crID>ClientY</domain:crID>
 S:        <domain:crDate>2012-04-03T22:00:00.0Z</domain:crDate>
-S:        <domain:upID>ClientY</domain:upID>
+S:        <domain:upID>ClientZ</domain:upID>
 S:        <domain:upDate>2013-10-22T14:25:57.0Z</domain:upDate>
 S:        <domain:exDate>2014-04-03T22:00:00.0Z</domain:exDate>
 S:      </domain:infData>
@@ -393,8 +395,8 @@ S:        <changePoll:operation op="sync">custom
 S:        </changePoll:operation>
 S:        <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
 S:        <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
-S:        <changePoll:userID>Bulk-Batch</changePoll:userID>
-S:        <changePoll:reason lang="en">Bulk Request
+S:        <changePoll:userID>ClientZ</changePoll:userID>
+S:        <changePoll:reason lang="en">Customer sync request
 S:        </changePoll:reason>
 S:      </changePoll:changeData>
 S:    </extension>
@@ -409,7 +411,8 @@ S:</epp>]]></artwork>
        <figure>
             <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; 
             extension for a "delete" operation on the example.tld domain name that is 
-            immediately purged, with the default "after" state:</preamble>
+            immediately purged, with the default "after" state.  The "after" state is reflected in the 
+            &lt;resData&gt; block:</preamble>
 
             <artwork><![CDATA[
 S:<?xml version="1.0" encoding="UTF-8"?>
@@ -453,7 +456,8 @@ S:</epp>]]></artwork>
        <figure>
             <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; 
             extension for an "autoPurge" operation on the example.tld domain name that  
-            previously had the "pendingDelete" status, with the default "after" state:</preamble>
+            previously had the "pendingDelete" status, with the default "after" state.  
+            The "after" state is reflected in the &lt;resData&gt; block:</preamble>
 
             <artwork><![CDATA[
 S:<?xml version="1.0" encoding="UTF-8"?>
@@ -497,7 +501,7 @@ S:</epp>]]></artwork>
        <figure>
             <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; 
             extension for an "update" operation on the ns1.example.tld host, with 
-            the default "after" state:</preamble>
+            the default "after" state.  The "after" state is reflected in the &lt;resData&gt; block:</preamble>
 
             <artwork><![CDATA[
 S:<?xml version="1.0" encoding="UTF-8"?>
@@ -665,7 +669,7 @@ BEGIN
        <element name="operation" type="changePoll:operationType"/>
        <element name="date" type="dateTime"/>
        <element name="svTRID" type="epp:trIDStringType"/>
-       <element name="userID" type="eppcom:clIDType" 
+       <element name="userID" type="eppcom:clIDType"
          minOccurs="0"/>
        <element name="reason" type="eppcom:reasonType" 
          minOccurs="0"/>
