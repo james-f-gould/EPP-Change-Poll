@@ -129,7 +129,7 @@
       notified of, a poll message can be inserted by the server for 
       consumption by the client using the EPP &lt;poll&gt; command and 
       response defined in <xref target="RFC5730"/>.  The extension supports 
-      the server including a "before" operation poll message and an "after" 
+      including a "before" operation poll message and an "after" 
       operation poll message.</t>
 
       <section title="Conventions Used in This Document">
@@ -190,6 +190,24 @@
 		  </list></t>
                     
       </section> 
+      
+      <section anchor="who" title="Who">
+        
+        <t>Who defines who executed the operation for audit purposes, and is represented using the &lt;changePoll:who&gt; element.  
+        The scheme used for the possible set of Who 
+        values is up to server policy.  The server MAY identify Who based on:
+        </t>
+        
+		  <t><list hangIndent="4" style="hanging">
+				<t hangText="&quot;Identifier&quot;">Unique user identifier of the user that executed the operation.  An 
+				example is "ClientX".</t>			  
+				<t hangText="&quot;Name&quot;">Name of the user that executed the operation.  An example is "John Doe".</t>				  
+				<t hangText="&quot;Role&quot;">Role of the user that executed operation.  An example is "CSR" for a Customer 
+				Support Representative or "Batch" for a server batch.</t>			  
+		  </list></t>
+                    
+      </section> 
+      
  
     </section>
 
@@ -239,8 +257,7 @@
 			  in <xref target="operation"/>.</t>
 			  <t hangText="&lt;changePoll:date&gt;">Date and time when the operation was executed.</t>
 			  <t hangText="&lt;changePoll:svTRID&gt;">Server transaction identifier of the operation.</t>
-			  <t hangText="&lt;changePoll:who&gt;">Who executed the operation that MAY be a user identifier, a 
-			  user name, or a user role.  The value is up to server policy.</t>
+			  <t hangText="&lt;changePoll:who&gt;">Who executed the operation as defined in <xref target="who"/>.</t>
 			  <t hangText="&lt;changePoll:reason&gt;">OPTIONAL reason for executing the operation.  If present, 
 			  this element contains the server-specific text to help explain the reason the operation was executed.  
 			  This text MUST be represented in the response language previously negotiated with the client; an 
@@ -288,7 +305,7 @@ S:        state="before">
 S:        <changePoll:operation>update</changePoll:operation>
 S:        <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
 S:        <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
-S:        <changePoll:who>ClientZ</changePoll:who>
+S:        <changePoll:who>John Doe</changePoll:who>
 S:        <changePoll:reason>URS Lock</changePoll:reason>
 S:      </changePoll:changeData>
 S:    </extension>
@@ -343,7 +360,7 @@ S:        state="after">
 S:        <changePoll:operation>update</changePoll:operation>
 S:        <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
 S:        <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
-S:        <changePoll:who>ClientZ</changePoll:who>
+S:        <changePoll:who>John Doe</changePoll:who>
 S:        <changePoll:reason>URS Lock</changePoll:reason>
 S:      </changePoll:changeData>
 S:    </extension>
@@ -395,7 +412,7 @@ S:        <changePoll:operation op="sync">custom
 S:        </changePoll:operation>
 S:        <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
 S:        <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
-S:        <changePoll:who>ClientZ</changePoll:who>
+S:        <changePoll:who>CSR</changePoll:who>
 S:        <changePoll:reason lang="en">Customer sync request
 S:        </changePoll:reason>
 S:      </changePoll:changeData>
@@ -485,6 +502,7 @@ S:          <changePoll:operation>
 S:            autoPurge</changePoll:operation>
 S:          <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
 S:          <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
+S:          <changePoll:who>Batch</changePoll:who>
 S:          <changePoll:reason>
 S:            Past pendingDelete 5 day period
 S:          </changePoll:reason>

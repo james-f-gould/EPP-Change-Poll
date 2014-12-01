@@ -24,7 +24,7 @@
           <changePoll:operation>autoDelete</changePoll:operation>
           <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
           <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
-          <changePoll:who>autoDelete-Batch</changePoll:who>
+          <changePoll:who>Batch</changePoll:who>
         </changePoll:changeData>
       </extension>
       <trID>

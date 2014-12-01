@@ -31,7 +31,7 @@
         <changePoll:operation>autoRenew</changePoll:operation>
         <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
         <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
-        <changePoll:who>autoRenew-Batch</changePoll:who>
+        <changePoll:who>Batch</changePoll:who>
       </changePoll:changeData>
     </extension>
     <trID>

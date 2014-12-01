@@ -378,6 +378,7 @@
 <link href="#rfc.section.1.1" rel="Chapter" title="1.1 Conventions Used in This Document"/>
 <link href="#rfc.section.2" rel="Chapter" title="2 Object Attributes"/>
 <link href="#rfc.section.2.1" rel="Chapter" title="2.1 Operation"/>
+<link href="#rfc.section.2.2" rel="Chapter" title="2.2 Who"/>
 <link href="#rfc.section.3" rel="Chapter" title="3 EPP Command Mapping"/>
 <link href="#rfc.section.3.1" rel="Chapter" title="3.1 EPP Query Commands"/>
 <link href="#rfc.section.3.1.1" rel="Chapter" title="3.1.1 EPP &lt;check&gt; Command"/>
@@ -469,6 +470,7 @@
 <li>1.1.   <a href="#rfc.section.1.1">Conventions Used in This Document</a></li>
 <li>2.   <a href="#rfc.section.2">Object Attributes</a></li>
 <li>2.1.   <a href="#rfc.section.2.1">Operation</a></li>
+<li>2.2.   <a href="#rfc.section.2.2">Who</a></li>
 <li>3.   <a href="#rfc.section.3">EPP Command Mapping</a></li>
 <li>3.1.   <a href="#rfc.section.3.1">EPP Query Commands</a></li>
 <li>3.1.1.   <a href="#rfc.section.3.1.1">EPP &lt;check&gt; Command</a></li>
@@ -493,7 +495,7 @@
   </ul>
 
   <h1 id="rfc.section.1"><a href="#rfc.section.1">1.</a> Introduction</h1>
-<p id="rfc.section.1.p.1">This document describes an extension mapping for version 1.0 of the <a href="#RFC5730">Extensible Provisioning Protocol (EPP)</a> <cite title="NONE">[RFC5730]</cite>.  This mapping, an extension to EPP object mappings like the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite>, is used to notify clients of operations they are not directly involved in, on objects that the client sponsors.  It is up to server policy to determine what transform operations and clients to notify.  Using this extension clients can more easily keep their systems in-sync with the objects stored in the server.  When a change occurs that a client needs to be notified of, a poll message can be inserted by the server for consumption by the client using the EPP &lt;poll&gt; command and response defined in <a href="#RFC5730">[RFC5730]</a>.  The extension supports the server including a "before" operation poll message and an "after" operation poll message.</p>
+<p id="rfc.section.1.p.1">This document describes an extension mapping for version 1.0 of the <a href="#RFC5730">Extensible Provisioning Protocol (EPP)</a> <cite title="NONE">[RFC5730]</cite>.  This mapping, an extension to EPP object mappings like the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite>, is used to notify clients of operations they are not directly involved in, on objects that the client sponsors.  It is up to server policy to determine what transform operations and clients to notify.  Using this extension clients can more easily keep their systems in-sync with the objects stored in the server.  When a change occurs that a client needs to be notified of, a poll message can be inserted by the server for consumption by the client using the EPP &lt;poll&gt; command and response defined in <a href="#RFC5730">[RFC5730]</a>.  The extension supports including a "before" operation poll message and an "after" operation poll message.</p>
 <h1 id="rfc.section.1.1"><a href="#rfc.section.1.1">1.1.</a> Conventions Used in This Document</h1>
 <p id="rfc.section.1.1.p.1">The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a href="#RFC2119">RFC 2119</a> <cite title="NONE">[RFC2119]</cite>.</p>
 <p id="rfc.section.1.1.p.2">XML is case sensitive. Unless stated otherwise, XML specifications and examples provided in this document MUST be interpreted in the character case presented in order to develop a conforming implementation.</p>
@@ -527,6 +529,18 @@
   <dt>"custom"</dt>
   <dd style="margin-left: 4">Custom operation that uses the "op" attribute to define the custom operation name.</dd>
 </dl>
+<h1 id="rfc.section.2.2"><a href="#rfc.section.2.2">2.2.</a> <a href="#who" id="who">Who</a></h1>
+<p id="rfc.section.2.2.p.1">Who defines who executed the operation for audit purposes, and is represented using the &lt;changePoll:who&gt; element.  The scheme used for the possible set of Who values is up to server policy.  The server MAY identify Who based on: </p>
+<p/>
+
+<dl>
+  <dt>"Identifier"</dt>
+  <dd style="margin-left: 4">Unique user identifier of the user that executed the operation.  An example is "ClientX".</dd>
+  <dt>"Name"</dt>
+  <dd style="margin-left: 4">Name of the user that executed the operation.  An example is "John Doe".</dd>
+  <dt>"Role"</dt>
+  <dd style="margin-left: 4">Role of the user that executed operation.  An example is "CSR" for a Customer Support Representative or "Batch" for a server batch.</dd>
+</dl>
 <h1 id="rfc.section.3"><a href="#rfc.section.3">3.</a> <a href="#commands" id="commands">EPP Command Mapping</a></h1>
 <p id="rfc.section.3.p.1">A detailed description of the EPP syntax and semantics can be found in the EPP core protocol specification <a href="#RFC5730">[RFC5730]</a>.</p>
 <h1 id="rfc.section.3.1"><a href="#rfc.section.3.1">3.1.</a> <a href="#queryCommands" id="queryCommands">EPP Query Commands</a></h1>
@@ -546,7 +560,7 @@
   <dt>&lt;changePoll:svTRID&gt;</dt>
   <dd style="margin-left: 4">Server transaction identifier of the operation.</dd>
   <dt>&lt;changePoll:who&gt;</dt>
-  <dd style="margin-left: 4">Who executed the operation that MAY be a user identifier, a user name, or a user role.  The value is up to server policy.</dd>
+  <dd style="margin-left: 4">Who executed the operation as defined in <a href="#who">Section 2.2</a>.</dd>
   <dt>&lt;changePoll:reason&gt;</dt>
   <dd style="margin-left: 4">OPTIONAL reason for executing the operation.  If present, this element contains the server-specific text to help explain the reason the operation was executed.  This text MUST be represented in the response language previously negotiated with the client; an OPTIONAL "lang" attribute MAY be present to identify the language if the negotiated value is something other than the default value of "en" (English).</dd>
 </dl>
@@ -585,7 +599,7 @@ S:        state="before"&gt;
 S:        &lt;changePoll:operation&gt;update&lt;/changePoll:operation&gt;
 S:        &lt;changePoll:date&gt;2013-10-22T14:25:57.0Z&lt;/changePoll:date&gt;
 S:        &lt;changePoll:svTRID&gt;12345-XYZ&lt;/changePoll:svTRID&gt;
-S:        &lt;changePoll:who&gt;ClientZ&lt;/changePoll:who&gt;
+S:        &lt;changePoll:who&gt;John Doe&lt;/changePoll:who&gt;
 S:        &lt;changePoll:reason&gt;URS Lock&lt;/changePoll:reason&gt;
 S:      &lt;/changePoll:changeData&gt;
 S:    &lt;/extension&gt;
@@ -634,7 +648,7 @@ S:        state="after"&gt;
 S:        &lt;changePoll:operation&gt;update&lt;/changePoll:operation&gt;
 S:        &lt;changePoll:date&gt;2013-10-22T14:25:57.0Z&lt;/changePoll:date&gt;
 S:        &lt;changePoll:svTRID&gt;12345-XYZ&lt;/changePoll:svTRID&gt;
-S:        &lt;changePoll:who&gt;ClientZ&lt;/changePoll:who&gt;
+S:        &lt;changePoll:who&gt;John Doe&lt;/changePoll:who&gt;
 S:        &lt;changePoll:reason&gt;URS Lock&lt;/changePoll:reason&gt;
 S:      &lt;/changePoll:changeData&gt;
 S:    &lt;/extension&gt;
@@ -680,7 +694,7 @@ S:        &lt;changePoll:operation op="sync"&gt;custom
 S:        &lt;/changePoll:operation&gt;
 S:        &lt;changePoll:date&gt;2013-10-22T14:25:57.0Z&lt;/changePoll:date&gt;
 S:        &lt;changePoll:svTRID&gt;12345-XYZ&lt;/changePoll:svTRID&gt;
-S:        &lt;changePoll:who&gt;ClientZ&lt;/changePoll:who&gt;
+S:        &lt;changePoll:who&gt;CSR&lt;/changePoll:who&gt;
 S:        &lt;changePoll:reason lang="en"&gt;Customer sync request
 S:        &lt;/changePoll:reason&gt;
 S:      &lt;/changePoll:changeData&gt;
@@ -756,6 +770,7 @@ S:          &lt;changePoll:operation&gt;
 S:            autoPurge&lt;/changePoll:operation&gt;
 S:          &lt;changePoll:date&gt;2013-10-22T14:25:57.0Z&lt;/changePoll:date&gt;
 S:          &lt;changePoll:svTRID&gt;12345-XYZ&lt;/changePoll:svTRID&gt;
+S:          &lt;changePoll:who&gt;Batch&lt;/changePoll:who&gt;
 S:          &lt;changePoll:reason&gt;
 S:            Past pendingDelete 5 day period
 S:          &lt;/changePoll:reason&gt;

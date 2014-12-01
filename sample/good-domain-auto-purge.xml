@@ -23,7 +23,7 @@
             autoPurge</changePoll:operation>
           <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
           <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
-          <changePoll:who>autoPurge-Batch</changePoll:who>
+          <changePoll:who>Batch</changePoll:who>
           <changePoll:reason>
             Past pendingDelete 5 day period
           </changePoll:reason>
