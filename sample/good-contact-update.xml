@@ -51,7 +51,7 @@
         <changePoll:operation>update</changePoll:operation>
         <changePoll:date>1999-12-03T09:00:00.0Z</changePoll:date>
         <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
-        <changePoll:userID>csr</changePoll:userID>
+        <changePoll:who>csr</changePoll:who>
         <changePoll:reason>Custom Support request</changePoll:reason>
       </changePoll:changeData>
     </extension>

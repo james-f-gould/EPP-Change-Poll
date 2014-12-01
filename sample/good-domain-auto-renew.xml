@@ -11,7 +11,7 @@
     <resData>
       <domain:infData
        xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-        <domain:name>example.tld</domain:name>
+        <domain:name>domain.example</domain:name>
         <domain:roid>EXAMPLE1-REP</domain:roid>
         <domain:status s="ok"/>
         <domain:registrant>jd1234</domain:registrant>
@@ -31,7 +31,7 @@
         <changePoll:operation>autoRenew</changePoll:operation>
         <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
         <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
-        <changePoll:userID>autoRenew-Batch</changePoll:userID>
+        <changePoll:who>autoRenew-Batch</changePoll:who>
       </changePoll:changeData>
     </extension>
     <trID>

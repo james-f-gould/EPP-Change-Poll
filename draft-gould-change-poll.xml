@@ -96,7 +96,7 @@
     </author>
 
 
-    <date day="7" month="November" year="2014"/>
+    <date day="1" month="December" year="2014"/>
 
     <abstract>
       <t>This document describes an Extensible Provisioning Protocol (EPP)
@@ -239,8 +239,8 @@
 			  in <xref target="operation"/>.</t>
 			  <t hangText="&lt;changePoll:date&gt;">Date and time when the operation was executed.</t>
 			  <t hangText="&lt;changePoll:svTRID&gt;">Server transaction identifier of the operation.</t>
-			  <t hangText="&lt;changePoll:userID&gt;">OPTIONAL user identifier of user that executed the operation.  
-			  The &lt;changePoll:userID&gt; element MUST be defined when the user is a non-systematic user.</t>
+			  <t hangText="&lt;changePoll:who&gt;">Who executed the operation that MAY be a user identifier, a 
+			  user name, or a user role.  The value is up to server policy.</t>
 			  <t hangText="&lt;changePoll:reason&gt;">OPTIONAL reason for executing the operation.  If present, 
 			  this element contains the server-specific text to help explain the reason the operation was executed.  
 			  This text MUST be represented in the response language previously negotiated with the client; an 
@@ -251,7 +251,7 @@
 
        <figure>
             <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; 
-            extension for a URS lock transaction on the example.tld domain name, with the 
+            extension for a URS lock transaction on the domain.example domain name, with the 
             "before" state.  The "before" state is reflected in the &lt;resData&gt; block:</preamble>
 
             <artwork><![CDATA[
@@ -269,7 +269,7 @@ S:      </msgQ>
 S:    <resData>
 S:      <domain:infData
 S:       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-S:        <domain:name>example.tld</domain:name>
+S:        <domain:name>domain.example</domain:name>
 S:        <domain:roid>EXAMPLE1-REP</domain:roid>
 S:        <domain:status s="ok"/>
 S:        <domain:registrant>jd1234</domain:registrant>
@@ -288,7 +288,7 @@ S:        state="before">
 S:        <changePoll:operation>update</changePoll:operation>
 S:        <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
 S:        <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
-S:        <changePoll:userID>ClientZ</changePoll:userID>
+S:        <changePoll:who>ClientZ</changePoll:who>
 S:        <changePoll:reason>URS Lock</changePoll:reason>
 S:      </changePoll:changeData>
 S:    </extension>
@@ -302,7 +302,7 @@ S:</epp>]]></artwork>
 
        <figure>
             <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; 
-            extension for a URS lock transaction on the example.tld domain name, with the 
+            extension for a URS lock transaction on the domain.example domain name, with the 
             "after" state. The "after" state is reflected in the &lt;resData&gt; block:</preamble>
 
             <artwork><![CDATA[
@@ -320,7 +320,7 @@ S:      </msgQ>
 S:    <resData>
 S:      <domain:infData
 S:       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-S:        <domain:name>example.tld</domain:name>
+S:        <domain:name>domain.example</domain:name>
 S:        <domain:roid>EXAMPLE1-REP</domain:roid>
 S:        <domain:status s="serverUpdateProhibited"/>
 S:        <domain:status s="serverDeleteProhibited"/>
@@ -343,7 +343,7 @@ S:        state="after">
 S:        <changePoll:operation>update</changePoll:operation>
 S:        <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
 S:        <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
-S:        <changePoll:userID>ClientZ</changePoll:userID>
+S:        <changePoll:who>ClientZ</changePoll:who>
 S:        <changePoll:reason>URS Lock</changePoll:reason>
 S:      </changePoll:changeData>
 S:    </extension>
@@ -357,7 +357,7 @@ S:</epp>]]></artwork>
        
        <figure>
             <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; 
-            extension for a custom "sync" operation on the example.tld domain name, with 
+            extension for a custom "sync" operation on the domain.example domain name, with 
             the default "after" state.  The "after" state is reflected in the &lt;resData&gt; block:</preamble>
 
             <artwork><![CDATA[
@@ -374,7 +374,7 @@ S:      </msgQ>
 S:    <resData>
 S:      <domain:infData
 S:       xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-S:        <domain:name>example.tld</domain:name>
+S:        <domain:name>domain.example</domain:name>
 S:        <domain:roid>EXAMPLE1-REP</domain:roid>
 S:        <domain:status s="ok"/>
 S:        <domain:registrant>jd1234</domain:registrant>
@@ -395,7 +395,7 @@ S:        <changePoll:operation op="sync">custom
 S:        </changePoll:operation>
 S:        <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
 S:        <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
-S:        <changePoll:userID>ClientZ</changePoll:userID>
+S:        <changePoll:who>ClientZ</changePoll:who>
 S:        <changePoll:reason lang="en">Customer sync request
 S:        </changePoll:reason>
 S:      </changePoll:changeData>
@@ -410,7 +410,7 @@ S:</epp>]]></artwork>
        
        <figure>
             <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; 
-            extension for a "delete" operation on the example.tld domain name that is 
+            extension for a "delete" operation on the domain.example domain name that is 
             immediately purged, with the default "after" state.  The "after" state is reflected in the 
             &lt;resData&gt; block:</preamble>
 
@@ -429,7 +429,7 @@ S:      </msgQ>
 S:      <resData>
 S:        <domain:infData
 S:          xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-S:          <domain:name>example.tld</domain:name>
+S:          <domain:name>domain.example</domain:name>
 S:          <domain:roid>EXAMPLE1-REP</domain:roid>
 S:          <domain:clID>ClientX</domain:clID>
 S:        </domain:infData>      
@@ -441,7 +441,7 @@ S:          <changePoll:operation op="purge">
 S:            delete</changePoll:operation>
 S:          <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
 S:          <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
-S:          <changePoll:userID>ClientZ</changePoll:userID>
+S:          <changePoll:who>ClientZ</changePoll:who>
 S:          <changePoll:reason>Court order</changePoll:reason>
 S:        </changePoll:changeData>
 S:      </extension>
@@ -455,7 +455,7 @@ S:</epp>]]></artwork>
 
        <figure>
             <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; 
-            extension for an "autoPurge" operation on the example.tld domain name that  
+            extension for an "autoPurge" operation on the domain.example domain name that  
             previously had the "pendingDelete" status, with the default "after" state.  
             The "after" state is reflected in the &lt;resData&gt; block:</preamble>
 
@@ -473,7 +473,7 @@ S:      </msgQ>
 S:      <resData>
 S:        <domain:infData
 S:          xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-S:          <domain:name>example.tld</domain:name>
+S:          <domain:name>domain.example</domain:name>
 S:          <domain:roid>EXAMPLE1-REP</domain:roid>
 S:          <domain:clID>ClientX</domain:clID>
 S:        </domain:infData>      
@@ -500,7 +500,7 @@ S:</epp>]]></artwork>
 
        <figure>
             <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; 
-            extension for an "update" operation on the ns1.example.tld host, with 
+            extension for an "update" operation on the ns1.domain.example host, with 
             the default "after" state.  The "after" state is reflected in the &lt;resData&gt; block:</preamble>
 
             <artwork><![CDATA[
@@ -517,7 +517,7 @@ S:      </msgQ>
 S:    <resData>
 S:      <host:infData
 S:       xmlns:host="urn:ietf:params:xml:ns:host-1.0">
-S:        <host:name>ns1.example.tld</host:name>
+S:        <host:name>ns1.domain.example</host:name>
 S:        <host:roid>NS1_EXAMPLE1-REP</host:roid>
 S:        <host:status s="linked"/>
 S:        <host:status s="serverUpdateProhibited"/>
@@ -537,7 +537,7 @@ S:        xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0">
 S:        <changePoll:operation>update</changePoll:operation>
 S:        <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
 S:        <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
-S:        <changePoll:userID>ClientZ</changePoll:userID>
+S:        <changePoll:who>ClientZ</changePoll:who>
 S:        <changePoll:reason>Host Lock</changePoll:reason>
 S:      </changePoll:changeData>
 S:    </extension>
@@ -669,8 +669,7 @@ BEGIN
        <element name="operation" type="changePoll:operationType"/>
        <element name="date" type="dateTime"/>
        <element name="svTRID" type="epp:trIDStringType"/>
-       <element name="userID" type="eppcom:clIDType"
-         minOccurs="0"/>
+       <element name="who" type="changePoll:whoType"/>
        <element name="reason" type="eppcom:reasonType" 
          minOccurs="0"/>
      </sequence>
@@ -716,6 +715,17 @@ BEGIN
       </extension>
     </simpleContent>
   </complexType>
+  
+  
+   <!--
+    Who type
+   -->
+  <simpleType name="whoType">
+    <restriction base="normalizedString">
+      <minLength value="1"/>
+      <maxLength value="255"/>
+    </restriction>
+  </simpleType>
       
  <!--
  End of schema.

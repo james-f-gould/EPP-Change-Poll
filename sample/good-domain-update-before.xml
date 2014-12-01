@@ -31,7 +31,7 @@
         <changePoll:operation>update</changePoll:operation>
         <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
         <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
-        <changePoll:userID>ClientZ</changePoll:userID>
+        <changePoll:who>ClientZ</changePoll:who>
         <changePoll:reason>URS Lock</changePoll:reason>
       </changePoll:changeData>
     </extension>

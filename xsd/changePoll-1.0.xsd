@@ -35,8 +35,7 @@
        <element name="operation" type="changePoll:operationType"/>
        <element name="date" type="dateTime"/>
        <element name="svTRID" type="epp:trIDStringType"/>
-       <element name="userID" type="eppcom:clIDType"
-         minOccurs="0"/>
+       <element name="who" type="changePoll:whoType"/>
        <element name="reason" type="eppcom:reasonType" 
          minOccurs="0"/>
      </sequence>
@@ -82,6 +81,17 @@
       </extension>
     </simpleContent>
   </complexType>
+  
+  
+   <!--
+    Who type
+   -->
+  <simpleType name="whoType">
+    <restriction base="normalizedString">
+      <minLength value="1"/>
+      <maxLength value="255"/>
+    </restriction>
+  </simpleType>
       
  <!--
  End of schema.
