@@ -96,19 +96,21 @@
     </author>
 
 
-    <date day="1" month="December" year="2014"/>
+    <date day="2" month="January" year="2015"/>
 
     <abstract>
-      <t>This document describes an Extensible Provisioning Protocol (EPP)
-      extension for notifying clients of operations they are not directly involved in, 
-      on objects that the client sponsors.  An operation can match many 
-      different use cases like regular batches, customer support actions, 
-      and bulk updates based on customer requests or court orders.  Since the 
-      client is not directly involved or knowledgable of these operations, 
-      the extension is used along with an EPP object mapping 
-      to provide the resulting state of the post-operation object, 
-      and optionally a pre-operation object, 
-      with the operation meta-data of what, when, who, and why.</t>
+      <t>This document describes an Extensible Provisioning Protocol (EPP) 
+      extension for notifying clients of operations on client sponsored objects 
+      that were not initiated by the client through EPP. These operations MAY 
+      include contractual or policy requirements including but not limited to 
+      regular batch processes, customer support actions, Uniform Domain-Name 
+      Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) 
+      actions, court directed actions, and bulk updates based on customer 
+      requests.  Since the client is not directly involved or knowledgable of 
+      these operations, the extension is used along with an EPP object mapping 
+      to provide the resulting state of the post-operation object, and 
+      optionally a pre-operation object, with the operation meta-data of 
+      what, when, who, and why.</t>
     </abstract>
         
   </front>
