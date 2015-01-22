@@ -393,10 +393,11 @@
 <link href="#rfc.section.4" rel="Chapter" title="4 Formal Syntax"/>
 <link href="#rfc.section.4.1" rel="Chapter" title="4.1 Change Poll Extension Schema"/>
 <link href="#rfc.section.5" rel="Chapter" title="5 Change History"/>
-<link href="#rfc.section.5.1" rel="Chapter" title="5.1 Version 00"/>
+<link href="#rfc.section.5.1" rel="Chapter" title="5.1 Change from 00 to 01"/>
 <link href="#rfc.section.6" rel="Chapter" title="6 IANA Considerations"/>
 <link href="#rfc.section.7" rel="Chapter" title="7 Security Considerations"/>
-<link href="#rfc.references" rel="Chapter" title="8 Normative References"/>
+<link href="#rfc.section.8" rel="Chapter" title="8 Acknowledgements"/>
+<link href="#rfc.references" rel="Chapter" title="9 Normative References"/>
 <link href="#rfc.authors" rel="Chapter"/>
 
 
@@ -405,7 +406,7 @@
 
   <meta name="dct.creator" content="Gould, J. and T. Tran" />
   <meta name="dct.identifier" content="urn:ietf:id:draft-gould-change-poll-00" />
-  <meta name="dct.issued" scheme="ISO8601" content="2015-1-20" />
+  <meta name="dct.issued" scheme="ISO8601" content="2015-1-22" />
   <meta name="dct.abstract" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client sponsored objects that were not initiated by the client through EPP. These operations MAY include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why." />
   <meta name="description" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client sponsored objects that were not initiated by the client through EPP. These operations MAY include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why." />
 
@@ -429,12 +430,12 @@
   <td class="right">T. Tran</td>
 </tr>
 <tr>
-  <td class="left">Expires: July 24, 2015</td>
+  <td class="left">Expires: July 26, 2015</td>
   <td class="right">Neustar</td>
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">January 20, 2015</td>
+  <td class="right">January 22, 2015</td>
 </tr>
 
     	
@@ -454,7 +455,7 @@
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on July 24, 2015.</p>
+<p>This Internet-Draft will expire on July 26, 2015.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -485,10 +486,11 @@
 <li>4.   <a href="#rfc.section.4">Formal Syntax</a></li>
 <li>4.1.   <a href="#rfc.section.4.1">Change Poll Extension Schema</a></li>
 <li>5.   <a href="#rfc.section.5">Change History</a></li>
-<li>5.1.   <a href="#rfc.section.5.1">Version 00</a></li>
+<li>5.1.   <a href="#rfc.section.5.1">Change from 00 to 01</a></li>
 <li>6.   <a href="#rfc.section.6">IANA Considerations</a></li>
 <li>7.   <a href="#rfc.section.7">Security Considerations</a></li>
-<li>8.   <a href="#rfc.references">Normative References</a></li>
+<li>8.   <a href="#rfc.section.8">Acknowledgements</a></li>
+<li>9.   <a href="#rfc.references">Normative References</a></li>
 <li><a href="#rfc.authors">Authors' Addresses</a></li>
 
 
@@ -561,6 +563,19 @@
   <dd style="margin-left: 4">Server transaction identifier of the operation.</dd>
   <dt>&lt;changePoll:who&gt;</dt>
   <dd style="margin-left: 4">Who executed the operation as defined in <a href="#who">Section 2.2</a>.</dd>
+  <dt>&lt;changePoll:caseId&gt;</dt>
+  <dd style="margin-left: 4">OPTIONAL case identifer associated with the operation.  The required "type" attribute defines the type of case with an enumerated list of case types including:</dd>
+  <dt></dt>
+  <dd style="margin-left: 4">
+    <dl>
+      <dt>udrp</dt>
+      <dd style="margin-left: 4">a Uniform Domain-Name Dispute-Resolution Policy (UDRP) case.</dd>
+      <dt>urs</dt>
+      <dd style="margin-left: 4">a Uniform Rapid Suspension (URS) case.</dd>
+      <dt>custom</dt>
+      <dd style="margin-left: 4">A custom case that is defined using the "name" attribute.</dd>
+    </dl>
+  </dd>
   <dt>&lt;changePoll:reason&gt;</dt>
   <dd style="margin-left: 4">OPTIONAL reason for executing the operation.  If present, this element contains the server-specific text to help explain the reason the operation was executed.  This text MUST be represented in the response language previously negotiated with the client; an OPTIONAL "lang" attribute MAY be present to identify the language if the negotiated value is something other than the default value of "en" (English).</dd>
 </dl>
@@ -595,11 +610,12 @@ S:    &lt;/resData&gt;
 S:    &lt;extension&gt;
 S:      &lt;changePoll:changeData 
 S:        xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"
-S:        state="before"&gt;
+S:        state="after"&gt;
 S:        &lt;changePoll:operation&gt;update&lt;/changePoll:operation&gt;
 S:        &lt;changePoll:date&gt;2013-10-22T14:25:57.0Z&lt;/changePoll:date&gt;
 S:        &lt;changePoll:svTRID&gt;12345-XYZ&lt;/changePoll:svTRID&gt;
-S:        &lt;changePoll:who&gt;John Doe&lt;/changePoll:who&gt;
+S:        &lt;changePoll:who&gt;URS Admin&lt;/changePoll:who&gt;
+S:        &lt;changePoll:caseId type="urs"&gt;urs123&lt;/changePoll:caseId&gt;
 S:        &lt;changePoll:reason&gt;URS Lock&lt;/changePoll:reason&gt;
 S:      &lt;/changePoll:changeData&gt;
 S:    &lt;/extension&gt;
@@ -648,7 +664,8 @@ S:        state="after"&gt;
 S:        &lt;changePoll:operation&gt;update&lt;/changePoll:operation&gt;
 S:        &lt;changePoll:date&gt;2013-10-22T14:25:57.0Z&lt;/changePoll:date&gt;
 S:        &lt;changePoll:svTRID&gt;12345-XYZ&lt;/changePoll:svTRID&gt;
-S:        &lt;changePoll:who&gt;John Doe&lt;/changePoll:who&gt;
+S:        &lt;changePoll:who&gt;URS Admin&lt;/changePoll:who&gt;
+S:        &lt;changePoll:caseId type="urs"&gt;urs123&lt;/changePoll:caseId&gt;
 S:        &lt;changePoll:reason&gt;URS Lock&lt;/changePoll:reason&gt;
 S:      &lt;/changePoll:changeData&gt;
 S:    &lt;/extension&gt;
@@ -858,10 +875,8 @@ BEGIN
   &lt;!--
   Import common element types.
   --&gt;
-  &lt;import namespace="urn:ietf:params:xml:ns:eppcom-1.0"
-          schemaLocation="eppcom-1.0.xsd"/&gt; 
-  &lt;import namespace="urn:ietf:params:xml:ns:epp-1.0"
-          schemaLocation="epp-1.0.xsd"/&gt; 
+  &lt;import namespace="urn:ietf:params:xml:ns:eppcom-1.0"/&gt;
+  &lt;import namespace="urn:ietf:params:xml:ns:epp-1.0"/&gt;
   
   
    &lt;annotation&gt;
@@ -885,6 +900,8 @@ BEGIN
        &lt;element name="date" type="dateTime"/&gt;
        &lt;element name="svTRID" type="epp:trIDStringType"/&gt;
        &lt;element name="who" type="changePoll:whoType"/&gt;
+       &lt;element name="caseId" type="changePoll:caseIdType"
+         minOccurs="0"/&gt;
        &lt;element name="reason" type="eppcom:reasonType" 
          minOccurs="0"/&gt;
      &lt;/sequence&gt;
@@ -931,6 +948,30 @@ BEGIN
     &lt;/simpleContent&gt;
   &lt;/complexType&gt;
   
+   &lt;!--
+    Case identifier type
+   --&gt;
+  &lt;complexType name="caseIdType"&gt;
+    &lt;simpleContent&gt;
+      &lt;extension base="token"&gt;
+        &lt;attribute name="type" type="changePoll:caseTypeEnum" 
+          use="required"/&gt;
+        &lt;attribute name="name" type="token" 
+          use="optional"/&gt;        
+      &lt;/extension&gt;
+    &lt;/simpleContent&gt;
+  &lt;/complexType&gt;
+  
+   &lt;!--
+    Enumerated list of case identifier types
+   --&gt;
+   &lt;simpleType name="caseTypeEnum"&gt;
+     &lt;restriction base="token"&gt;
+       &lt;enumeration value="udrp"/&gt;
+       &lt;enumeration value="urs"/&gt;
+       &lt;enumeration value="custom"/&gt;
+     &lt;/restriction&gt;
+   &lt;/simpleType&gt;
   
    &lt;!--
     Who type
@@ -948,11 +989,11 @@ BEGIN
  &lt;/schema&gt;
 END</pre>
 <h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> Change History</h1>
-<h1 id="rfc.section.5.1"><a href="#rfc.section.5.1">5.1.</a> <a href="#version-00" id="version-00">Version 00</a></h1>
+<h1 id="rfc.section.5.1"><a href="#rfc.section.5.1">5.1.</a> <a href="#change-00-to-01" id="change-00-to-01">Change from 00 to 01</a></h1>
 <p/>
 
 <ol>
-  <li>Initial version.</li>
+  <li>Added an optonal caseId element that defines the case identifier from UDRP, URS, or custom case, based on feedback from Michael Holloway.</li>
 </ol>
 <h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#IANA" id="IANA">IANA Considerations</a></h1>
 <p id="rfc.section.6.p.1">This document uses URNs to describe XML namespaces and XML schemas conforming to a registry mechanism described in <a href="#RFC3688">[RFC3688]</a>.  One URI assignment must be completed by the IANA.  </p>
@@ -963,7 +1004,9 @@ END</pre>
 <p id="rfc.section.6.p.6">XML: See the "Formal Syntax" section of this document.</p>
 <h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#Security" id="Security">Security Considerations</a></h1>
 <p id="rfc.section.7.p.1">The mapping extensions described in this document do not provide any security services beyond those described by <a href="#RFC5730">EPP</a> <cite title="NONE">[RFC5730]</cite> and protocol layers used by EPP. The security considerations described in these other specifications apply to this specification as well.</p>
-<h1 id="rfc.references"><a href="#rfc.references">8.</a> Normative References</h1>
+<h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#Acknowledgements" id="Acknowledgements">Acknowledgements</a></h1>
+<p id="rfc.section.8.p.1">Special suggestions that have been incorporated into this document were provided by Michael Holloway.</p>
+<h1 id="rfc.references"><a href="#rfc.references">9.</a> Normative References</h1>
 <table>
   <tbody>
     <tr>

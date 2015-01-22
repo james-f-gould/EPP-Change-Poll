@@ -96,7 +96,7 @@
     </author>
 
 
-    <date day="20" month="January" year="2015"/>
+    <date day="22" month="January" year="2015"/>
 
     <abstract>
       <t>This document describes an Extensible Provisioning Protocol (EPP) 
@@ -260,6 +260,13 @@
 			  <t hangText="&lt;changePoll:date&gt;">Date and time when the operation was executed.</t>
 			  <t hangText="&lt;changePoll:svTRID&gt;">Server transaction identifier of the operation.</t>
 			  <t hangText="&lt;changePoll:who&gt;">Who executed the operation as defined in <xref target="who"/>.</t>
+			  <t hangText="&lt;changePoll:caseId&gt;">OPTIONAL case identifer associated with the operation.  The required 
+			  "type" attribute defines the type of case with an enumerated list of case types including:</t>
+			    <t><list hangIndent="4" style="hanging">
+			      <t hangText="udrp">a Uniform Domain-Name Dispute-Resolution Policy (UDRP) case.</t>
+			      <t hangText="urs">a Uniform Rapid Suspension (URS) case.</t>
+			      <t hangText="custom">A custom case that is defined using the "name" attribute.</t>
+			    </list></t>
 			  <t hangText="&lt;changePoll:reason&gt;">OPTIONAL reason for executing the operation.  If present, 
 			  this element contains the server-specific text to help explain the reason the operation was executed.  
 			  This text MUST be represented in the response language previously negotiated with the client; an 
@@ -303,11 +310,12 @@ S:    </resData>
 S:    <extension>
 S:      <changePoll:changeData 
 S:        xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"
-S:        state="before">
+S:        state="after">
 S:        <changePoll:operation>update</changePoll:operation>
 S:        <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
 S:        <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
-S:        <changePoll:who>John Doe</changePoll:who>
+S:        <changePoll:who>URS Admin</changePoll:who>
+S:        <changePoll:caseId type="urs">urs123</changePoll:caseId>
 S:        <changePoll:reason>URS Lock</changePoll:reason>
 S:      </changePoll:changeData>
 S:    </extension>
@@ -362,7 +370,8 @@ S:        state="after">
 S:        <changePoll:operation>update</changePoll:operation>
 S:        <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
 S:        <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
-S:        <changePoll:who>John Doe</changePoll:who>
+S:        <changePoll:who>URS Admin</changePoll:who>
+S:        <changePoll:caseId type="urs">urs123</changePoll:caseId>
 S:        <changePoll:reason>URS Lock</changePoll:reason>
 S:      </changePoll:changeData>
 S:    </extension>
@@ -663,10 +672,8 @@ BEGIN
   <!--
   Import common element types.
   -->
-  <import namespace="urn:ietf:params:xml:ns:eppcom-1.0"
-          schemaLocation="eppcom-1.0.xsd"/> 
-  <import namespace="urn:ietf:params:xml:ns:epp-1.0"
-          schemaLocation="epp-1.0.xsd"/> 
+  <import namespace="urn:ietf:params:xml:ns:eppcom-1.0"/>
+  <import namespace="urn:ietf:params:xml:ns:epp-1.0"/>
   
   
    <annotation>
@@ -690,6 +697,8 @@ BEGIN
        <element name="date" type="dateTime"/>
        <element name="svTRID" type="epp:trIDStringType"/>
        <element name="who" type="changePoll:whoType"/>
+       <element name="caseId" type="changePoll:caseIdType"
+         minOccurs="0"/>
        <element name="reason" type="eppcom:reasonType" 
          minOccurs="0"/>
      </sequence>
@@ -736,6 +745,30 @@ BEGIN
     </simpleContent>
   </complexType>
   
+   <!--
+    Case identifier type
+   -->
+  <complexType name="caseIdType">
+    <simpleContent>
+      <extension base="token">
+        <attribute name="type" type="changePoll:caseTypeEnum" 
+          use="required"/>
+        <attribute name="name" type="token" 
+          use="optional"/>        
+      </extension>
+    </simpleContent>
+  </complexType>
+  
+   <!--
+    Enumerated list of case identifier types
+   -->
+   <simpleType name="caseTypeEnum">
+     <restriction base="token">
+       <enumeration value="udrp"/>
+       <enumeration value="urs"/>
+       <enumeration value="custom"/>
+     </restriction>
+   </simpleType>
   
    <!--
     Who type
@@ -757,9 +790,10 @@ END]]></artwork>
     </section>
    
    <section title="Change History">
-    <section title="Version 00" anchor="version-00">
+    <section title="Change from 00 to 01" anchor="change-00-to-01">
       <t><list style="numbers">
-        <t>Initial version.</t>
+        <t>Added an optonal caseId element that defines the case identifier from 
+        UDRP, URS, or custom case, based on feedback from Michael Holloway.</t>
       </list></t>
     </section>
    </section>
@@ -790,6 +824,11 @@ END]]></artwork>
       target="RFC5730">EPP</xref> and protocol layers used by EPP. The security
       considerations described in these other specifications apply to this
       specification as well.</t>
+    </section>
+
+    <section anchor="Acknowledgements" title="Acknowledgements">
+      <t>Special suggestions that have been incorporated into this document 
+      were provided by Michael Holloway.</t>
     </section>
 
   </middle>

@@ -9,10 +9,8 @@
   <!--
   Import common element types.
   -->
-  <import namespace="urn:ietf:params:xml:ns:eppcom-1.0"
-          schemaLocation="eppcom-1.0.xsd"/> 
-  <import namespace="urn:ietf:params:xml:ns:epp-1.0"
-          schemaLocation="epp-1.0.xsd"/> 
+  <import namespace="urn:ietf:params:xml:ns:eppcom-1.0"/>
+  <import namespace="urn:ietf:params:xml:ns:epp-1.0"/>
   
   
    <annotation>
@@ -36,6 +34,8 @@
        <element name="date" type="dateTime"/>
        <element name="svTRID" type="epp:trIDStringType"/>
        <element name="who" type="changePoll:whoType"/>
+       <element name="caseId" type="changePoll:caseIdType"
+         minOccurs="0"/>
        <element name="reason" type="eppcom:reasonType" 
          minOccurs="0"/>
      </sequence>
@@ -82,6 +82,30 @@
     </simpleContent>
   </complexType>
   
+   <!--
+    Case identifier type
+   -->
+  <complexType name="caseIdType">
+    <simpleContent>
+      <extension base="token">
+        <attribute name="type" type="changePoll:caseTypeEnum" 
+          use="required"/>
+        <attribute name="name" type="token" 
+          use="optional"/>        
+      </extension>
+    </simpleContent>
+  </complexType>
+  
+   <!--
+    Enumerated list of case identifier types
+   -->
+   <simpleType name="caseTypeEnum">
+     <restriction base="token">
+       <enumeration value="udrp"/>
+       <enumeration value="urs"/>
+       <enumeration value="custom"/>
+     </restriction>
+   </simpleType>
   
    <!--
     Who type
