@@ -392,12 +392,15 @@
 <link href="#rfc.section.3.2.5" rel="Chapter" title="3.2.5 EPP &lt;update&gt; Command"/>
 <link href="#rfc.section.4" rel="Chapter" title="4 Formal Syntax"/>
 <link href="#rfc.section.4.1" rel="Chapter" title="4.1 Change Poll Extension Schema"/>
-<link href="#rfc.section.5" rel="Chapter" title="5 Change History"/>
-<link href="#rfc.section.5.1" rel="Chapter" title="5.1 Change from 00 to 01"/>
-<link href="#rfc.section.6" rel="Chapter" title="6 IANA Considerations"/>
-<link href="#rfc.section.7" rel="Chapter" title="7 Security Considerations"/>
-<link href="#rfc.section.8" rel="Chapter" title="8 Acknowledgements"/>
-<link href="#rfc.references" rel="Chapter" title="9 Normative References"/>
+<link href="#rfc.section.5" rel="Chapter" title="5 IANA Considerations"/>
+<link href="#rfc.section.5.1" rel="Chapter" title="5.1 XML Namespace"/>
+<link href="#rfc.section.5.2" rel="Chapter" title="5.2 EPP Extension Registry"/>
+<link href="#rfc.section.6" rel="Chapter" title="6 Security Considerations"/>
+<link href="#rfc.section.7" rel="Chapter" title="7 Acknowledgements"/>
+<link href="#rfc.references" rel="Chapter" title="8 Normative References"/>
+<link href="#rfc.appendix.A" rel="Chapter" title="A Change History"/>
+<link href="#rfc.appendix.A.1" rel="Chapter" title="A.1 Change from 00 to 01"/>
+<link href="#rfc.appendix.A.2" rel="Chapter" title="A.2 Change from 01 to 02"/>
 <link href="#rfc.authors" rel="Chapter"/>
 
 
@@ -405,8 +408,8 @@
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Gould, J. and T. Tran" />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-gould-change-poll-01" />
-  <meta name="dct.issued" scheme="ISO8601" content="2015-2-20" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-gould-change-poll-02" />
+  <meta name="dct.issued" scheme="ISO8601" content="2015-2-23" />
   <meta name="dct.abstract" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client sponsored objects that were not initiated by the client through EPP. These operations MAY include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why." />
   <meta name="description" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client sponsored objects that were not initiated by the client through EPP. These operations MAY include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why." />
 
@@ -430,12 +433,12 @@
   <td class="right">T. Tran</td>
 </tr>
 <tr>
-  <td class="left">Expires: August 24, 2015</td>
+  <td class="left">Expires: August 27, 2015</td>
   <td class="right">Neustar</td>
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">February 20, 2015</td>
+  <td class="right">February 23, 2015</td>
 </tr>
 
     	
@@ -443,7 +446,7 @@
   </table>
 
   <p class="title">Change Poll Extension for the Extensible Provisioning Protocol (EPP)<br />
-  <span class="filename">draft-gould-change-poll-01</span></p>
+  <span class="filename">draft-gould-change-poll-02</span></p>
   
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
@@ -455,7 +458,7 @@
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on August 24, 2015.</p>
+<p>This Internet-Draft will expire on August 27, 2015.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -485,12 +488,15 @@
 <li>3.2.5.   <a href="#rfc.section.3.2.5">EPP &lt;update&gt; Command</a></li>
 <li>4.   <a href="#rfc.section.4">Formal Syntax</a></li>
 <li>4.1.   <a href="#rfc.section.4.1">Change Poll Extension Schema</a></li>
-<li>5.   <a href="#rfc.section.5">Change History</a></li>
-<li>5.1.   <a href="#rfc.section.5.1">Change from 00 to 01</a></li>
-<li>6.   <a href="#rfc.section.6">IANA Considerations</a></li>
-<li>7.   <a href="#rfc.section.7">Security Considerations</a></li>
-<li>8.   <a href="#rfc.section.8">Acknowledgements</a></li>
-<li>9.   <a href="#rfc.references">Normative References</a></li>
+<li>5.   <a href="#rfc.section.5">IANA Considerations</a></li>
+<li>5.1.   <a href="#rfc.section.5.1">XML Namespace</a></li>
+<li>5.2.   <a href="#rfc.section.5.2">EPP Extension Registry</a></li>
+<li>6.   <a href="#rfc.section.6">Security Considerations</a></li>
+<li>7.   <a href="#rfc.section.7">Acknowledgements</a></li>
+<li>8.   <a href="#rfc.references">Normative References</a></li>
+<li>Appendix A.   <a href="#rfc.appendix.A">Change History</a></li>
+<li>A.1.   <a href="#rfc.appendix.A.1">Change from 00 to 01</a></li>
+<li>A.2.   <a href="#rfc.appendix.A.2">Change from 01 to 02</a></li>
 <li><a href="#rfc.authors">Authors' Addresses</a></li>
 
 
@@ -988,25 +994,27 @@ BEGIN
  --&gt;
  &lt;/schema&gt;
 END</pre>
-<h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> Change History</h1>
-<h1 id="rfc.section.5.1"><a href="#rfc.section.5.1">5.1.</a> <a href="#change-00-to-01" id="change-00-to-01">Change from 00 to 01</a></h1>
-<p/>
-
-<ol>
-  <li>Added an optonal caseId element that defines the case identifier from UDRP, URS, or custom case, based on feedback from Michael Holloway.</li>
-</ol>
-<h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#IANA" id="IANA">IANA Considerations</a></h1>
-<p id="rfc.section.6.p.1">This document uses URNs to describe XML namespaces and XML schemas conforming to a registry mechanism described in <a href="#RFC3688">[RFC3688]</a>.  One URI assignment must be completed by the IANA.  </p>
-<p id="rfc.section.6.p.2">Registration request for the changePoll namespace:</p>
-<p id="rfc.section.6.p.3">Registration request for the extension XML schema:</p>
-<p id="rfc.section.6.p.4">URI: urn:ietf:params:xml:ns:changePoll-1.0</p>
-<p id="rfc.section.6.p.5">Registrant Contact: IESG</p>
-<p id="rfc.section.6.p.6">XML: See the "Formal Syntax" section of this document.</p>
-<h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#Security" id="Security">Security Considerations</a></h1>
-<p id="rfc.section.7.p.1">The mapping extensions described in this document do not provide any security services beyond those described by <a href="#RFC5730">EPP</a> <cite title="NONE">[RFC5730]</cite> and protocol layers used by EPP. The security considerations described in these other specifications apply to this specification as well.</p>
-<h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#Acknowledgements" id="Acknowledgements">Acknowledgements</a></h1>
-<p id="rfc.section.8.p.1">Special suggestions that have been incorporated into this document were provided by Michael Holloway.</p>
-<h1 id="rfc.references"><a href="#rfc.references">9.</a> Normative References</h1>
+<h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#IANA" id="IANA">IANA Considerations</a></h1>
+<h1 id="rfc.section.5.1"><a href="#rfc.section.5.1">5.1.</a> <a href="#IANA-XML-Namespace" id="IANA-XML-Namespace">XML Namespace</a></h1>
+<p id="rfc.section.5.1.p.1">This document uses URNs to describe XML namespaces and XML schemas conforming to a registry mechanism described in <a href="#RFC3688">[RFC3688]</a>.  The following URI assignment is requested of IANA: </p>
+<p id="rfc.section.5.1.p.2">URI: urn:ietf:params:xml:ns:changePoll-1.0</p>
+<p id="rfc.section.5.1.p.3">Registrant Contact: See the "Author's Address" section of this document.</p>
+<p id="rfc.section.5.1.p.4">XML: See the "Formal Syntax" section of this document.</p>
+<h1 id="rfc.section.5.2"><a href="#rfc.section.5.2">5.2.</a> <a href="#EPP-Extension-Registry" id="EPP-Extension-Registry">EPP Extension Registry</a></h1>
+<p id="rfc.section.5.2.p.1">The EPP extension described in this document should be registered by the IANA in the EPP Extension Registry described in <a href="#RFC7451">[RFC7451]</a>.  The details of the registration are as follows: </p>
+<p id="rfc.section.5.2.p.2">Name of Extension: "Change Poll Extension for the Extensible Provisioning Protocol (EPP)" </p>
+<p id="rfc.section.5.2.p.3">Document status: Standards Track </p>
+<p id="rfc.section.5.2.p.4">Reference: (insert reference to RFC version of this document) </p>
+<p id="rfc.section.5.2.p.5">Registrant Name and Email Address: IESG, &lt;iesg@ietf.org&gt; </p>
+<p id="rfc.section.5.2.p.6">TLDs: Any </p>
+<p id="rfc.section.5.2.p.7">IPR Disclosure: None </p>
+<p id="rfc.section.5.2.p.8">Status: Active </p>
+<p id="rfc.section.5.2.p.9">Notes: None </p>
+<h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#Security" id="Security">Security Considerations</a></h1>
+<p id="rfc.section.6.p.1">The mapping extensions described in this document do not provide any security services beyond those described by <a href="#RFC5730">EPP</a> <cite title="NONE">[RFC5730]</cite> and protocol layers used by EPP. The security considerations described in these other specifications apply to this specification as well.</p>
+<h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#Acknowledgements" id="Acknowledgements">Acknowledgements</a></h1>
+<p id="rfc.section.7.p.1">Special suggestions that have been incorporated into this document were provided by Michael Holloway.</p>
+<h1 id="rfc.references"><a href="#rfc.references">8.</a> Normative References</h1>
 <table>
   <tbody>
     <tr>
@@ -1039,8 +1047,28 @@ END</pre>
       </td>
       <td class="top"><a>Hollenbeck, S.</a>, "<a href="http://tools.ietf.org/html/rfc5731">Extensible Provisioning Protocol (EPP) Domain Name Mapping</a>", STD 69, RFC 5731, August 2009.</td>
     </tr>
+    <tr>
+      <td class="reference">
+        <b id="RFC7451">[RFC7451]</b>
+      </td>
+      <td class="top"><a>Hollenbeck, S.</a>, "<a href="http://tools.ietf.org/html/rfc7451">Extension Registry for the Extensible Provisioning Protocol</a>", RFC 7451, February 2015.</td>
+    </tr>
   </tbody>
 </table>
+<h1 id="rfc.appendix.A"><a href="#rfc.appendix.A">Appendix A.</a> Change History</h1>
+<h1 id="rfc.appendix.A.1"><a href="#rfc.appendix.A.1">A.1.</a> <a href="#change-00-to-01" id="change-00-to-01">Change from 00 to 01</a></h1>
+<p/>
+
+<ol>
+  <li>Added an optional caseId element that defines the case identifier from UDRP, URS, or custom case, based on feedback from Michael Holloway.</li>
+</ol>
+<h1 id="rfc.appendix.A.2"><a href="#rfc.appendix.A.2">A.2.</a> <a href="#change-01-to-02" id="change-01-to-02">Change from 01 to 02</a></h1>
+<p/>
+
+<ol>
+  <li>Amended XML Namespace section of IANA Considerations, added EPP Extension Registry section.</li>
+  <li>Moved Change History to the back section as an Appendix.</li>
+</ol>
 <h1 id="rfc.authors">
   <a href="#rfc.authors">Authors' Addresses</a>
 </h1>

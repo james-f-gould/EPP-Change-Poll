@@ -8,6 +8,7 @@
 <!ENTITY RFC3915 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3915.xml">
 <!ENTITY RFC5730 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5730.xml">
 <!ENTITY RFC5731 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5731.xml">
+<!ENTITY RFC7451 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7451.xml">
 <!ENTITY I-D.narten-iana-considerations-rfc2434bis SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.narten-iana-considerations-rfc2434bis.xml">
 ]>
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
@@ -39,7 +40,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-gould-change-poll-01" ipr="trust200902">
+<rfc category="std" docName="draft-gould-change-poll-02" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN" 
@@ -96,7 +97,7 @@
     </author>
 
 
-    <date day="20" month="February" year="2015"/>
+    <date day="23" month="February" year="2015"/>
 
     <abstract>
       <t>This document describes an Extensible Provisioning Protocol (EPP) 
@@ -788,32 +789,65 @@ END]]></artwork>
       </figure>
       </section>
     </section>
-   
-   <section title="Change History">
-    <section title="Change from 00 to 01" anchor="change-00-to-01">
-      <t><list style="numbers">
-        <t>Added an optonal caseId element that defines the case identifier from 
-        UDRP, URS, or custom case, based on feedback from Michael Holloway.</t>
-      </list></t>
-    </section>
-   </section>
-    
+       
     <section anchor="IANA" title="IANA Considerations">
+    
+    	<section anchor="IANA-XML-Namespace" title="XML Namespace">
          <t>
              This document uses URNs to describe XML namespaces and XML schemas
              conforming to a registry mechanism described in <xref target="RFC3688"/>.
-             One URI assignment must be completed by the IANA.
+             The following URI assignment is requested of IANA: 
          </t>
-
-         <t>Registration request for the changePoll namespace:</t>
-         
-         <t>Registration request for the extension XML schema:</t>
-         
+                  
          <t>URI: urn:ietf:params:xml:ns:changePoll-1.0</t>
          
-         <t>Registrant Contact: IESG</t>
+         <t>Registrant Contact: See the "Author's Address" section of this document.</t>
           
          <t>XML: See the "Formal Syntax" section of this document.</t>
+         
+       </section>
+       
+       <section anchor="EPP-Extension-Registry" title="EPP Extension Registry">
+       
+       	<t>
+   The EPP extension described in this document should be registered by
+   the IANA in the EPP Extension Registry described in <xref target="RFC7451"/>.  The
+   details of the registration are as follows:
+   </t>
+
+   <t>
+   Name of Extension: &quot;Change Poll Extension for the Extensible Provisioning Protocol (EPP)&quot;
+   </t>
+   
+   <t>
+   Document status: Standards Track
+   </t>
+   
+   <t>
+   Reference: (insert reference to RFC version of this document)
+   </t>
+
+   <t>
+   Registrant Name and Email Address: IESG, &lt;iesg@ietf.org&gt;
+   </t>
+  
+   <t>
+   TLDs: Any
+   </t>
+ 
+   <t>
+   IPR Disclosure: None
+   </t>
+
+   <t>
+   Status: Active
+   </t>
+
+   <t>
+   Notes: None
+   </t>
+       
+       </section>
  
     </section>
 
@@ -861,7 +895,25 @@ END]]></artwork>
 
       &RFC5731;
 
+      &RFC7451;
+
     </references>
+    
+   <section title="Change History">
+    <section title="Change from 00 to 01" anchor="change-00-to-01">
+      <t><list style="numbers">
+        <t>Added an optional caseId element that defines the case identifier from 
+        UDRP, URS, or custom case, based on feedback from Michael Holloway.</t>
+      </list></t>
+    </section>
+    <section title="Change from 01 to 02" anchor="change-01-to-02">
+      <t><list style="numbers">
+        <t>Amended XML Namespace section of IANA Considerations, added EPP Extension Registry section.</t>
+        <t>Moved Change History to the back section as an Appendix.</t>
+      </list></t>
+    </section>
+   </section>
+    
   </back>
 
   <!-- vim: set ts=2 sw=2 expandtab: -->
