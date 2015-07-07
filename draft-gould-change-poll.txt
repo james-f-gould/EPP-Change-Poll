@@ -5,12 +5,12 @@
 Network Working Group                                           J. Gould
 Internet-Draft                                            VeriSign, Inc.
 Intended status: Standards Track                                 T. Tran
-Expires: September 3, 2015                                       Neustar
-                                                           March 2, 2015
+Expires: January 8, 2016                                         Neustar
+                                                            July 7, 2015
 
 
   Change Poll Extension for the Extensible Provisioning Protocol (EPP)
-                       draft-gould-change-poll-02
+                       draft-gould-change-poll-03
 
 Abstract
 
@@ -42,7 +42,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on September 3, 2015.
+   This Internet-Draft will expire on January 8, 2016.
 
 Copyright Notice
 
@@ -53,9 +53,9 @@ Copyright Notice
 
 
 
-Gould & Tran            Expires September 3, 2015               [Page 1]
+Gould & Tran             Expires January 8, 2016                [Page 1]
 
-Internet-Draft                 changePoll                     March 2015
+Internet-Draft                 changePoll                      July 2015
 
 
    This document is subject to BCP 78 and the IETF Trust's Legal
@@ -97,6 +97,7 @@ Table of Contents
    Appendix A.  Change History . . . . . . . . . . . . . . . . . . .  20
      A.1.  Change from 00 to 01  . . . . . . . . . . . . . . . . . .  20
      A.2.  Change from 01 to 02  . . . . . . . . . . . . . . . . . .  20
+     A.3.  Change from 02 to 03  . . . . . . . . . . . . . . . . . .  20
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  20
 
 1.  Introduction
@@ -105,15 +106,15 @@ Table of Contents
    Extensible Provisioning Protocol (EPP) [RFC5730].  This mapping, an
    extension to EPP object mappings like the EPP domain name mapping
    [RFC5731], is used to notify clients of operations they are not
-   directly involved in, on objects that the client sponsors.  It is up
 
 
 
-Gould & Tran            Expires September 3, 2015               [Page 2]
+Gould & Tran             Expires January 8, 2016                [Page 2]
 
-Internet-Draft                 changePoll                     March 2015
+Internet-Draft                 changePoll                      July 2015
 
 
+   directly involved in, on objects that the client sponsors.  It is up
    to server policy to determine what transform operations and clients
    to notify.  Using this extension clients can more easily keep their
    systems in-sync with the objects stored in the server.  When a change
@@ -164,10 +165,9 @@ Internet-Draft                 changePoll                     March 2015
 
 
 
-
-Gould & Tran            Expires September 3, 2015               [Page 3]
+Gould & Tran             Expires January 8, 2016                [Page 3]
 
-Internet-Draft                 changePoll                     March 2015
+Internet-Draft                 changePoll                      July 2015
 
 
    "delete"  Delete operation as defined in [RFC5730].  If the delete
@@ -221,9 +221,9 @@ Internet-Draft                 changePoll                     March 2015
 
 
 
-Gould & Tran            Expires September 3, 2015               [Page 4]
+Gould & Tran             Expires January 8, 2016                [Page 4]
 
-Internet-Draft                 changePoll                     March 2015
+Internet-Draft                 changePoll                      July 2015
 
 
 3.1.1.  EPP <check> Command
@@ -277,9 +277,9 @@ Internet-Draft                 changePoll                     March 2015
 
 
 
-Gould & Tran            Expires September 3, 2015               [Page 5]
+Gould & Tran             Expires January 8, 2016                [Page 5]
 
-Internet-Draft                 changePoll                     March 2015
+Internet-Draft                 changePoll                      July 2015
 
 
        explain the reason the operation was executed.  This text MUST be
@@ -333,9 +333,9 @@ Internet-Draft                 changePoll                     March 2015
 
 
 
-Gould & Tran            Expires September 3, 2015               [Page 6]
+Gould & Tran             Expires January 8, 2016                [Page 6]
 
-Internet-Draft                 changePoll                     March 2015
+Internet-Draft                 changePoll                      July 2015
 
 
    S:<?xml version="1.0" encoding="UTF-8"?>
@@ -367,7 +367,7 @@ Internet-Draft                 changePoll                     March 2015
    S:    <extension>
    S:      <changePoll:changeData
    S:        xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"
-   S:        state="after">
+   S:        state="before">
    S:        <changePoll:operation>update</changePoll:operation>
    S:        <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
    S:        <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
@@ -389,9 +389,9 @@ Internet-Draft                 changePoll                     March 2015
 
 
 
-Gould & Tran            Expires September 3, 2015               [Page 7]
+Gould & Tran             Expires January 8, 2016                [Page 7]
 
-Internet-Draft                 changePoll                     March 2015
+Internet-Draft                 changePoll                      July 2015
 
 
    <resData> block:
@@ -445,9 +445,9 @@ Internet-Draft                 changePoll                     March 2015
 
 
 
-Gould & Tran            Expires September 3, 2015               [Page 8]
+Gould & Tran             Expires January 8, 2016                [Page 8]
 
-Internet-Draft                 changePoll                     March 2015
+Internet-Draft                 changePoll                      July 2015
 
 
    S:<?xml version="1.0" encoding="UTF-8"?>
@@ -501,9 +501,9 @@ Internet-Draft                 changePoll                     March 2015
 
 
 
-Gould & Tran            Expires September 3, 2015               [Page 9]
+Gould & Tran             Expires January 8, 2016                [Page 9]
 
-Internet-Draft                 changePoll                     March 2015
+Internet-Draft                 changePoll                      July 2015
 
 
    Example poll <info> response with the <changePoll:changeData>
@@ -557,9 +557,9 @@ Internet-Draft                 changePoll                     March 2015
 
 
 
-Gould & Tran            Expires September 3, 2015              [Page 10]
+Gould & Tran             Expires January 8, 2016               [Page 10]
 
-Internet-Draft                 changePoll                     March 2015
+Internet-Draft                 changePoll                      July 2015
 
 
    S:<?xml version="1.0" encoding="UTF-8"?>
@@ -613,9 +613,9 @@ Internet-Draft                 changePoll                     March 2015
 
 
 
-Gould & Tran            Expires September 3, 2015              [Page 11]
+Gould & Tran             Expires January 8, 2016               [Page 11]
 
-Internet-Draft                 changePoll                     March 2015
+Internet-Draft                 changePoll                      July 2015
 
 
    Example poll <info> response with the <changePoll:changeData>
@@ -669,9 +669,9 @@ Internet-Draft                 changePoll                     March 2015
 
 
 
-Gould & Tran            Expires September 3, 2015              [Page 12]
+Gould & Tran             Expires January 8, 2016               [Page 12]
 
-Internet-Draft                 changePoll                     March 2015
+Internet-Draft                 changePoll                      July 2015
 
 
    Example poll <info> response with the <changePoll:changeData>
@@ -725,9 +725,9 @@ Internet-Draft                 changePoll                     March 2015
 
 
 
-Gould & Tran            Expires September 3, 2015              [Page 13]
+Gould & Tran             Expires January 8, 2016               [Page 13]
 
-Internet-Draft                 changePoll                     March 2015
+Internet-Draft                 changePoll                      July 2015
 
 
    Example poll <info> response with the <changePoll:changeData>
@@ -781,9 +781,9 @@ Internet-Draft                 changePoll                     March 2015
 
 
 
-Gould & Tran            Expires September 3, 2015              [Page 14]
+Gould & Tran             Expires January 8, 2016               [Page 14]
 
-Internet-Draft                 changePoll                     March 2015
+Internet-Draft                 changePoll                      July 2015
 
 
 3.1.3.  EPP <transfer> Command
@@ -837,9 +837,9 @@ Internet-Draft                 changePoll                     March 2015
 
 
 
-Gould & Tran            Expires September 3, 2015              [Page 15]
+Gould & Tran             Expires January 8, 2016               [Page 15]
 
-Internet-Draft                 changePoll                     March 2015
+Internet-Draft                 changePoll                      July 2015
 
 
 4.1.  Change Poll Extension Schema
@@ -893,9 +893,9 @@ Internet-Draft                 changePoll                     March 2015
 
 
 
-Gould & Tran            Expires September 3, 2015              [Page 16]
+Gould & Tran             Expires January 8, 2016               [Page 16]
 
-Internet-Draft                 changePoll                     March 2015
+Internet-Draft                 changePoll                      July 2015
 
 
       <!--
@@ -949,9 +949,9 @@ Internet-Draft                 changePoll                     March 2015
 
 
 
-Gould & Tran            Expires September 3, 2015              [Page 17]
+Gould & Tran             Expires January 8, 2016               [Page 17]
 
-Internet-Draft                 changePoll                     March 2015
+Internet-Draft                 changePoll                      July 2015
 
 
              use="optional"/>
@@ -1005,9 +1005,9 @@ Internet-Draft                 changePoll                     March 2015
 
 
 
-Gould & Tran            Expires September 3, 2015              [Page 18]
+Gould & Tran             Expires January 8, 2016               [Page 18]
 
-Internet-Draft                 changePoll                     March 2015
+Internet-Draft                 changePoll                      July 2015
 
 
 5.2.  EPP Extension Registry
@@ -1061,9 +1061,9 @@ Internet-Draft                 changePoll                     March 2015
 
 
 
-Gould & Tran            Expires September 3, 2015              [Page 19]
+Gould & Tran             Expires January 8, 2016               [Page 19]
 
-Internet-Draft                 changePoll                     March 2015
+Internet-Draft                 changePoll                      July 2015
 
 
    [RFC5730]  Hollenbeck, S., "Extensible Provisioning Protocol (EPP)",
@@ -1089,6 +1089,11 @@ A.2.  Change from 01 to 02
        Extension Registry section.
    2.  Moved Change History to the back section as an Appendix.
 
+A.3.  Change from 02 to 03
+
+   1.  Fixed "before" state example to use the "before" state value
+       based on feedback from Patrick Mevzek.
+
 Authors' Addresses
 
    James Gould
@@ -1112,9 +1117,4 @@ Authors' Addresses
 
 
 
-
-
-
-
-
-Gould & Tran            Expires September 3, 2015              [Page 20]
+Gould & Tran             Expires January 8, 2016               [Page 20]

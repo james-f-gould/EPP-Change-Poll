@@ -40,7 +40,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-gould-change-poll-02" ipr="trust200902">
+<rfc category="std" docName="draft-gould-change-poll-03" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN" 
@@ -97,7 +97,7 @@
     </author>
 
 
-    <date day="2" month="March" year="2015"/>
+    <date day="7" month="July" year="2015"/>
 
     <abstract>
       <t>This document describes an Extensible Provisioning Protocol (EPP) 
@@ -311,7 +311,7 @@ S:    </resData>
 S:    <extension>
 S:      <changePoll:changeData 
 S:        xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"
-S:        state="after">
+S:        state="before">
 S:        <changePoll:operation>update</changePoll:operation>
 S:        <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
 S:        <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
@@ -910,6 +910,11 @@ END]]></artwork>
       <t><list style="numbers">
         <t>Amended XML Namespace section of IANA Considerations, added EPP Extension Registry section.</t>
         <t>Moved Change History to the back section as an Appendix.</t>
+      </list></t>
+    </section>
+    <section title="Change from 02 to 03" anchor="change-02-to-03">
+      <t><list style="numbers">
+        <t>Fixed "before" state example to use the "before" state value based on feedback from Patrick Mevzek.</t>
       </list></t>
     </section>
    </section>
