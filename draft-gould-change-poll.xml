@@ -40,7 +40,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-gould-change-poll-03" ipr="trust200902">
+<rfc category="std" docName="draft-gould-change-poll-04" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN" 
@@ -74,7 +74,7 @@
       </address>
     </author>
 
-    <author fullname="Trung Tran" initials="T.T" surname="Tran">
+    <author fullname="Sharon Wodjenski" initials="S.W" surname="Wodjenski">
       <organization>Neustar</organization>
 
       <address>
@@ -90,14 +90,13 @@
           <country>US</country>
         </postal>
 
-        <email>Trung.Tran@neustar.biz</email>
+        <email>Sharon.Wodjenski@neustar.biz</email>
 
         <uri>http://www.neustar.biz</uri>
       </address>
     </author>
 
-
-    <date day="7" month="July" year="2015"/>
+    <date day="15" month="March" year="2016"/>
 
     <abstract>
       <t>This document describes an Extensible Provisioning Protocol (EPP) 
@@ -861,6 +860,9 @@ END]]></artwork>
     </section>
 
     <section anchor="Acknowledgements" title="Acknowledgements">
+      <t>The authors wish to acknowledge the original concept for this draft and the 
+      efforts in the initial versions of this draft by Trung Tran.</t> 
+      
       <t>Special suggestions that have been incorporated into this document 
       were provided by Michael Holloway.</t>
     </section>
@@ -915,6 +917,11 @@ END]]></artwork>
     <section title="Change from 02 to 03" anchor="change-02-to-03">
       <t><list style="numbers">
         <t>Fixed "before" state example to use the "before" state value based on feedback from Patrick Mevzek.</t>
+      </list></t>
+    </section>
+    <section title="Change from 03 to 04" anchor="change-03-to-04">
+      <t><list style="numbers">
+        <t>Updated the authors for the draft.</t>
       </list></t>
     </section>
    </section>

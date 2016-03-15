@@ -402,15 +402,16 @@
 <link href="#rfc.appendix.A.1" rel="Chapter" title="A.1 Change from 00 to 01"/>
 <link href="#rfc.appendix.A.2" rel="Chapter" title="A.2 Change from 01 to 02"/>
 <link href="#rfc.appendix.A.3" rel="Chapter" title="A.3 Change from 02 to 03"/>
+<link href="#rfc.appendix.A.4" rel="Chapter" title="A.4 Change from 03 to 04"/>
 <link href="#rfc.authors" rel="Chapter"/>
 
 
   <meta name="generator" content="xml2rfc version 2.4.8 - http://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
-  <meta name="dct.creator" content="Gould, J. and T. Tran" />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-gould-change-poll-03" />
-  <meta name="dct.issued" scheme="ISO8601" content="2015-7-7" />
+  <meta name="dct.creator" content="Gould, J. and S. Wodjenski" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-gould-change-poll-04" />
+  <meta name="dct.issued" scheme="ISO8601" content="2016-3-15" />
   <meta name="dct.abstract" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client sponsored objects that were not initiated by the client through EPP. These operations MAY include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why." />
   <meta name="description" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client sponsored objects that were not initiated by the client through EPP. These operations MAY include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why." />
 
@@ -431,15 +432,15 @@
 </tr>
 <tr>
   <td class="left">Intended status: Standards Track</td>
-  <td class="right">T. Tran</td>
+  <td class="right">S. Wodjenski</td>
 </tr>
 <tr>
-  <td class="left">Expires: January 8, 2016</td>
+  <td class="left">Expires: September 16, 2016</td>
   <td class="right">Neustar</td>
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">July 7, 2015</td>
+  <td class="right">March 15, 2016</td>
 </tr>
 
     	
@@ -447,7 +448,7 @@
   </table>
 
   <p class="title">Change Poll Extension for the Extensible Provisioning Protocol (EPP)<br />
-  <span class="filename">draft-gould-change-poll-03</span></p>
+  <span class="filename">draft-gould-change-poll-04</span></p>
   
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
@@ -459,11 +460,11 @@
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on January 8, 2016.</p>
+<p>This Internet-Draft will expire on September 16, 2016.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
-<p>Copyright (c) 2015 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
+<p>Copyright (c) 2016 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (http://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
 
   
@@ -499,6 +500,7 @@
 <li>A.1.   <a href="#rfc.appendix.A.1">Change from 00 to 01</a></li>
 <li>A.2.   <a href="#rfc.appendix.A.2">Change from 01 to 02</a></li>
 <li>A.3.   <a href="#rfc.appendix.A.3">Change from 02 to 03</a></li>
+<li>A.4.   <a href="#rfc.appendix.A.4">Change from 03 to 04</a></li>
 <li><a href="#rfc.authors">Authors' Addresses</a></li>
 
 
@@ -1015,7 +1017,8 @@ END</pre>
 <h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#Security" id="Security">Security Considerations</a></h1>
 <p id="rfc.section.6.p.1">The mapping extensions described in this document do not provide any security services beyond those described by <a href="#RFC5730">EPP</a> <cite title="NONE">[RFC5730]</cite> and protocol layers used by EPP. The security considerations described in these other specifications apply to this specification as well.</p>
 <h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#Acknowledgements" id="Acknowledgements">Acknowledgements</a></h1>
-<p id="rfc.section.7.p.1">Special suggestions that have been incorporated into this document were provided by Michael Holloway.</p>
+<p id="rfc.section.7.p.1">The authors wish to acknowledge the original concept for this draft and the efforts in the initial versions of this draft by Trung Tran.</p>
+<p id="rfc.section.7.p.2">Special suggestions that have been incorporated into this document were provided by Michael Holloway.</p>
 <h1 id="rfc.references"><a href="#rfc.references">8.</a> Normative References</h1>
 <table>
   <tbody>
@@ -1077,6 +1080,12 @@ END</pre>
 <ol>
   <li>Fixed "before" state example to use the "before" state value based on feedback from Patrick Mevzek.</li>
 </ol>
+<h1 id="rfc.appendix.A.4"><a href="#rfc.appendix.A.4">A.4.</a> <a href="#change-03-to-04" id="change-03-to-04">Change from 03 to 04</a></h1>
+<p/>
+
+<ol>
+  <li>Updated the authors for the draft.</li>
+</ol>
 <h1 id="rfc.authors">
   <a href="#rfc.authors">Authors' Addresses</a>
 </h1>
@@ -1107,9 +1116,9 @@ END</pre>
 </div><div class="avoidbreak">
   <address class="vcard">
 	<span class="vcardline">
-	  <span class="fn">Trung Tran</span> 
+	  <span class="fn">Sharon Wodjenski</span> 
 	  <span class="n hidden">
-		<span class="family-name">Tran</span>
+		<span class="family-name">Wodjenski</span>
 	  </span>
 	</span>
 	<span class="org vcardline">Neustar</span>
@@ -1123,7 +1132,7 @@ END</pre>
 	  </span>
 	  <span class="country-name vcardline">US</span>
 	</span>
-	<span class="vcardline">EMail: <a href="mailto:Trung.Tran@neustar.biz">Trung.Tran@neustar.biz</a></span>
+	<span class="vcardline">EMail: <a href="mailto:Sharon.Wodjenski@neustar.biz">Sharon.Wodjenski@neustar.biz</a></span>
 
 <span class="vcardline">URI: <a href="http://www.neustar.biz">http://www.neustar.biz</a></span>
 
