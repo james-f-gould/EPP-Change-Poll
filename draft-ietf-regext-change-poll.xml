@@ -40,7 +40,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-regext-change-poll-00" ipr="trust200902">
+<rfc category="std" docName="draft-ietf-regext-change-poll-01" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN" 
@@ -96,7 +96,7 @@
       </address>
     </author>
 
-    <date day="14" month="October" year="2016"/>
+    <date day="17" month="April" year="2017"/>
 
     <abstract>
       <t>This document describes an Extensible Provisioning Protocol (EPP) 
@@ -933,6 +933,11 @@ END]]></artwork>
       <t><list style="numbers">
         <t>Changed to regext working group draft by changing draft-gould-change-poll to 
         draft-ietf-regext-change-poll.</t>
+      </list></t>
+    </section>
+    <section title="Change from REGEXT 00 to REGEXT 01" anchor="version-WG00-to-WG01">
+      <t><list style="numbers">
+        <t>Ping update.</t>
       </list></t>
     </section>
    </section>

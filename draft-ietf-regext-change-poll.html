@@ -405,15 +405,16 @@
 <link href="#rfc.appendix.A.4" rel="Chapter" title="A.4 Change from 03 to 04"/>
 <link href="#rfc.appendix.A.5" rel="Chapter" title="A.5 Change from 04 to 05"/>
 <link href="#rfc.appendix.A.6" rel="Chapter" title="A.6 Change from 05 to REGEXT 00"/>
+<link href="#rfc.appendix.A.7" rel="Chapter" title="A.7 Change from REGEXT 00 to REGEXT 01"/>
 <link href="#rfc.authors" rel="Chapter"/>
 
 
-  <meta name="generator" content="xml2rfc version 2.4.8 - http://tools.ietf.org/tools/xml2rfc" />
+  <meta name="generator" content="xml2rfc version 2.5.2 - http://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Gould, J. and S. Wodjenski" />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-regext-change-poll-00" />
-  <meta name="dct.issued" scheme="ISO8601" content="2016-10-14" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-regext-change-poll-01" />
+  <meta name="dct.issued" scheme="ISO8601" content="2017-4-17" />
   <meta name="dct.abstract" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client sponsored objects that were not initiated by the client through EPP. These operations MAY include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why." />
   <meta name="description" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client sponsored objects that were not initiated by the client through EPP. These operations MAY include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why." />
 
@@ -437,12 +438,12 @@
   <td class="right">S. Wodjenski</td>
 </tr>
 <tr>
-  <td class="left">Expires: April 17, 2017</td>
+  <td class="left">Expires: October 19, 2017</td>
   <td class="right">Neustar</td>
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">October 14, 2016</td>
+  <td class="right">April 17, 2017</td>
 </tr>
 
     	
@@ -450,7 +451,7 @@
   </table>
 
   <p class="title">Change Poll Extension for the Extensible Provisioning Protocol (EPP)<br />
-  <span class="filename">draft-ietf-regext-change-poll-00</span></p>
+  <span class="filename">draft-ietf-regext-change-poll-01</span></p>
   
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
@@ -462,11 +463,11 @@
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on April 17, 2017.</p>
+<p>This Internet-Draft will expire on October 19, 2017.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
-<p>Copyright (c) 2016 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
+<p>Copyright (c) 2017 IETF Trust and the persons identified as the document authors.  All rights reserved.</p>
 <p>This document is subject to BCP 78 and the IETF Trust's Legal Provisions Relating to IETF Documents (http://trustee.ietf.org/license-info) in effect on the date of publication of this document.  Please review these documents carefully, as they describe your rights and restrictions with respect to this document.  Code Components extracted from this document must include Simplified BSD License text as described in Section 4.e of the Trust Legal Provisions and are provided without warranty as described in the Simplified BSD License.</p>
 
   
@@ -475,37 +476,38 @@
   <ul class="toc">
 
   	<li>1.   <a href="#rfc.section.1">Introduction</a></li>
-<li>1.1.   <a href="#rfc.section.1.1">Conventions Used in This Document</a></li>
-<li>2.   <a href="#rfc.section.2">Object Attributes</a></li>
-<li>2.1.   <a href="#rfc.section.2.1">Operation</a></li>
+<ul><li>1.1.   <a href="#rfc.section.1.1">Conventions Used in This Document</a></li>
+</ul><li>2.   <a href="#rfc.section.2">Object Attributes</a></li>
+<ul><li>2.1.   <a href="#rfc.section.2.1">Operation</a></li>
 <li>2.2.   <a href="#rfc.section.2.2">Who</a></li>
-<li>3.   <a href="#rfc.section.3">EPP Command Mapping</a></li>
-<li>3.1.   <a href="#rfc.section.3.1">EPP Query Commands</a></li>
-<li>3.1.1.   <a href="#rfc.section.3.1.1">EPP &lt;check&gt; Command</a></li>
+</ul><li>3.   <a href="#rfc.section.3">EPP Command Mapping</a></li>
+<ul><li>3.1.   <a href="#rfc.section.3.1">EPP Query Commands</a></li>
+<ul><li>3.1.1.   <a href="#rfc.section.3.1.1">EPP &lt;check&gt; Command</a></li>
 <li>3.1.2.   <a href="#rfc.section.3.1.2">EPP &lt;info&gt; Command</a></li>
 <li>3.1.3.   <a href="#rfc.section.3.1.3">EPP &lt;transfer&gt; Command</a></li>
-<li>3.2.   <a href="#rfc.section.3.2">EPP Transform Commands</a></li>
-<li>3.2.1.   <a href="#rfc.section.3.2.1">EPP &lt;create&gt; Command</a></li>
+</ul><li>3.2.   <a href="#rfc.section.3.2">EPP Transform Commands</a></li>
+<ul><li>3.2.1.   <a href="#rfc.section.3.2.1">EPP &lt;create&gt; Command</a></li>
 <li>3.2.2.   <a href="#rfc.section.3.2.2">EPP &lt;delete&gt; Command</a></li>
 <li>3.2.3.   <a href="#rfc.section.3.2.3">EPP &lt;renew&gt; Command</a></li>
 <li>3.2.4.   <a href="#rfc.section.3.2.4">EPP &lt;transfer&gt; Command</a></li>
 <li>3.2.5.   <a href="#rfc.section.3.2.5">EPP &lt;update&gt; Command</a></li>
-<li>4.   <a href="#rfc.section.4">Formal Syntax</a></li>
-<li>4.1.   <a href="#rfc.section.4.1">Change Poll Extension Schema</a></li>
-<li>5.   <a href="#rfc.section.5">IANA Considerations</a></li>
-<li>5.1.   <a href="#rfc.section.5.1">XML Namespace</a></li>
+</ul></ul><li>4.   <a href="#rfc.section.4">Formal Syntax</a></li>
+<ul><li>4.1.   <a href="#rfc.section.4.1">Change Poll Extension Schema</a></li>
+</ul><li>5.   <a href="#rfc.section.5">IANA Considerations</a></li>
+<ul><li>5.1.   <a href="#rfc.section.5.1">XML Namespace</a></li>
 <li>5.2.   <a href="#rfc.section.5.2">EPP Extension Registry</a></li>
-<li>6.   <a href="#rfc.section.6">Security Considerations</a></li>
+</ul><li>6.   <a href="#rfc.section.6">Security Considerations</a></li>
 <li>7.   <a href="#rfc.section.7">Acknowledgements</a></li>
 <li>8.   <a href="#rfc.references">Normative References</a></li>
 <li>Appendix A.   <a href="#rfc.appendix.A">Change History</a></li>
-<li>A.1.   <a href="#rfc.appendix.A.1">Change from 00 to 01</a></li>
+<ul><li>A.1.   <a href="#rfc.appendix.A.1">Change from 00 to 01</a></li>
 <li>A.2.   <a href="#rfc.appendix.A.2">Change from 01 to 02</a></li>
 <li>A.3.   <a href="#rfc.appendix.A.3">Change from 02 to 03</a></li>
 <li>A.4.   <a href="#rfc.appendix.A.4">Change from 03 to 04</a></li>
 <li>A.5.   <a href="#rfc.appendix.A.5">Change from 04 to 05</a></li>
 <li>A.6.   <a href="#rfc.appendix.A.6">Change from 05 to REGEXT 00</a></li>
-<li><a href="#rfc.authors">Authors' Addresses</a></li>
+<li>A.7.   <a href="#rfc.appendix.A.7">Change from REGEXT 00 to REGEXT 01</a></li>
+</ul><li><a href="#rfc.authors">Authors' Addresses</a></li>
 
 
   </ul>
@@ -1030,37 +1032,37 @@ END</pre>
       <td class="reference">
         <b id="RFC2119">[RFC2119]</b>
       </td>
-      <td class="top"><a href="mailto:sob@harvard.edu" title="Harvard University">Bradner, S.</a>, "<a href="http://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>", BCP 14, RFC 2119, March 1997.</td>
+      <td class="top"><a>Bradner, S.</a>, "<a href="http://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>", BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997.</td>
     </tr>
     <tr>
       <td class="reference">
         <b id="RFC3688">[RFC3688]</b>
       </td>
-      <td class="top"><a>Mealling, M.</a>, "<a href="http://tools.ietf.org/html/rfc3688">The IETF XML Registry</a>", BCP 81, RFC 3688, January 2004.</td>
+      <td class="top"><a>Mealling, M.</a>, "<a href="http://tools.ietf.org/html/rfc3688">The IETF XML Registry</a>", BCP 81, RFC 3688, DOI 10.17487/RFC3688, January 2004.</td>
     </tr>
     <tr>
       <td class="reference">
         <b id="RFC3915">[RFC3915]</b>
       </td>
-      <td class="top"><a>Hollenbeck, S.</a>, "<a href="http://tools.ietf.org/html/rfc3915">Domain Registry Grace Period Mapping for the Extensible Provisioning Protocol (EPP)</a>", RFC 3915, September 2004.</td>
+      <td class="top"><a>Hollenbeck, S.</a>, "<a href="http://tools.ietf.org/html/rfc3915">Domain Registry Grace Period Mapping for the Extensible Provisioning Protocol (EPP)</a>", RFC 3915, DOI 10.17487/RFC3915, September 2004.</td>
     </tr>
     <tr>
       <td class="reference">
         <b id="RFC5730">[RFC5730]</b>
       </td>
-      <td class="top"><a>Hollenbeck, S.</a>, "<a href="http://tools.ietf.org/html/rfc5730">Extensible Provisioning Protocol (EPP)</a>", STD 69, RFC 5730, August 2009.</td>
+      <td class="top"><a>Hollenbeck, S.</a>, "<a href="http://tools.ietf.org/html/rfc5730">Extensible Provisioning Protocol (EPP)</a>", STD 69, RFC 5730, DOI 10.17487/RFC5730, August 2009.</td>
     </tr>
     <tr>
       <td class="reference">
         <b id="RFC5731">[RFC5731]</b>
       </td>
-      <td class="top"><a>Hollenbeck, S.</a>, "<a href="http://tools.ietf.org/html/rfc5731">Extensible Provisioning Protocol (EPP) Domain Name Mapping</a>", STD 69, RFC 5731, August 2009.</td>
+      <td class="top"><a>Hollenbeck, S.</a>, "<a href="http://tools.ietf.org/html/rfc5731">Extensible Provisioning Protocol (EPP) Domain Name Mapping</a>", STD 69, RFC 5731, DOI 10.17487/RFC5731, August 2009.</td>
     </tr>
     <tr>
       <td class="reference">
         <b id="RFC7451">[RFC7451]</b>
       </td>
-      <td class="top"><a>Hollenbeck, S.</a>, "<a href="http://tools.ietf.org/html/rfc7451">Extension Registry for the Extensible Provisioning Protocol</a>", RFC 7451, February 2015.</td>
+      <td class="top"><a>Hollenbeck, S.</a>, "<a href="http://tools.ietf.org/html/rfc7451">Extension Registry for the Extensible Provisioning Protocol</a>", RFC 7451, DOI 10.17487/RFC7451, February 2015.</td>
     </tr>
   </tbody>
 </table>
@@ -1101,6 +1103,12 @@ END</pre>
 
 <ol>
   <li>Changed to regext working group draft by changing draft-gould-change-poll to draft-ietf-regext-change-poll.</li>
+</ol>
+<h1 id="rfc.appendix.A.7"><a href="#rfc.appendix.A.7">A.7.</a> <a href="#version-WG00-to-WG01" id="version-WG00-to-WG01">Change from REGEXT 00 to REGEXT 01</a></h1>
+<p/>
+
+<ol>
+  <li>Ping update.</li>
 </ol>
 <h1 id="rfc.authors">
   <a href="#rfc.authors">Authors' Addresses</a>
