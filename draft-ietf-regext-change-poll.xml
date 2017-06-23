@@ -8,6 +8,7 @@
 <!ENTITY RFC3915 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3915.xml">
 <!ENTITY RFC5730 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5730.xml">
 <!ENTITY RFC5731 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5731.xml">
+<!ENTITY RFC6982 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6982.xml">
 <!ENTITY RFC7451 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7451.xml">
 <!ENTITY I-D.narten-iana-considerations-rfc2434bis SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.narten-iana-considerations-rfc2434bis.xml">
 ]>
@@ -40,7 +41,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-regext-change-poll-01" ipr="trust200902">
+<rfc category="std" docName="draft-ietf-regext-change-poll-02" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN" 
@@ -96,7 +97,7 @@
       </address>
     </author>
 
-    <date day="17" month="April" year="2017"/>
+    <date day="23" month="June" year="2017"/>
 
     <abstract>
       <t>This document describes an Extensible Provisioning Protocol (EPP) 
@@ -850,6 +851,63 @@ END]]></artwork>
  
     </section>
 
+    <section anchor="Implementation" title="Implementation Status">
+      <t>Note to RFC Editor: Please remove this section and the reference to
+         <xref target="RFC6982">RFC 6982</xref> before publication.</t>
+      <t>This section records the status of known implementations of the
+      protocol defined by this specification at the time of posting of
+      this Internet-Draft, and is based on a proposal described in <xref target="RFC6982">RFC
+      6982</xref>.  The description of implementations in this section is
+      intended to assist the IETF in its decision processes in
+      progressing drafts to RFCs.  Please note that the listing of any
+      individual implementation here does not imply endorsement by the
+      IETF.  Furthermore, no effort has been spent to verify the
+      information presented here that was supplied by IETF contributors.
+      This is not intended as, and must not be construed to be, a
+      catalog of available implementations or their features.  Readers
+      are advised to note that other implementations may exist.</t>
+      <t>According to <xref target="RFC6982">RFC 6982</xref>, "this will allow reviewers and working
+      groups to assign due consideration to documents that have the
+      benefit of running code, which may serve as evidence of valuable
+      experimentation and feedback that have made the implemented
+      protocols more mature.  It is up to the individual working groups
+      to use this information as they see fit".</t>
+      <section title="Verisign EPP SDK">
+        <t>Organization: Verisign Inc.</t>
+        <t>Name: Verisign EPP SDK</t>
+        <t>Description: The Verisign EPP SDK includes both a full client implementation 
+        and a full server stub implementation of draft-ietf-regext-change-poll.</t>  
+        <t>Level of maturity: Production</t>
+        <t>Coverage: All aspects of the protocol are implemented.</t>
+        <t>Licensing: GNU Lesser General Public License</t>
+        <t>Contact: jgould@verisign.com</t>
+        <t>URL: https://www.verisign.com/en_US/channel-resources/domain-registry-products/epp-sdks</t>
+      </section>
+      <section title="Verisign Consolidated Top Level Domain (CTLD) SRS">
+        <t>Organization: Verisign Inc.</t>
+        <t>Name: Verisign Consolidated Top Level Domain (CTLD) Shared Registry System (SRS)</t>
+        <t>Description: The Verisign Consolidated Top Level Domain (CTLD) Shared Registry System (SRS) 
+         implements the server-side of draft-ietf-regext-change-poll for a variety of Top Level Domains (TLD's).</t>  
+        <t>Level of maturity: Production</t>
+        <t>Coverage: The "after" state poll message for an "update" transform operation of a domain name 
+        due to server policy.</t>
+        <t>Licensing: Proprietary</t>
+        <t>Contact: jgould@verisign.com</t>
+      </section>
+      <section title="Verisign .COM / .NET SRS">
+        <t>Organization: Verisign Inc.</t>
+        <t>Name: Verisign .COM / .NET Shared Registry System (SRS)</t>
+        <t>Description: The Verisign Shared Registry System (SRS) for .COM and .NET  
+        implements the server-side of draft-ietf-regext-change-poll.</t>  
+        <t>Level of maturity: Production</t>
+        <t>Coverage: The "after" state poll message for an "update" transform operation of a domain name 
+        due to server policy.</t>
+        <t>Licensing: Proprietary</t>
+        <t>Contact: jgould@verisign.com</t>
+      </section>
+    </section>
+
+
 
     <section anchor="Security" title="Security Considerations">
       <t>The mapping extensions described in this document do not provide any
@@ -896,6 +954,8 @@ END]]></artwork>
       &RFC5730;
 
       &RFC5731;
+      
+      &RFC6982;      
 
       &RFC7451;
 
@@ -938,6 +998,11 @@ END]]></artwork>
     <section title="Change from REGEXT 00 to REGEXT 01" anchor="version-WG00-to-WG01">
       <t><list style="numbers">
         <t>Ping update.</t>
+      </list></t>
+    </section>
+    <section title="Change from REGEXT 01 to REGEXT 02" anchor="version-WG01-to-WG02">
+      <t><list style="numbers">
+        <t>Added the Implementation Status section.</t>
       </list></t>
     </section>
    </section>
