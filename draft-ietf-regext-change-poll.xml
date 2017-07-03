@@ -41,7 +41,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-regext-change-poll-02" ipr="trust200902">
+<rfc category="std" docName="draft-ietf-regext-change-poll-03" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN" 
@@ -75,29 +75,29 @@
       </address>
     </author>
 
-    <author fullname="Sharon Wodjenski" initials="S.W" surname="Wodjenski">
-      <organization>Neustar</organization>
+ 	<author fullname="Kal Feher" initials="K.F" surname="Feher">
+       <organization>Neustar</organization>
 
-      <address>
-        <postal>
-          <street>21575 Ridgetop Circle</street>
+       <address>
+          <postal>
+             <street>lvl 8/10 Queens Road</street>
 
-          <city>Sterling</city>
+             <city>Melbourne</city>
 
-          <region>VA</region>
+             <region>VIC</region>
 
-          <code>20166</code>
+             <code>3004</code>
 
-          <country>US</country>
-        </postal>
+             <country>AU</country>
+          </postal>
 
-        <email>Sharon.Wodjenski@neustar.biz</email>
+         <email>kal.feher@team.neustar</email>
 
-        <uri>http://www.neustar.biz</uri>
+         <uri>http://www.neustar.biz</uri>
       </address>
     </author>
 
-    <date day="23" month="June" year="2017"/>
+    <date day="3" month="July" year="2017"/>
 
     <abstract>
       <t>This document describes an Extensible Provisioning Protocol (EPP) 
@@ -919,7 +919,7 @@ END]]></artwork>
 
     <section anchor="Acknowledgements" title="Acknowledgements">
       <t>The authors wish to acknowledge the original concept for this draft and the 
-      efforts in the initial versions of this draft by Trung Tran.</t> 
+      efforts in the initial versions of this draft by Trung Tran and Sharon Wodjenski.</t> 
       
       <t>Special suggestions that have been incorporated into this document 
       were provided by Michael Holloway.</t>
@@ -1003,6 +1003,11 @@ END]]></artwork>
     <section title="Change from REGEXT 01 to REGEXT 02" anchor="version-WG01-to-WG02">
       <t><list style="numbers">
         <t>Added the Implementation Status section.</t>
+      </list></t>
+    </section>
+    <section title="Change from REGEXT 02 to REGEXT 03" anchor="version-WG02-to-WG03">
+      <t><list style="numbers">
+        <t>Changed Neustar author to Kal Feher.</t>
       </list></t>
     </section>
    </section>

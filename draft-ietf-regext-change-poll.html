@@ -411,15 +411,16 @@
 <link href="#rfc.appendix.A.6" rel="Chapter" title="A.6 Change from 05 to REGEXT 00"/>
 <link href="#rfc.appendix.A.7" rel="Chapter" title="A.7 Change from REGEXT 00 to REGEXT 01"/>
 <link href="#rfc.appendix.A.8" rel="Chapter" title="A.8 Change from REGEXT 01 to REGEXT 02"/>
+<link href="#rfc.appendix.A.9" rel="Chapter" title="A.9 Change from REGEXT 02 to REGEXT 03"/>
 <link href="#rfc.authors" rel="Chapter"/>
 
 
   <meta name="generator" content="xml2rfc version 2.5.2 - http://tools.ietf.org/tools/xml2rfc" />
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
-  <meta name="dct.creator" content="Gould, J. and S. Wodjenski" />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-regext-change-poll-02" />
-  <meta name="dct.issued" scheme="ISO8601" content="2017-6-23" />
+  <meta name="dct.creator" content="Gould, J. and K. Feher" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-regext-change-poll-03" />
+  <meta name="dct.issued" scheme="ISO8601" content="2017-7-3" />
   <meta name="dct.abstract" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client sponsored objects that were not initiated by the client through EPP. These operations MAY include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why." />
   <meta name="description" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client sponsored objects that were not initiated by the client through EPP. These operations MAY include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why." />
 
@@ -440,15 +441,15 @@
 </tr>
 <tr>
   <td class="left">Intended status: Standards Track</td>
-  <td class="right">S. Wodjenski</td>
+  <td class="right">K. Feher</td>
 </tr>
 <tr>
-  <td class="left">Expires: December 25, 2017</td>
+  <td class="left">Expires: January 4, 2018</td>
   <td class="right">Neustar</td>
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">June 23, 2017</td>
+  <td class="right">July 3, 2017</td>
 </tr>
 
     	
@@ -456,7 +457,7 @@
   </table>
 
   <p class="title">Change Poll Extension for the Extensible Provisioning Protocol (EPP)<br />
-  <span class="filename">draft-ietf-regext-change-poll-02</span></p>
+  <span class="filename">draft-ietf-regext-change-poll-03</span></p>
   
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
@@ -468,7 +469,7 @@
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on December 25, 2017.</p>
+<p>This Internet-Draft will expire on January 4, 2018.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -517,6 +518,7 @@
 <li>A.6.   <a href="#rfc.appendix.A.6">Change from 05 to REGEXT 00</a></li>
 <li>A.7.   <a href="#rfc.appendix.A.7">Change from REGEXT 00 to REGEXT 01</a></li>
 <li>A.8.   <a href="#rfc.appendix.A.8">Change from REGEXT 01 to REGEXT 02</a></li>
+<li>A.9.   <a href="#rfc.appendix.A.9">Change from REGEXT 02 to REGEXT 03</a></li>
 </ul><li><a href="#rfc.authors">Authors' Addresses</a></li>
 
 
@@ -1062,7 +1064,7 @@ END</pre>
 <h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#Security" id="Security">Security Considerations</a></h1>
 <p id="rfc.section.7.p.1">The mapping extensions described in this document do not provide any security services beyond those described by <a href="#RFC5730">EPP</a> <cite title="NONE">[RFC5730]</cite> and protocol layers used by EPP. The security considerations described in these other specifications apply to this specification as well.</p>
 <h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#Acknowledgements" id="Acknowledgements">Acknowledgements</a></h1>
-<p id="rfc.section.8.p.1">The authors wish to acknowledge the original concept for this draft and the efforts in the initial versions of this draft by Trung Tran.</p>
+<p id="rfc.section.8.p.1">The authors wish to acknowledge the original concept for this draft and the efforts in the initial versions of this draft by Trung Tran and Sharon Wodjenski.</p>
 <p id="rfc.section.8.p.2">Special suggestions that have been incorporated into this document were provided by Michael Holloway.</p>
 <h1 id="rfc.references"><a href="#rfc.references">9.</a> Normative References</h1>
 <table>
@@ -1161,6 +1163,12 @@ END</pre>
 <ol>
   <li>Added the Implementation Status section.</li>
 </ol>
+<h1 id="rfc.appendix.A.9"><a href="#rfc.appendix.A.9">A.9.</a> <a href="#version-WG02-to-WG03" id="version-WG02-to-WG03">Change from REGEXT 02 to REGEXT 03</a></h1>
+<p/>
+
+<ol>
+  <li>Changed Neustar author to Kal Feher.</li>
+</ol>
 <h1 id="rfc.authors">
   <a href="#rfc.authors">Authors' Addresses</a>
 </h1>
@@ -1191,23 +1199,23 @@ END</pre>
 </div><div class="avoidbreak">
   <address class="vcard">
 	<span class="vcardline">
-	  <span class="fn">Sharon Wodjenski</span> 
+	  <span class="fn">Kal Feher</span> 
 	  <span class="n hidden">
-		<span class="family-name">Wodjenski</span>
+		<span class="family-name">Feher</span>
 	  </span>
 	</span>
 	<span class="org vcardline">Neustar</span>
 	<span class="adr">
-	  <span class="vcardline">21575 Ridgetop Circle</span>
+	  <span class="vcardline">lvl 8/10 Queens Road</span>
 
 	  <span class="vcardline">
-		<span class="locality">Sterling</span>,  
-		<span class="region">VA</span> 
-		<span class="code">20166</span>
+		<span class="locality">Melbourne</span>,  
+		<span class="region">VIC</span> 
+		<span class="code">3004</span>
 	  </span>
-	  <span class="country-name vcardline">US</span>
+	  <span class="country-name vcardline">AU</span>
 	</span>
-	<span class="vcardline">EMail: <a href="mailto:Sharon.Wodjenski@neustar.biz">Sharon.Wodjenski@neustar.biz</a></span>
+	<span class="vcardline">EMail: <a href="mailto:kal.feher@team.neustar">kal.feher@team.neustar</a></span>
 
 <span class="vcardline">URI: <a href="http://www.neustar.biz">http://www.neustar.biz</a></span>
 
