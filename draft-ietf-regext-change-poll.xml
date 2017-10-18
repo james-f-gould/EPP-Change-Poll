@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="US-ASCII"?>
 <!DOCTYPE rfc SYSTEM "rfc2629.dtd" [
 <!-- One method to get references from the online citation libraries.
-     There has to be one entity for each item to be referenced. 
+     There has to be one entity for each item to be referenced.
      An alternate method (rfc include) is described in the references. -->
 <!ENTITY RFC2119 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
 <!ENTITY RFC3688 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3688.xml">
@@ -14,7 +14,7 @@
 ]>
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 <!-- used by XSLT processors -->
-<!-- For a complete list and description of processing instructions (PIs), 
+<!-- For a complete list and description of processing instructions (PIs),
      please see http://xml.resource.org/authoring/README.html. -->
 <!-- Below are generally applicable Processing Instructions (PIs) that most I-Ds might want to use.
      (Here they are set differently than their defaults in xml2rfc v1.32) -->
@@ -30,7 +30,7 @@
 <!-- use symbolic references tags, i.e, [RFC2119] instead of [1] -->
 <?rfc sortrefs="yes" ?>
 <!-- sort the reference entries alphabetically -->
-<!-- control vertical white space 
+<!-- control vertical white space
      (using these PIs as follows is recommended by the RFC Editor) -->
 <?rfc compact="yes" ?>
 <!-- do not start each main section on a new page -->
@@ -44,7 +44,7 @@
 <rfc category="std" docName="draft-ietf-regext-change-poll-03" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
-     you can add the attributes updates="NNNN" and obsoletes="NNNN" 
+     you can add the attributes updates="NNNN" and obsoletes="NNNN"
      they will automatically be output with "(if approved)" -->
 
   <!-- ***** FRONT MATTER ***** -->
@@ -100,20 +100,20 @@
     <date day="3" month="July" year="2017"/>
 
     <abstract>
-      <t>This document describes an Extensible Provisioning Protocol (EPP) 
-      extension for notifying clients of operations on client sponsored objects 
-      that were not initiated by the client through EPP. These operations MAY 
-      include contractual or policy requirements including but not limited to 
-      regular batch processes, customer support actions, Uniform Domain-Name 
-      Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) 
-      actions, court directed actions, and bulk updates based on customer 
-      requests.  Since the client is not directly involved or knowledgable of 
-      these operations, the extension is used along with an EPP object mapping 
-      to provide the resulting state of the post-operation object, and 
-      optionally a pre-operation object, with the operation meta-data of 
+      <t>This document describes an Extensible Provisioning Protocol (EPP)
+      extension for notifying clients of operations on client sponsored objects
+      that were not initiated by the client through EPP. These operations MAY
+      include contractual or policy requirements including but not limited to
+      regular batch processes, customer support actions, Uniform Domain-Name
+      Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS)
+      actions, court directed actions, and bulk updates based on customer
+      requests.  Since the client is not directly involved or knowledgable of
+      these operations, the extension is used along with an EPP object mapping
+      to provide the resulting state of the post-operation object, and
+      optionally a pre-operation object, with the operation meta-data of
       what, when, who, and why.</t>
     </abstract>
-        
+
   </front>
 
   <middle>
@@ -121,18 +121,18 @@
       <t>This document describes an extension mapping for version 1.0 of the
       <xref target="RFC5730">Extensible Provisioning Protocol (EPP)</xref>.
       This mapping, an extension to EPP object mappings like the <xref
-      target="RFC5731">EPP domain name mapping</xref>, is used to notify 
-      clients of operations they are not directly involved in, 
-      on objects that the client sponsors.  
-      It is up to server policy to determine what transform operations and 
-      clients to notify.  
-      Using this extension clients can 
-      more easily keep their systems in-sync with the objects stored in the 
-      server.  When a change occurs that a client needs to be 
-      notified of, a poll message can be inserted by the server for 
-      consumption by the client using the EPP &lt;poll&gt; command and 
-      response defined in <xref target="RFC5730"/>.  The extension supports 
-      including a "before" operation poll message and an "after" 
+      target="RFC5731">EPP domain name mapping</xref>, is used to notify
+      clients of operations they are not directly involved in,
+      on objects that the client sponsors.
+      It is up to server policy to determine what transform operations and
+      clients to notify.
+      Using this extension clients can
+      more easily keep their systems in-sync with the objects stored in the
+      server.  When a change occurs that a client needs to be
+      notified of, a poll message can be inserted by the server for
+      consumption by the client using the EPP &lt;poll&gt; command and
+      response defined in <xref target="RFC5730"/>.  The extension supports
+      including a "before" operation poll message and an "after"
       operation poll message.</t>
 
       <section title="Conventions Used in This Document">
@@ -145,15 +145,15 @@
         and examples provided in this document MUST be interpreted in the
         character case presented in order to develop a conforming
         implementation.</t>
-        
-        <t>In examples, "C:" represents lines sent by a protocol client and "S:" represents lines returned by a protocol server.  
-        Indentation and white space in examples are provided only to illustrate element relationships 
-        and are not a REQUIRED feature of this protocol.        
+
+        <t>In examples, "C:" represents lines sent by a protocol client and "S:" represents lines returned by a protocol server.
+        Indentation and white space in examples are provided only to illustrate element relationships
+        and are not a REQUIRED feature of this protocol.
         </t>
 
         <t>"changePoll-1.0" is used as an abbreviation for
-        "urn:ietf:params:xml:ns:changePoll-1.0". The XML namespace prefix 
-        "changePoll" is used, but implementations MUST NOT depend on 
+        "urn:ietf:params:xml:ns:changePoll-1.0". The XML namespace prefix
+        "changePoll" is used, but implementations MUST NOT depend on
         it and instead employ
         a proper namespace-aware XML parser and serializer to interpret and
         output the XML documents.</t>
@@ -161,124 +161,124 @@
     </section>
 
     <section anchor="attrs" title="Object Attributes">
-    
+
       <t>This extension adds additional elements to EPP object mappings like the <xref
       target="RFC5731">EPP domain name mapping</xref>. Only those new elements
       are described here.</t>
-      
+
       <section anchor="operation" title="Operation">
-        
-        <t>An operation consists of any transform operation that impacts 
-        objects that the client sponsers and SHOULD be notified of.  The 
-        &lt;changePoll:operation&gt; element defines the operation.  The OPTIONAL "op" 
-        attribute is used to define a sub-operation or the name of a "custom" operation.  
+
+        <t>An operation consists of any transform operation that impacts
+        objects that the client sponsers and SHOULD be notified of.  The
+        &lt;changePoll:operation&gt; element defines the operation.  The OPTIONAL "op"
+        attribute is used to define a sub-operation or the name of a "custom" operation.
         The enumerated list of &lt;changePoll:operation&gt; values include:</t>
-        
+
 		  <t><list hangIndent="4" style="hanging">
-				<t hangText="&quot;create&quot;">Create operation as defined in <xref target="RFC5730"/>.</t>			  
-				<t hangText="&quot;delete&quot;">Delete operation as defined in <xref target="RFC5730"/>.  If the delete operation results in an immediate 
-				purge of the object, then the "op" attribute MUST be set to "purge".</t>				  
-				<t hangText="&quot;renew&quot;">Renew operation as defined in <xref target="RFC5730"/>.</t>			  
-				<t hangText="&quot;transfer&quot;">Transfer operation as defined in <xref target="RFC5730"/> with the OPTIONAL 
-				"op" attribute defining the transfer type with the possible values of "request", "approve", "cancel", and "reject".</t>			  
-				<t hangText="&quot;update&quot;">Update operation as defined in <xref target="RFC5730"/>.</t>			  
-				<t hangText="&quot;restore&quot;">Restore operation as defined in <xref target="RFC3915"/> with the OPTIONAL 
-				"op" attribute defining the restore type with the possible values of "request" and "report".</t>	
-				<t hangText="&quot;autoRenew&quot;">Auto renew operation executed by the server.</t>	
-				<t hangText="&quot;autoDelete&quot;">Auto delete operation executed by the server.  If the "autoDelete" operation results in an immediate 
-				purge of the object, then the "op" attribute MUST be set to "purge".</t>	
-				<t hangText="&quot;autoPurge&quot;">Auto purge operation executed by the server when removing the object 
-				after it had the "pendingDelete" status.</t>	
-				<t hangText="&quot;custom&quot;">Custom operation that uses the "op" attribute to define the custom operation name.</t> 						
+				<t hangText="&quot;create&quot;">Create operation as defined in <xref target="RFC5730"/>.</t>
+				<t hangText="&quot;delete&quot;">Delete operation as defined in <xref target="RFC5730"/>.  If the delete operation results in an immediate
+				purge of the object, then the "op" attribute MUST be set to "purge".</t>
+				<t hangText="&quot;renew&quot;">Renew operation as defined in <xref target="RFC5730"/>.</t>
+				<t hangText="&quot;transfer&quot;">Transfer operation as defined in <xref target="RFC5730"/> with the OPTIONAL
+				"op" attribute defining the transfer type with the possible values of "request", "approve", "cancel", and "reject".</t>
+				<t hangText="&quot;update&quot;">Update operation as defined in <xref target="RFC5730"/>.</t>
+				<t hangText="&quot;restore&quot;">Restore operation as defined in <xref target="RFC3915"/> with the OPTIONAL
+				"op" attribute defining the restore type with the possible values of "request" and "report".</t>
+				<t hangText="&quot;autoRenew&quot;">Auto renew operation executed by the server.</t>
+				<t hangText="&quot;autoDelete&quot;">Auto delete operation executed by the server.  If the "autoDelete" operation results in an immediate
+				purge of the object, then the "op" attribute MUST be set to "purge".</t>
+				<t hangText="&quot;autoPurge&quot;">Auto purge operation executed by the server when removing the object
+				after it had the "pendingDelete" status.</t>
+				<t hangText="&quot;custom&quot;">Custom operation that uses the "op" attribute to define the custom operation name.</t>
 		  </list></t>
-                    
-      </section> 
-      
+
+      </section>
+
       <section anchor="who" title="Who">
-        
-        <t>Who defines who executed the operation for audit purposes, and is represented using the &lt;changePoll:who&gt; element.  
-        The scheme used for the possible set of Who 
+
+        <t>Who defines who executed the operation for audit purposes, and is represented using the &lt;changePoll:who&gt; element.
+        The scheme used for the possible set of Who
         values is up to server policy.  The server MAY identify Who based on:
         </t>
-        
+
 		  <t><list hangIndent="4" style="hanging">
-				<t hangText="&quot;Identifier&quot;">Unique user identifier of the user that executed the operation.  An 
-				example is "ClientX".</t>			  
-				<t hangText="&quot;Name&quot;">Name of the user that executed the operation.  An example is "John Doe".</t>				  
-				<t hangText="&quot;Role&quot;">Role of the user that executed operation.  An example is "CSR" for a Customer 
-				Support Representative or "Batch" for a server batch.</t>			  
+				<t hangText="&quot;Identifier&quot;">Unique user identifier of the user that executed the operation.  An
+				example is "ClientX".</t>
+				<t hangText="&quot;Name&quot;">Name of the user that executed the operation.  An example is "John Doe".</t>
+				<t hangText="&quot;Role&quot;">Role of the user that executed operation.  An example is "CSR" for a Customer
+				Support Representative or "Batch" for a server batch.</t>
 		  </list></t>
-                    
-      </section> 
-      
- 
+
+      </section>
+
+
     </section>
 
     <section anchor="commands" title="EPP Command Mapping">
       <t>A detailed description of the EPP syntax and semantics can be found
       in the EPP core protocol specification <xref target="RFC5730"/>.</t>
-      
+
       <section anchor="queryCommands" title="EPP Query Commands">
-      
-        <t>EPP provides three commands to retrieve object information: &lt;check&gt; to determine 
-        if an object is known to the server, &lt;info&gt; to retrieve detailed information associated 
+
+        <t>EPP provides three commands to retrieve object information: &lt;check&gt; to determine
+        if an object is known to the server, &lt;info&gt; to retrieve detailed information associated
         with an object, and &lt;transfer&gt; to retrieve object transfer status information.</t>
 
       <section anchor="checkCommand" title="EPP &lt;check&gt; Command">
-      
-       <t>This extension does not add any elements to the EPP &lt;check&gt; command 
+
+       <t>This extension does not add any elements to the EPP &lt;check&gt; command
        or &lt;check&gt; response described in the <xref target="RFC5730"/>.</t>
-		  
+
       </section>
 
       <!-- end CHECK command -->
 
       <section anchor="infoCommand" title="EPP &lt;info&gt; Command">
- 
+
         <t>This extension does not add any elements to the EPP &lt;info&gt; command
         described in the <xref target="RFC5730"/>.</t>
-        
-        <t>This extension adds transaction detail of the operations to the 
-        EPP &lt;info&gt; poll response, as described in <xref target="RFC5730"/>, 
-        of an EPP Object Mapping like <xref target="RFC5731"/>.  Any transform operation 
-        to an object defined in an EPP Object Mapping, by a client other than the sponsoring 
-        client, MAY result in extending the &lt;info&gt; response of the object for 
-        inserting an EPP poll message with the operation detail.  
-        The sponsoring client will then receive the  
-        state of the object with operation detail like what, who, when, and why the object 
-        was changed.  The &lt;changePoll:changeData&gt; element contains the operation detail along 
-        with an indication of whether the object reflects the state before or after the operation, using the 
-        OPTIONAL "state" attribute, with the possible values of "before" or "after", and with a default value of "after".  The 
-        "state" attribute describes the state of the response data or &lt;resData&gt; block returned in the poll response.  
-        The server MAY support providing the "before" state and "after" state to the operation, by using one 
-        poll message for the "before" state and one poll message for the "after" state.  When using the "before" state poll message, 
-        it MUST be inserted prior to the "after" state poll message.  
+
+        <t>This extension adds transaction detail of the operations to the
+        EPP &lt;info&gt; poll response, as described in <xref target="RFC5730"/>,
+        of an EPP Object Mapping like <xref target="RFC5731"/>.  Any transform operation
+        to an object defined in an EPP Object Mapping, by a client other than the sponsoring
+        client, MAY result in extending the &lt;info&gt; response of the object for
+        inserting an EPP poll message with the operation detail.
+        The sponsoring client will then receive the
+        state of the object with operation detail like what, who, when, and why the object
+        was changed.  The &lt;changePoll:changeData&gt; element contains the operation detail along
+        with an indication of whether the object reflects the state before or after the operation, using the
+        OPTIONAL "state" attribute, with the possible values of "before" or "after", and with a default value of "after".  The
+        "state" attribute describes the state of the response data or &lt;resData&gt; block returned in the poll response.
+        The server MAY support providing the "before" state and "after" state to the operation, by using one
+        poll message for the "before" state and one poll message for the "after" state.  When using the "before" state poll message,
+        it MUST be inserted prior to the "after" state poll message.
         The &lt;changePoll:changeData&gt; element includes the operation detail with the following child elements:</t>
 
 		 <t><list hangIndent="4" style="hanging">
-			  <t hangText="&lt;changePoll:operation&gt;">Transform operation executed on the object as defined 
+			  <t hangText="&lt;changePoll:operation&gt;">Transform operation executed on the object as defined
 			  in <xref target="operation"/>.</t>
 			  <t hangText="&lt;changePoll:date&gt;">Date and time when the operation was executed.</t>
 			  <t hangText="&lt;changePoll:svTRID&gt;">Server transaction identifier of the operation.</t>
 			  <t hangText="&lt;changePoll:who&gt;">Who executed the operation as defined in <xref target="who"/>.</t>
-			  <t hangText="&lt;changePoll:caseId&gt;">OPTIONAL case identifer associated with the operation.  The required 
+			  <t hangText="&lt;changePoll:caseId&gt;">OPTIONAL case identifer associated with the operation.  The required
 			  "type" attribute defines the type of case with an enumerated list of case types including:</t>
 			    <t><list hangIndent="4" style="hanging">
 			      <t hangText="udrp">a Uniform Domain-Name Dispute-Resolution Policy (UDRP) case.</t>
 			      <t hangText="urs">a Uniform Rapid Suspension (URS) case.</t>
 			      <t hangText="custom">A custom case that is defined using the "name" attribute.</t>
 			    </list></t>
-			  <t hangText="&lt;changePoll:reason&gt;">OPTIONAL reason for executing the operation.  If present, 
-			  this element contains the server-specific text to help explain the reason the operation was executed.  
-			  This text MUST be represented in the response language previously negotiated with the client; an 
-			  OPTIONAL "lang" attribute MAY be present to identify the language if the negotiated value 
-			  is something other than the default value of "en" (English).</t> 
+			  <t hangText="&lt;changePoll:reason&gt;">OPTIONAL reason for executing the operation.  If present,
+			  this element contains the server-specific text to help explain the reason the operation was executed.
+			  This text MUST be represented in the response language previously negotiated with the client; an
+			  OPTIONAL "lang" attribute MAY be present to identify the language if the negotiated value
+			  is something other than the default value of "en" (English).</t>
 		</list></t>
 
 
        <figure>
-            <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; 
-            extension for a URS lock transaction on the domain.example domain name, with the 
+            <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt;
+            extension for a URS lock transaction on the domain.example domain name, with the
             "before" state.  The "before" state is reflected in the &lt;resData&gt; block:</preamble>
 
             <artwork><![CDATA[
@@ -309,7 +309,7 @@ S:        <domain:exDate>2014-04-03T22:00:00.0Z</domain:exDate>
 S:      </domain:infData>
 S:    </resData>
 S:    <extension>
-S:      <changePoll:changeData 
+S:      <changePoll:changeData
 S:        xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"
 S:        state="before">
 S:        <changePoll:operation>update</changePoll:operation>
@@ -329,8 +329,8 @@ S:</epp>]]></artwork>
        </figure>
 
        <figure>
-            <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; 
-            extension for a URS lock transaction on the domain.example domain name, with the 
+            <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt;
+            extension for a URS lock transaction on the domain.example domain name, with the
             "after" state. The "after" state is reflected in the &lt;resData&gt; block:</preamble>
 
             <artwork><![CDATA[
@@ -365,7 +365,7 @@ S:        <domain:exDate>2014-04-03T22:00:00.0Z</domain:exDate>
 S:      </domain:infData>
 S:    </resData>
 S:    <extension>
-S:      <changePoll:changeData 
+S:      <changePoll:changeData
 S:        xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"
 S:        state="after">
 S:        <changePoll:operation>update</changePoll:operation>
@@ -383,10 +383,10 @@ S:    </trID>
 S:   </response>
 S:</epp>]]></artwork>
        </figure>
-       
+
        <figure>
-            <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; 
-            extension for a custom "sync" operation on the domain.example domain name, with 
+            <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt;
+            extension for a custom "sync" operation on the domain.example domain name, with
             the default "after" state.  The "after" state is reflected in the &lt;resData&gt; block:</preamble>
 
             <artwork><![CDATA[
@@ -418,7 +418,7 @@ S:        <domain:exDate>2014-04-03T22:00:00.0Z</domain:exDate>
 S:      </domain:infData>
 S:    </resData>
 S:    <extension>
-S:      <changePoll:changeData 
+S:      <changePoll:changeData
 S:        xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0">
 S:        <changePoll:operation op="sync">custom
 S:        </changePoll:operation>
@@ -436,11 +436,11 @@ S:    </trID>
 S:   </response>
 S:</epp>]]></artwork>
        </figure>
-       
+
        <figure>
-            <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; 
-            extension for a "delete" operation on the domain.example domain name that is 
-            immediately purged, with the default "after" state.  The "after" state is reflected in the 
+            <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt;
+            extension for a "delete" operation on the domain.example domain name that is
+            immediately purged, with the default "after" state.  The "after" state is reflected in the
             &lt;resData&gt; block:</preamble>
 
             <artwork><![CDATA[
@@ -452,7 +452,7 @@ S:         <msg>Command completed successfully; ack to dequeue</msg>
 S:      </result>
 S:      <msgQ id="200" count="1">
 S:         <qDate>2013-10-22T14:25:57.0Z</qDate>
-S:         <msg>Registry initiated delete of 
+S:         <msg>Registry initiated delete of
 S:         domain resulting in immediate purge.</msg>
 S:      </msgQ>
 S:      <resData>
@@ -461,10 +461,10 @@ S:          xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
 S:          <domain:name>domain.example</domain:name>
 S:          <domain:roid>EXAMPLE1-REP</domain:roid>
 S:          <domain:clID>ClientX</domain:clID>
-S:        </domain:infData>      
+S:        </domain:infData>
 S:      </resData>
 S:      <extension>
-S:        <changePoll:changeData 
+S:        <changePoll:changeData
 S:          xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0">
 S:          <changePoll:operation op="purge">
 S:            delete</changePoll:operation>
@@ -483,9 +483,9 @@ S:</epp>]]></artwork>
        </figure>
 
        <figure>
-            <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; 
-            extension for an "autoPurge" operation on the domain.example domain name that  
-            previously had the "pendingDelete" status, with the default "after" state.  
+            <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt;
+            extension for an "autoPurge" operation on the domain.example domain name that
+            previously had the "pendingDelete" status, with the default "after" state.
             The "after" state is reflected in the &lt;resData&gt; block:</preamble>
 
             <artwork><![CDATA[
@@ -505,10 +505,10 @@ S:          xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
 S:          <domain:name>domain.example</domain:name>
 S:          <domain:roid>EXAMPLE1-REP</domain:roid>
 S:          <domain:clID>ClientX</domain:clID>
-S:        </domain:infData>      
+S:        </domain:infData>
 S:      </resData>
 S:      <extension>
-S:        <changePoll:changeData 
+S:        <changePoll:changeData
 S:          xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0">
 S:          <changePoll:operation>
 S:            autoPurge</changePoll:operation>
@@ -529,8 +529,8 @@ S:</epp>]]></artwork>
        </figure>
 
        <figure>
-            <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; 
-            extension for an "update" operation on the ns1.domain.example host, with 
+            <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt;
+            extension for an "update" operation on the ns1.domain.example host, with
             the default "after" state.  The "after" state is reflected in the &lt;resData&gt; block:</preamble>
 
             <artwork><![CDATA[
@@ -562,7 +562,7 @@ S:        <host:upDate>2013-10-22T14:25:57.0Z</host:upDate>
 S:      </host:infData>
 S:    </resData>
 S:    <extension>
-S:      <changePoll:changeData 
+S:      <changePoll:changeData
 S:        xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0">
 S:        <changePoll:operation>update</changePoll:operation>
 S:        <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
@@ -579,78 +579,78 @@ S:   </response>
 S:</epp>]]></artwork>
        </figure>
 
-       
+
       </section>
       <!-- end INFO command -->
-      
+
       <section anchor="transferQueryCommand" title="EPP &lt;transfer&gt; Command">
-      
-       <t>This extension does not add any elements to the EPP &lt;transfer&gt; query command 
+
+       <t>This extension does not add any elements to the EPP &lt;transfer&gt; query command
        or &lt;transfer&gt; response described in the <xref target="RFC5730"/>.</t>
 
       </section>
       <!-- end TRANSFER QUERY command -->
-      
+
       </section>
-      
+
       <section anchor="transformCommands" title="EPP Transform Commands">
-      
-        <t>EPP provides five commands to transform objects: &lt;create&gt; to create an instance of an object, 
+
+        <t>EPP provides five commands to transform objects: &lt;create&gt; to create an instance of an object,
         &lt;delete&gt; to delete an instance of an object, &lt;renew&gt; to extend the validity period of an object,
-        &lt;transfer&gt; to manage object sponsorship changes, and &lt;update&gt; to change information associated 
+        &lt;transfer&gt; to manage object sponsorship changes, and &lt;update&gt; to change information associated
         with an object.</t>
 
       <section anchor="createCommand" title="EPP &lt;create&gt; Command">
-      
-       <t>This extension does not add any elements to the EPP &lt;create&gt; command 
+
+       <t>This extension does not add any elements to the EPP &lt;create&gt; command
        or &lt;create&gt; response described in the <xref target="RFC5730"/>.</t>
-       
+
       </section>
       <!-- end CREATE command -->
 
       <section anchor="deleteCommand" title="EPP &lt;delete&gt; Command">
-      
-       <t>This extension does not add any elements to the EPP &lt;delete&gt; command 
+
+       <t>This extension does not add any elements to the EPP &lt;delete&gt; command
        or &lt;delete&gt; response described in the <xref target="RFC5730"/>.</t>
-         
+
       </section>
       <!-- end DELETE command -->
 
       <section anchor="renewCommand" title="EPP &lt;renew&gt; Command">
-      
-       <t>This extension does not add any elements to the EPP &lt;renew&gt; command 
+
+       <t>This extension does not add any elements to the EPP &lt;renew&gt; command
        or &lt;renew&gt; response described in the <xref target="RFC5730"/>.</t>
-       
+
       </section>
       <!-- end RENEW command -->
-      
+
       <section anchor="transferCommand" title="EPP &lt;transfer&gt; Command">
-      
-       <t>This extension does not add any elements to the EPP &lt;transfer&gt; command 
+
+       <t>This extension does not add any elements to the EPP &lt;transfer&gt; command
        or &lt;transfer&gt; response described in the <xref target="RFC5730"/>.</t>
-       
+
       </section>
       <!-- end TRANSFER command -->
-      
+
       <section anchor="updateCommand" title="EPP &lt;update&gt; Command">
-      
-       <t>This extension does not add any elements to the EPP &lt;update&gt; command 
+
+       <t>This extension does not add any elements to the EPP &lt;update&gt; command
        or &lt;update&gt; response described in the <xref target="RFC5730"/>.</t>
-        
+
       </section>
       <!-- end UPDATE command -->
 
     </section>
-      
+
     </section>
 
     <!-- EPP command mapping -->
 
     <section anchor="syntax" title="Formal Syntax">
-    
+
       <t>One schema is presented here that is the EPP Change Poll Extension
       schema.</t>
-      
+
       <t>The formal
       syntax presented here is a complete schema representation of the object
       mapping suitable for automated validation of EPP XML instances. The
@@ -669,14 +669,14 @@ BEGIN
          xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"
          xmlns="http://www.w3.org/2001/XMLSchema"
          elementFormDefault="qualified">
-  
+
   <!--
   Import common element types.
   -->
   <import namespace="urn:ietf:params:xml:ns:eppcom-1.0"/>
   <import namespace="urn:ietf:params:xml:ns:epp-1.0"/>
-  
-  
+
+
    <annotation>
      <documentation>
        Extensible Provisioning Protocol v1.0
@@ -688,7 +688,7 @@ BEGIN
     Change element.
    -->
    <element name="changeData" type="changePoll:changeDataType"/>
-   
+
    <!--
     Attributes associated with the change.
    -->
@@ -700,13 +700,13 @@ BEGIN
        <element name="who" type="changePoll:whoType"/>
        <element name="caseId" type="changePoll:caseIdType"
          minOccurs="0"/>
-       <element name="reason" type="eppcom:reasonType" 
+       <element name="reason" type="eppcom:reasonType"
          minOccurs="0"/>
      </sequence>
-    <attribute name="state" type="changePoll:stateType" 
+    <attribute name="state" type="changePoll:stateType"
       default="after"/>
    </complexType>
- 
+
    <!--
     Enumerated list of operations, with extensibility via "custom".
    -->
@@ -724,7 +724,7 @@ BEGIN
        <enumeration value="custom"/>
      </restriction>
    </simpleType>
-   
+
    <!--
     Enumerated of state of the object in the poll message.
    -->
@@ -734,7 +734,7 @@ BEGIN
        <enumeration value="after"/>
      </restriction>
    </simpleType>
-   
+
    <!--
     Transform operation type
    -->
@@ -745,21 +745,21 @@ BEGIN
       </extension>
     </simpleContent>
   </complexType>
-  
+
    <!--
     Case identifier type
    -->
   <complexType name="caseIdType">
     <simpleContent>
       <extension base="token">
-        <attribute name="type" type="changePoll:caseTypeEnum" 
+        <attribute name="type" type="changePoll:caseTypeEnum"
           use="required"/>
-        <attribute name="name" type="token" 
-          use="optional"/>        
+        <attribute name="name" type="token"
+          use="optional"/>
       </extension>
     </simpleContent>
   </complexType>
-  
+
    <!--
     Enumerated list of case identifier types
    -->
@@ -770,7 +770,7 @@ BEGIN
        <enumeration value="custom"/>
      </restriction>
    </simpleType>
-  
+
    <!--
     Who type
    -->
@@ -780,7 +780,7 @@ BEGIN
       <maxLength value="255"/>
     </restriction>
   </simpleType>
-      
+
  <!--
  End of schema.
  -->
@@ -789,26 +789,26 @@ END]]></artwork>
       </figure>
       </section>
     </section>
-       
+
     <section anchor="IANA" title="IANA Considerations">
-    
+
     	<section anchor="IANA-XML-Namespace" title="XML Namespace">
          <t>
              This document uses URNs to describe XML namespaces and XML schemas
              conforming to a registry mechanism described in <xref target="RFC3688"/>.
-             The following URI assignment is requested of IANA: 
+             The following URI assignment is requested of IANA:
          </t>
-                  
+
          <t>URI: urn:ietf:params:xml:ns:changePoll-1.0</t>
-         
+
          <t>Registrant Contact: See the "Author's Address" section of this document.</t>
-          
+
          <t>XML: See the "Formal Syntax" section of this document.</t>
-         
+
        </section>
-       
+
        <section anchor="EPP-Extension-Registry" title="EPP Extension Registry">
-       
+
        	<t>
    The EPP extension described in this document should be registered by
    the IANA in the EPP Extension Registry described in <xref target="RFC7451"/>.  The
@@ -818,11 +818,11 @@ END]]></artwork>
    <t>
    Name of Extension: &quot;Change Poll Extension for the Extensible Provisioning Protocol (EPP)&quot;
    </t>
-   
+
    <t>
    Document status: Standards Track
    </t>
-   
+
    <t>
    Reference: (insert reference to RFC version of this document)
    </t>
@@ -830,11 +830,11 @@ END]]></artwork>
    <t>
    Registrant Name and Email Address: IESG, &lt;iesg@ietf.org&gt;
    </t>
-  
+
    <t>
    TLDs: Any
    </t>
- 
+
    <t>
    IPR Disclosure: None
    </t>
@@ -846,9 +846,9 @@ END]]></artwork>
    <t>
    Notes: None
    </t>
-       
+
        </section>
- 
+
     </section>
 
     <section anchor="Implementation" title="Implementation Status">
@@ -875,8 +875,8 @@ END]]></artwork>
       <section title="Verisign EPP SDK">
         <t>Organization: Verisign Inc.</t>
         <t>Name: Verisign EPP SDK</t>
-        <t>Description: The Verisign EPP SDK includes both a full client implementation 
-        and a full server stub implementation of draft-ietf-regext-change-poll.</t>  
+        <t>Description: The Verisign EPP SDK includes both a full client implementation
+        and a full server stub implementation of draft-ietf-regext-change-poll.</t>
         <t>Level of maturity: Production</t>
         <t>Coverage: All aspects of the protocol are implemented.</t>
         <t>Licensing: GNU Lesser General Public License</t>
@@ -886,10 +886,10 @@ END]]></artwork>
       <section title="Verisign Consolidated Top Level Domain (CTLD) SRS">
         <t>Organization: Verisign Inc.</t>
         <t>Name: Verisign Consolidated Top Level Domain (CTLD) Shared Registry System (SRS)</t>
-        <t>Description: The Verisign Consolidated Top Level Domain (CTLD) Shared Registry System (SRS) 
-         implements the server-side of draft-ietf-regext-change-poll for a variety of Top Level Domains (TLD's).</t>  
+        <t>Description: The Verisign Consolidated Top Level Domain (CTLD) Shared Registry System (SRS)
+         implements the server-side of draft-ietf-regext-change-poll for a variety of Top Level Domains (TLD's).</t>
         <t>Level of maturity: Production</t>
-        <t>Coverage: The "after" state poll message for an "update" transform operation of a domain name 
+        <t>Coverage: The "after" state poll message for an "update" transform operation of a domain name
         due to server policy.</t>
         <t>Licensing: Proprietary</t>
         <t>Contact: jgould@verisign.com</t>
@@ -897,13 +897,23 @@ END]]></artwork>
       <section title="Verisign .COM / .NET SRS">
         <t>Organization: Verisign Inc.</t>
         <t>Name: Verisign .COM / .NET Shared Registry System (SRS)</t>
-        <t>Description: The Verisign Shared Registry System (SRS) for .COM and .NET  
-        implements the server-side of draft-ietf-regext-change-poll.</t>  
+        <t>Description: The Verisign Shared Registry System (SRS) for .COM and .NET
+        implements the server-side of draft-ietf-regext-change-poll.</t>
         <t>Level of maturity: Production</t>
-        <t>Coverage: The "after" state poll message for an "update" transform operation of a domain name 
+        <t>Coverage: The "after" state poll message for an "update" transform operation of a domain name
         due to server policy.</t>
         <t>Licensing: Proprietary</t>
         <t>Contact: jgould@verisign.com</t>
+      </section>
+      <section title="Neustar EPP SDK">
+        <t>Organisation: Neustar Inc.</t>
+        <t>Name: Neustar EPP SDK</t>
+        <t>Description: The Neustar EPP SDK includes a full client implementation
+        of draft-ietf-regext-change-poll.</t>  
+        <t>Level of maturity: Production</t>
+        <t>Coverage: All client side aspects of the protocol are implemented.</t>
+        <t>Licensing: GNU Lesser General Public License</t>
+        <t>Contact: kal.feher@team.neustar</t>
       </section>
     </section>
 
@@ -918,10 +928,10 @@ END]]></artwork>
     </section>
 
     <section anchor="Acknowledgements" title="Acknowledgements">
-      <t>The authors wish to acknowledge the original concept for this draft and the 
-      efforts in the initial versions of this draft by Trung Tran and Sharon Wodjenski.</t> 
-      
-      <t>Special suggestions that have been incorporated into this document 
+      <t>The authors wish to acknowledge the original concept for this draft and the
+      efforts in the initial versions of this draft by Trung Tran and Sharon Wodjenski.</t>
+
+      <t>Special suggestions that have been incorporated into this document
       were provided by Michael Holloway.</t>
     </section>
 
@@ -944,27 +954,27 @@ END]]></artwork>
      filing system or remote ones accessed by http (http://domain/dir/... ).-->
 
     <references title="Normative References">
-       
+
       &RFC2119;
-      
-      &RFC3688;      
+
+      &RFC3688;
 
       &RFC3915;
 
       &RFC5730;
 
       &RFC5731;
-      
-      &RFC6982;      
+
+      &RFC6982;
 
       &RFC7451;
 
     </references>
-    
+
    <section title="Change History">
     <section title="Change from 00 to 01" anchor="change-00-to-01">
       <t><list style="numbers">
-        <t>Added an optional caseId element that defines the case identifier from 
+        <t>Added an optional caseId element that defines the case identifier from
         UDRP, URS, or custom case, based on feedback from Michael Holloway.</t>
       </list></t>
     </section>
@@ -991,7 +1001,7 @@ END]]></artwork>
     </section>
     <section title="Change from 05 to REGEXT 00" anchor="change-04-to-WG00">
       <t><list style="numbers">
-        <t>Changed to regext working group draft by changing draft-gould-change-poll to 
+        <t>Changed to regext working group draft by changing draft-gould-change-poll to
         draft-ietf-regext-change-poll.</t>
       </list></t>
     </section>
@@ -1011,7 +1021,7 @@ END]]></artwork>
       </list></t>
     </section>
    </section>
-    
+
   </back>
 
   <!-- vim: set ts=2 sw=2 expandtab: -->
