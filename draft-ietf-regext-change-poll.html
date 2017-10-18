@@ -399,6 +399,7 @@
 <link href="#rfc.section.6.1" rel="Chapter" title="6.1 Verisign EPP SDK"/>
 <link href="#rfc.section.6.2" rel="Chapter" title="6.2 Verisign Consolidated Top Level Domain (CTLD) SRS"/>
 <link href="#rfc.section.6.3" rel="Chapter" title="6.3 Verisign .COM / .NET SRS"/>
+<link href="#rfc.section.6.4" rel="Chapter" title="6.4 Neustar EPP SDK"/>
 <link href="#rfc.section.7" rel="Chapter" title="7 Security Considerations"/>
 <link href="#rfc.section.8" rel="Chapter" title="8 Acknowledgements"/>
 <link href="#rfc.references" rel="Chapter" title="9 Normative References"/>
@@ -412,6 +413,7 @@
 <link href="#rfc.appendix.A.7" rel="Chapter" title="A.7 Change from REGEXT 00 to REGEXT 01"/>
 <link href="#rfc.appendix.A.8" rel="Chapter" title="A.8 Change from REGEXT 01 to REGEXT 02"/>
 <link href="#rfc.appendix.A.9" rel="Chapter" title="A.9 Change from REGEXT 02 to REGEXT 03"/>
+<link href="#rfc.appendix.A.10" rel="Chapter" title="A.10 Change from REGEXT 03 to REGEXT 04"/>
 <link href="#rfc.authors" rel="Chapter"/>
 
 
@@ -419,8 +421,8 @@
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Gould, J. and K. Feher" />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-regext-change-poll-03" />
-  <meta name="dct.issued" scheme="ISO8601" content="2017-7-3" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-regext-change-poll-04" />
+  <meta name="dct.issued" scheme="ISO8601" content="2017-10-18" />
   <meta name="dct.abstract" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client sponsored objects that were not initiated by the client through EPP. These operations MAY include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why." />
   <meta name="description" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client sponsored objects that were not initiated by the client through EPP. These operations MAY include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why." />
 
@@ -444,12 +446,12 @@
   <td class="right">K. Feher</td>
 </tr>
 <tr>
-  <td class="left">Expires: January 4, 2018</td>
+  <td class="left">Expires: April 21, 2018</td>
   <td class="right">Neustar</td>
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">July 3, 2017</td>
+  <td class="right">October 18, 2017</td>
 </tr>
 
     	
@@ -457,7 +459,7 @@
   </table>
 
   <p class="title">Change Poll Extension for the Extensible Provisioning Protocol (EPP)<br />
-  <span class="filename">draft-ietf-regext-change-poll-03</span></p>
+  <span class="filename">draft-ietf-regext-change-poll-04</span></p>
   
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
@@ -469,7 +471,7 @@
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on January 4, 2018.</p>
+<p>This Internet-Draft will expire on April 21, 2018.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -506,6 +508,7 @@
 <ul><li>6.1.   <a href="#rfc.section.6.1">Verisign EPP SDK</a></li>
 <li>6.2.   <a href="#rfc.section.6.2">Verisign Consolidated Top Level Domain (CTLD) SRS</a></li>
 <li>6.3.   <a href="#rfc.section.6.3">Verisign .COM / .NET SRS</a></li>
+<li>6.4.   <a href="#rfc.section.6.4">Neustar EPP SDK</a></li>
 </ul><li>7.   <a href="#rfc.section.7">Security Considerations</a></li>
 <li>8.   <a href="#rfc.section.8">Acknowledgements</a></li>
 <li>9.   <a href="#rfc.references">Normative References</a></li>
@@ -519,6 +522,7 @@
 <li>A.7.   <a href="#rfc.appendix.A.7">Change from REGEXT 00 to REGEXT 01</a></li>
 <li>A.8.   <a href="#rfc.appendix.A.8">Change from REGEXT 01 to REGEXT 02</a></li>
 <li>A.9.   <a href="#rfc.appendix.A.9">Change from REGEXT 02 to REGEXT 03</a></li>
+<li>A.10.   <a href="#rfc.appendix.A.10">Change from REGEXT 03 to REGEXT 04</a></li>
 </ul><li><a href="#rfc.authors">Authors' Addresses</a></li>
 
 
@@ -636,7 +640,7 @@ S:        &lt;domain:exDate&gt;2014-04-03T22:00:00.0Z&lt;/domain:exDate&gt;
 S:      &lt;/domain:infData&gt;
 S:    &lt;/resData&gt;
 S:    &lt;extension&gt;
-S:      &lt;changePoll:changeData 
+S:      &lt;changePoll:changeData
 S:        xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"
 S:        state="before"&gt;
 S:        &lt;changePoll:operation&gt;update&lt;/changePoll:operation&gt;
@@ -686,7 +690,7 @@ S:        &lt;domain:exDate&gt;2014-04-03T22:00:00.0Z&lt;/domain:exDate&gt;
 S:      &lt;/domain:infData&gt;
 S:    &lt;/resData&gt;
 S:    &lt;extension&gt;
-S:      &lt;changePoll:changeData 
+S:      &lt;changePoll:changeData
 S:        xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"
 S:        state="after"&gt;
 S:        &lt;changePoll:operation&gt;update&lt;/changePoll:operation&gt;
@@ -733,7 +737,7 @@ S:        &lt;domain:exDate&gt;2014-04-03T22:00:00.0Z&lt;/domain:exDate&gt;
 S:      &lt;/domain:infData&gt;
 S:    &lt;/resData&gt;
 S:    &lt;extension&gt;
-S:      &lt;changePoll:changeData 
+S:      &lt;changePoll:changeData
 S:        xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"&gt;
 S:        &lt;changePoll:operation op="sync"&gt;custom
 S:        &lt;/changePoll:operation&gt;
@@ -760,7 +764,7 @@ S:         &lt;msg&gt;Command completed successfully; ack to dequeue&lt;/msg&gt;
 S:      &lt;/result&gt;
 S:      &lt;msgQ id="200" count="1"&gt;
 S:         &lt;qDate&gt;2013-10-22T14:25:57.0Z&lt;/qDate&gt;
-S:         &lt;msg&gt;Registry initiated delete of 
+S:         &lt;msg&gt;Registry initiated delete of
 S:         domain resulting in immediate purge.&lt;/msg&gt;
 S:      &lt;/msgQ&gt;
 S:      &lt;resData&gt;
@@ -769,10 +773,10 @@ S:          xmlns:domain="urn:ietf:params:xml:ns:domain-1.0"&gt;
 S:          &lt;domain:name&gt;domain.example&lt;/domain:name&gt;
 S:          &lt;domain:roid&gt;EXAMPLE1-REP&lt;/domain:roid&gt;
 S:          &lt;domain:clID&gt;ClientX&lt;/domain:clID&gt;
-S:        &lt;/domain:infData&gt;      
+S:        &lt;/domain:infData&gt;
 S:      &lt;/resData&gt;
 S:      &lt;extension&gt;
-S:        &lt;changePoll:changeData 
+S:        &lt;changePoll:changeData
 S:          xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"&gt;
 S:          &lt;changePoll:operation op="purge"&gt;
 S:            delete&lt;/changePoll:operation&gt;
@@ -806,10 +810,10 @@ S:          xmlns:domain="urn:ietf:params:xml:ns:domain-1.0"&gt;
 S:          &lt;domain:name&gt;domain.example&lt;/domain:name&gt;
 S:          &lt;domain:roid&gt;EXAMPLE1-REP&lt;/domain:roid&gt;
 S:          &lt;domain:clID&gt;ClientX&lt;/domain:clID&gt;
-S:        &lt;/domain:infData&gt;      
+S:        &lt;/domain:infData&gt;
 S:      &lt;/resData&gt;
 S:      &lt;extension&gt;
-S:        &lt;changePoll:changeData 
+S:        &lt;changePoll:changeData
 S:          xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"&gt;
 S:          &lt;changePoll:operation&gt;
 S:            autoPurge&lt;/changePoll:operation&gt;
@@ -857,7 +861,7 @@ S:        &lt;host:upDate&gt;2013-10-22T14:25:57.0Z&lt;/host:upDate&gt;
 S:      &lt;/host:infData&gt;
 S:    &lt;/resData&gt;
 S:    &lt;extension&gt;
-S:      &lt;changePoll:changeData 
+S:      &lt;changePoll:changeData
 S:        xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"&gt;
 S:        &lt;changePoll:operation&gt;update&lt;/changePoll:operation&gt;
 S:        &lt;changePoll:date&gt;2013-10-22T14:25:57.0Z&lt;/changePoll:date&gt;
@@ -899,14 +903,14 @@ BEGIN
          xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"
          xmlns="http://www.w3.org/2001/XMLSchema"
          elementFormDefault="qualified"&gt;
-  
+
   &lt;!--
   Import common element types.
   --&gt;
   &lt;import namespace="urn:ietf:params:xml:ns:eppcom-1.0"/&gt;
   &lt;import namespace="urn:ietf:params:xml:ns:epp-1.0"/&gt;
-  
-  
+
+
    &lt;annotation&gt;
      &lt;documentation&gt;
        Extensible Provisioning Protocol v1.0
@@ -918,7 +922,7 @@ BEGIN
     Change element.
    --&gt;
    &lt;element name="changeData" type="changePoll:changeDataType"/&gt;
-   
+
    &lt;!--
     Attributes associated with the change.
    --&gt;
@@ -930,13 +934,13 @@ BEGIN
        &lt;element name="who" type="changePoll:whoType"/&gt;
        &lt;element name="caseId" type="changePoll:caseIdType"
          minOccurs="0"/&gt;
-       &lt;element name="reason" type="eppcom:reasonType" 
+       &lt;element name="reason" type="eppcom:reasonType"
          minOccurs="0"/&gt;
      &lt;/sequence&gt;
-    &lt;attribute name="state" type="changePoll:stateType" 
+    &lt;attribute name="state" type="changePoll:stateType"
       default="after"/&gt;
    &lt;/complexType&gt;
- 
+
    &lt;!--
     Enumerated list of operations, with extensibility via "custom".
    --&gt;
@@ -954,7 +958,7 @@ BEGIN
        &lt;enumeration value="custom"/&gt;
      &lt;/restriction&gt;
    &lt;/simpleType&gt;
-   
+
    &lt;!--
     Enumerated of state of the object in the poll message.
    --&gt;
@@ -964,7 +968,7 @@ BEGIN
        &lt;enumeration value="after"/&gt;
      &lt;/restriction&gt;
    &lt;/simpleType&gt;
-   
+
    &lt;!--
     Transform operation type
    --&gt;
@@ -975,21 +979,21 @@ BEGIN
       &lt;/extension&gt;
     &lt;/simpleContent&gt;
   &lt;/complexType&gt;
-  
+
    &lt;!--
     Case identifier type
    --&gt;
   &lt;complexType name="caseIdType"&gt;
     &lt;simpleContent&gt;
       &lt;extension base="token"&gt;
-        &lt;attribute name="type" type="changePoll:caseTypeEnum" 
+        &lt;attribute name="type" type="changePoll:caseTypeEnum"
           use="required"/&gt;
-        &lt;attribute name="name" type="token" 
-          use="optional"/&gt;        
+        &lt;attribute name="name" type="token"
+          use="optional"/&gt;
       &lt;/extension&gt;
     &lt;/simpleContent&gt;
   &lt;/complexType&gt;
-  
+
    &lt;!--
     Enumerated list of case identifier types
    --&gt;
@@ -1000,7 +1004,7 @@ BEGIN
        &lt;enumeration value="custom"/&gt;
      &lt;/restriction&gt;
    &lt;/simpleType&gt;
-  
+
    &lt;!--
     Who type
    --&gt;
@@ -1010,7 +1014,7 @@ BEGIN
       &lt;maxLength value="255"/&gt;
     &lt;/restriction&gt;
   &lt;/simpleType&gt;
-      
+
  &lt;!--
  End of schema.
  --&gt;
@@ -1061,6 +1065,14 @@ END</pre>
 <p id="rfc.section.6.3.p.5">Coverage: The "after" state poll message for an "update" transform operation of a domain name due to server policy.</p>
 <p id="rfc.section.6.3.p.6">Licensing: Proprietary</p>
 <p id="rfc.section.6.3.p.7">Contact: jgould@verisign.com</p>
+<h1 id="rfc.section.6.4"><a href="#rfc.section.6.4">6.4.</a> Neustar EPP SDK</h1>
+<p id="rfc.section.6.4.p.1">Organisation: Neustar Inc.</p>
+<p id="rfc.section.6.4.p.2">Name: Neustar EPP SDK</p>
+<p id="rfc.section.6.4.p.3">Description: The Neustar EPP SDK includes a full client implementation of draft-ietf-regext-change-poll.</p>
+<p id="rfc.section.6.4.p.4">Level of maturity: Production</p>
+<p id="rfc.section.6.4.p.5">Coverage: All client side aspects of the protocol are implemented.</p>
+<p id="rfc.section.6.4.p.6">Licensing: GNU Lesser General Public License</p>
+<p id="rfc.section.6.4.p.7">Contact: kal.feher@team.neustar</p>
 <h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#Security" id="Security">Security Considerations</a></h1>
 <p id="rfc.section.7.p.1">The mapping extensions described in this document do not provide any security services beyond those described by <a href="#RFC5730">EPP</a> <cite title="NONE">[RFC5730]</cite> and protocol layers used by EPP. The security considerations described in these other specifications apply to this specification as well.</p>
 <h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#Acknowledgements" id="Acknowledgements">Acknowledgements</a></h1>
@@ -1168,6 +1180,12 @@ END</pre>
 
 <ol>
   <li>Changed Neustar author to Kal Feher.</li>
+</ol>
+<h1 id="rfc.appendix.A.10"><a href="#rfc.appendix.A.10">A.10.</a> <a href="#version-WG03-to-WG04" id="version-WG03-to-WG04">Change from REGEXT 03 to REGEXT 04</a></h1>
+<p/>
+
+<ol>
+  <li>Added Neustar implementation to the Implementation Status section.</li>
 </ol>
 <h1 id="rfc.authors">
   <a href="#rfc.authors">Authors' Addresses</a>

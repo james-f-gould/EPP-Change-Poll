@@ -41,7 +41,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-regext-change-poll-03" ipr="trust200902">
+<rfc category="std" docName="draft-ietf-regext-change-poll-04" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN"
@@ -97,7 +97,7 @@
       </address>
     </author>
 
-    <date day="3" month="July" year="2017"/>
+    <date day="18" month="October" year="2017"/>
 
     <abstract>
       <t>This document describes an Extensible Provisioning Protocol (EPP)
@@ -1018,6 +1018,11 @@ END]]></artwork>
     <section title="Change from REGEXT 02 to REGEXT 03" anchor="version-WG02-to-WG03">
       <t><list style="numbers">
         <t>Changed Neustar author to Kal Feher.</t>
+      </list></t>
+    </section>
+    <section title="Change from REGEXT 03 to REGEXT 04" anchor="version-WG03-to-WG04">
+      <t><list style="numbers">
+        <t>Added Neustar implementation to the Implementation Status section.</t>
       </list></t>
     </section>
    </section>
