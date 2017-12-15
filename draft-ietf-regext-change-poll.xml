@@ -11,7 +11,7 @@
 <!ENTITY RFC6982 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6982.xml">
 <!ENTITY RFC7451 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7451.xml">
 <!ENTITY I-D.narten-iana-considerations-rfc2434bis SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.narten-iana-considerations-rfc2434bis.xml">
-]>
+<!ENTITY W3C.REC-xmlschema-2-20041028 PUBLIC '' 'http://xml2rfc.ietf.org/public/rfc/bibxml4/reference.W3C.REC-xmlschema-2-20041028.xml'>]>
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
 <!-- used by XSLT processors -->
 <!-- For a complete list and description of processing instructions (PIs),
@@ -41,7 +41,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-regext-change-poll-04" ipr="trust200902">
+<rfc category="std" docName="draft-ietf-regext-change-poll-05" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN"
@@ -97,7 +97,7 @@
       </address>
     </author>
 
-    <date day="18" month="October" year="2017"/>
+    <date day="13" month="December" year="2017"/>
 
     <abstract>
       <t>This document describes an Extensible Provisioning Protocol (EPP)
@@ -126,7 +126,7 @@
       on objects that the client sponsors.
       It is up to server policy to determine what transform operations and
       clients to notify.
-      Using this extension clients can
+      Using this extension, clients can
       more easily keep their systems in-sync with the objects stored in the
       server.  When a change occurs that a client needs to be
       notified of, a poll message can be inserted by the server for
@@ -179,26 +179,26 @@
 				<t hangText="&quot;delete&quot;">Delete operation as defined in <xref target="RFC5730"/>.  If the delete operation results in an immediate
 				purge of the object, then the "op" attribute MUST be set to "purge".</t>
 				<t hangText="&quot;renew&quot;">Renew operation as defined in <xref target="RFC5730"/>.</t>
-				<t hangText="&quot;transfer&quot;">Transfer operation as defined in <xref target="RFC5730"/> with the OPTIONAL
-				"op" attribute defining the transfer type with the possible values of "request", "approve", "cancel", and "reject".</t>
+				<t hangText="&quot;transfer&quot;">Transfer operation as defined in <xref target="RFC5730"/> that MUST set the 
+				"op" attribute with one of the possible transfer type values that include "request", "approve", "cancel", or "reject".</t>
 				<t hangText="&quot;update&quot;">Update operation as defined in <xref target="RFC5730"/>.</t>
-				<t hangText="&quot;restore&quot;">Restore operation as defined in <xref target="RFC3915"/> with the OPTIONAL
-				"op" attribute defining the restore type with the possible values of "request" and "report".</t>
+				<t hangText="&quot;restore&quot;">Restore operation as defined in <xref target="RFC3915"/> that MUST set the 
+				"op" attribute with one of the possible restore type values that include "request" or "report".</t>
 				<t hangText="&quot;autoRenew&quot;">Auto renew operation executed by the server.</t>
 				<t hangText="&quot;autoDelete&quot;">Auto delete operation executed by the server.  If the "autoDelete" operation results in an immediate
 				purge of the object, then the "op" attribute MUST be set to "purge".</t>
 				<t hangText="&quot;autoPurge&quot;">Auto purge operation executed by the server when removing the object
 				after it had the "pendingDelete" status.</t>
-				<t hangText="&quot;custom&quot;">Custom operation that uses the "op" attribute to define the custom operation name.</t>
+				<t hangText="&quot;custom&quot;">Custom operation that MUST set the "op" attribute with the custom operation name.</t>
 		  </list></t>
 
       </section>
 
       <section anchor="who" title="Who">
 
-        <t>Who defines who executed the operation for audit purposes, and is represented using the &lt;changePoll:who&gt; element.
-        The scheme used for the possible set of Who
-        values is up to server policy.  The server MAY identify Who based on:
+        <t>The &lt;changePoll:who&gt; element defines who executed the operation for audit purposes.
+        The scheme used for the possible set of &lt;changePoll:who&gt; element
+        values is up to server policy.  The server MAY identify the &lt;changePoll:who&gt; element value based on:
         </t>
 
 		  <t><list hangIndent="4" style="hanging">
@@ -208,6 +208,17 @@
 				<t hangText="&quot;Role&quot;">Role of the user that executed operation.  An example is "CSR" for a Customer
 				Support Representative or "Batch" for a server batch.</t>
 		  </list></t>
+
+      </section>
+      
+      <section anchor="datestimes" title="Dates and Times">
+      
+        <t>Date and time attribute values MUST be represented in Universal
+           Coordinated Time (UTC) using the Gregorian calendar.  The extended
+           date-time form using upper case "T" and "Z" characters defined in
+           <xref target="W3C.REC-xmlschema-2-20041028"/> MUST be used to represent date-time
+           values, as XML Schema does not support truncated date-time forms or
+           lower case "T" and "Z" characters.</t>
 
       </section>
 
@@ -238,10 +249,10 @@
         <t>This extension does not add any elements to the EPP &lt;info&gt; command
         described in the <xref target="RFC5730"/>.</t>
 
-        <t>This extension adds transaction detail of the operations to the
-        EPP &lt;info&gt; poll response, as described in <xref target="RFC5730"/>,
-        of an EPP Object Mapping like <xref target="RFC5731"/>.  Any transform operation
-        to an object defined in an EPP Object Mapping, by a client other than the sponsoring
+        <t>This extension adds operation detail of EPP object mapping operations 
+        <xref target="operation"/> to an EPP poll response, as described in <xref target="RFC5730"/>, that is an extension of the 
+        EPP object mapping info response.  Any transform operation
+        to an object defined in an EPP object mapping, by a client other than the sponsoring
         client, MAY result in extending the &lt;info&gt; response of the object for
         inserting an EPP poll message with the operation detail.
         The sponsoring client will then receive the
@@ -932,7 +943,7 @@ END]]></artwork>
       efforts in the initial versions of this draft by Trung Tran and Sharon Wodjenski.</t>
 
       <t>Special suggestions that have been incorporated into this document
-      were provided by Michael Holloway.</t>
+      were provided by Michael Holloway and Patrick Mevzek.</t>
     </section>
 
   </middle>
@@ -968,6 +979,8 @@ END]]></artwork>
       &RFC6982;
 
       &RFC7451;
+      
+      &W3C.REC-xmlschema-2-20041028;
 
     </references>
 
@@ -1025,6 +1038,22 @@ END]]></artwork>
         <t>Added Neustar implementation to the Implementation Status section.</t>
       </list></t>
     </section>
+    <section title="Change from REGEXT 04 to REGEXT 05" anchor="version-WG034to-WG05">
+      <t><list style="numbers">
+        <t>Updates based on feedback from Patrick Mevzek, that include:
+          <list style="numbers">
+          	<t>Added a missing comma to "Using this extension, clients" in the Introduction section.</t>
+          	<t>Modified the description of the "transfer", "restore", and "custom" operations to include "MUST set the "op" attribute" language.</t>
+          	<t>Rephrased the first sentence of the Who section.</t>
+          	<t>Added references to the &lt;changePoll:who&gt; element in the Who section.</t>
+          	<t>Revise the sentence that describes how the extension extends the info response in the EPP &lt;info&gt; Command section.</t>
+          	<t>Refer to EPP Object Mapping as EPP object mapping throughout the document.</t>
+          	<t>Add a Dates and Times section to the Object Attributes section.</t>
+          </list>
+        </t>
+      </list></t>
+    </section>
+    
    </section>
 
   </back>
