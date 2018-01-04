@@ -41,7 +41,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-regext-change-poll-05" ipr="trust200902">
+<rfc category="std" docName="draft-ietf-regext-change-poll-06" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN"
@@ -97,7 +97,7 @@
       </address>
     </author>
 
-    <date day="2" month="January" year="2018"/>
+    <date day="4" month="January" year="2018"/>
 
     <abstract>
       <t>This document describes an Extensible Provisioning Protocol (EPP)
@@ -175,24 +175,46 @@
         The enumerated list of &lt;changePoll:operation&gt; values include:</t>
 
 		  <t><list hangIndent="4" style="hanging">
-				<t hangText="&quot;create&quot;">Create operation as defined in <xref target="RFC5730"/>.</t>
-				<t hangText="&quot;delete&quot;">Delete operation as defined in <xref target="RFC5730"/>.  If the delete operation results in an immediate
+				<t hangText="&quot;create&quot;:">Create operation as defined in <xref target="RFC5730"/>.</t>
+				<t hangText="&quot;delete&quot;:">Delete operation as defined in <xref target="RFC5730"/>.  If the delete operation results in an immediate
 				purge of the object, then the "op" attribute MUST be set to "purge".</t>
-				<t hangText="&quot;renew&quot;">Renew operation as defined in <xref target="RFC5730"/>.</t>
-				<t hangText="&quot;transfer&quot;">Transfer operation as defined in <xref target="RFC5730"/> that MUST set the 
+				<t hangText="&quot;renew&quot;:">Renew operation as defined in <xref target="RFC5730"/>.</t>
+				<t hangText="&quot;transfer&quot;:">Transfer operation as defined in <xref target="RFC5730"/> that MUST set the 
 				"op" attribute with one of the possible transfer type values that include "request", "approve", "cancel", or "reject".</t>
-				<t hangText="&quot;update&quot;">Update operation as defined in <xref target="RFC5730"/>.</t>
-				<t hangText="&quot;restore&quot;">Restore operation as defined in <xref target="RFC3915"/> that MUST set the 
+				<t hangText="&quot;update&quot;:">Update operation as defined in <xref target="RFC5730"/>.</t>
+				<t hangText="&quot;restore&quot;:">Restore operation as defined in <xref target="RFC3915"/> that MUST set the 
 				"op" attribute with one of the possible restore type values that include "request" or "report".</t>
-				<t hangText="&quot;autoRenew&quot;">Auto renew operation executed by the server.</t>
-				<t hangText="&quot;autoDelete&quot;">Auto delete operation executed by the server.  If the "autoDelete" operation results in an immediate
+				<t hangText="&quot;autoRenew&quot;:">Auto renew operation executed by the server.</t>
+				<t hangText="&quot;autoDelete&quot;:">Auto delete operation executed by the server.  If the "autoDelete" operation results in an immediate
 				purge of the object, then the "op" attribute MUST be set to "purge".</t>
-				<t hangText="&quot;autoPurge&quot;">Auto purge operation executed by the server when removing the object
+				<t hangText="&quot;autoPurge&quot;:">Auto purge operation executed by the server when removing the object
 				after it had the "pendingDelete" status.</t>
-				<t hangText="&quot;custom&quot;">Custom operation that MUST set the "op" attribute with the custom operation name.</t>
+				<t hangText="&quot;custom&quot;:">Custom operation that MUST set the "op" attribute with the custom operation name.</t>
 		  </list></t>
 
       </section>
+
+      <section anchor="state" title="State">
+
+        <t>The state attribute reflects the state of the object "before" or "after" the operation.  
+        The state is defined using the OPTIONAL "state" attribute of the &lt;changePoll:changeData&gt; element, 
+        with the possible values "before" or "after" and with a default value of "after".  
+        The server MAY support both the "before" state and the "after" state of the operation, by using one
+        poll message for the "before" state and one poll message for the "after" state.  
+        The "before" state poll message MUST be inserted prior to the "after" state poll message.</t>
+        <t>For operations in <xref target="operation"/> that don't have an "after" state, 
+        the server MUST use the "before" state poll message.  
+        For example, for the "delete" operation with the "op" attribute set to "purge", 
+        or the "autoPurge" operation, the server includes the state of the object prior to being purged 
+        in the "before" state poll message.</t>
+        <t>For operations in <xref target="operation"/> that don't have a "before" state, 
+        the server MUST use the "after" state poll message.  
+        For example, for the "create" operation, 
+        the server includes the state of the object after creation in the 
+        "after" state poll message.</t>
+
+      </section>
+
 
       <section anchor="who" title="Who">
 
@@ -202,10 +224,10 @@
         </t>
 
 		  <t><list hangIndent="4" style="hanging">
-				<t hangText="&quot;Identifier&quot;">Unique user identifier of the user that executed the operation.  An
+				<t hangText="&quot;Identifier&quot;:">Unique user identifier of the user that executed the operation.  An
 				example is "ClientX".</t>
-				<t hangText="&quot;Name&quot;">Name of the user that executed the operation.  An example is "John Doe".</t>
-				<t hangText="&quot;Role&quot;">Role of the user that executed operation.  An example is "CSR" for a Customer
+				<t hangText="&quot;Name&quot;:">Name of the user that executed the operation.  An example is "John Doe".</t>
+				<t hangText="&quot;Role&quot;:">Role of the user that executed operation.  An example is "CSR" for a Customer
 				Support Representative or "Batch" for a server batch.</t>
 		  </list></t>
 
@@ -258,28 +280,23 @@
         The sponsoring client will then receive the
         state of the object with operation detail like what, who, when, and why the object
         was changed.  The &lt;changePoll:changeData&gt; element contains the operation detail along
-        with an indication of whether the object reflects the state before or after the operation, using the
-        OPTIONAL "state" attribute, with the possible values of "before" or "after", and with a default value of "after".  The
-        "state" attribute describes the state of the response data or &lt;resData&gt; block returned in the poll response.
-        The server MAY support providing the "before" state and "after" state to the operation, by using one
-        poll message for the "before" state and one poll message for the "after" state.  When using the "before" state poll message,
-        it MUST be inserted prior to the "after" state poll message.
+        with an indication of whether the object reflects the state before or after the operation as defined in <xref target="state"/>.  
         The &lt;changePoll:changeData&gt; element includes the operation detail with the following child elements:</t>
 
 		 <t><list hangIndent="4" style="hanging">
-			  <t hangText="&lt;changePoll:operation&gt;">Transform operation executed on the object as defined
+			  <t hangText="&lt;changePoll:operation&gt;:">Transform operation executed on the object as defined
 			  in <xref target="operation"/>.</t>
-			  <t hangText="&lt;changePoll:date&gt;">Date and time when the operation was executed.</t>
-			  <t hangText="&lt;changePoll:svTRID&gt;">Server transaction identifier of the operation.</t>
-			  <t hangText="&lt;changePoll:who&gt;">Who executed the operation as defined in <xref target="who"/>.</t>
-			  <t hangText="&lt;changePoll:caseId&gt;">OPTIONAL case identifer associated with the operation.  The required
+			  <t hangText="&lt;changePoll:date&gt;:">Date and time when the operation was executed.</t>
+			  <t hangText="&lt;changePoll:svTRID&gt;:">Server transaction identifier of the operation.</t>
+			  <t hangText="&lt;changePoll:who&gt;:">Who executed the operation as defined in <xref target="who"/>.</t>
+			  <t hangText="&lt;changePoll:caseId&gt;:">OPTIONAL case identifer associated with the operation.  The required
 			  "type" attribute defines the type of case with an enumerated list of case types including:</t>
 			    <t><list hangIndent="4" style="hanging">
-			      <t hangText="udrp">a Uniform Domain-Name Dispute-Resolution Policy (UDRP) case.</t>
-			      <t hangText="urs">a Uniform Rapid Suspension (URS) case.</t>
-			      <t hangText="custom">A custom case that is defined using the "name" attribute.</t>
+			      <t hangText="udrp:">a Uniform Domain-Name Dispute-Resolution Policy (UDRP) case.</t>
+			      <t hangText="urs:">a Uniform Rapid Suspension (URS) case.</t>
+			      <t hangText="custom:">A custom case that is defined using the "name" attribute.</t>
 			    </list></t>
-			  <t hangText="&lt;changePoll:reason&gt;">OPTIONAL reason for executing the operation.  If present,
+			  <t hangText="&lt;changePoll:reason&gt;:">OPTIONAL reason for executing the operation.  If present,
 			  this element contains the server-specific text to help explain the reason the operation was executed.
 			  This text MUST be represented in the response language previously negotiated with the client; an
 			  OPTIONAL "lang" attribute MAY be present to identify the language if the negotiated value
@@ -1038,7 +1055,7 @@ END]]></artwork>
         <t>Added Neustar implementation to the Implementation Status section.</t>
       </list></t>
     </section>
-    <section title="Change from REGEXT 04 to REGEXT 05" anchor="version-WG034to-WG05">
+    <section title="Change from REGEXT 04 to REGEXT 05" anchor="version-WG04-to-WG05">
       <t><list style="numbers">
         <t>Updates based on feedback from Patrick Mevzek, that include:
           <list style="numbers">
@@ -1051,6 +1068,14 @@ END]]></artwork>
           	<t>Add a Dates and Times section to the Object Attributes section.</t>
           </list>
         </t>
+      </list></t>
+    </section>
+    
+    <section title="Change from REGEXT 05 to REGEXT 06" anchor="version-WG05-to-WG06">
+      <t><list style="numbers">
+        <t>Added the "State" sub-section to the "Object Attributes" section to describe the expected 
+        behavior for the "before" and "after" states, based on feedback from Patrick Mevzek.</t>
+        <t>Added a colon suffix to each hangText entry to provide better separation.</t>
       </list></t>
     </section>
     
