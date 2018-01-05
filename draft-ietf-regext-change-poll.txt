@@ -5,8 +5,8 @@
 Network Working Group                                           J. Gould
 Internet-Draft                                            VeriSign, Inc.
 Intended status: Standards Track                                K. Feher
-Expires: July 8, 2018                                            Neustar
-                                                         January 4, 2018
+Expires: July 9, 2018                                            Neustar
+                                                         January 5, 2018
 
 
   Change Poll Extension for the Extensible Provisioning Protocol (EPP)
@@ -42,7 +42,7 @@ Status of This Memo
    time.  It is inappropriate to use Internet-Drafts as reference
    material or to cite them other than as "work in progress."
 
-   This Internet-Draft will expire on July 8, 2018.
+   This Internet-Draft will expire on July 9, 2018.
 
 Copyright Notice
 
@@ -53,7 +53,7 @@ Copyright Notice
 
 
 
-Gould & Feher             Expires July 8, 2018                  [Page 1]
+Gould & Feher             Expires July 9, 2018                  [Page 1]
 
 Internet-Draft                 changePoll                   January 2018
 
@@ -109,7 +109,7 @@ Table of Contents
 
 
 
-Gould & Feher             Expires July 8, 2018                  [Page 2]
+Gould & Feher             Expires July 9, 2018                  [Page 2]
 
 Internet-Draft                 changePoll                   January 2018
 
@@ -165,7 +165,7 @@ Internet-Draft                 changePoll                   January 2018
 
 
 
-Gould & Feher             Expires July 8, 2018                  [Page 3]
+Gould & Feher             Expires July 9, 2018                  [Page 3]
 
 Internet-Draft                 changePoll                   January 2018
 
@@ -221,7 +221,7 @@ Internet-Draft                 changePoll                   January 2018
 
 
 
-Gould & Feher             Expires July 8, 2018                  [Page 4]
+Gould & Feher             Expires July 9, 2018                  [Page 4]
 
 Internet-Draft                 changePoll                   January 2018
 
@@ -277,7 +277,7 @@ Internet-Draft                 changePoll                   January 2018
 
 
 
-Gould & Feher             Expires July 8, 2018                  [Page 5]
+Gould & Feher             Expires July 9, 2018                  [Page 5]
 
 Internet-Draft                 changePoll                   January 2018
 
@@ -333,7 +333,7 @@ Internet-Draft                 changePoll                   January 2018
 
 
 
-Gould & Feher             Expires July 8, 2018                  [Page 6]
+Gould & Feher             Expires July 9, 2018                  [Page 6]
 
 Internet-Draft                 changePoll                   January 2018
 
@@ -389,7 +389,7 @@ Internet-Draft                 changePoll                   January 2018
 
 
 
-Gould & Feher             Expires July 8, 2018                  [Page 7]
+Gould & Feher             Expires July 9, 2018                  [Page 7]
 
 Internet-Draft                 changePoll                   January 2018
 
@@ -445,7 +445,7 @@ Internet-Draft                 changePoll                   January 2018
 
 
 
-Gould & Feher             Expires July 8, 2018                  [Page 8]
+Gould & Feher             Expires July 9, 2018                  [Page 8]
 
 Internet-Draft                 changePoll                   January 2018
 
@@ -501,7 +501,7 @@ Internet-Draft                 changePoll                   January 2018
 
 
 
-Gould & Feher             Expires July 8, 2018                  [Page 9]
+Gould & Feher             Expires July 9, 2018                  [Page 9]
 
 Internet-Draft                 changePoll                   January 2018
 
@@ -557,7 +557,7 @@ Internet-Draft                 changePoll                   January 2018
 
 
 
-Gould & Feher             Expires July 8, 2018                 [Page 10]
+Gould & Feher             Expires July 9, 2018                 [Page 10]
 
 Internet-Draft                 changePoll                   January 2018
 
@@ -613,7 +613,7 @@ Internet-Draft                 changePoll                   January 2018
 
 
 
-Gould & Feher             Expires July 8, 2018                 [Page 11]
+Gould & Feher             Expires July 9, 2018                 [Page 11]
 
 Internet-Draft                 changePoll                   January 2018
 
@@ -669,7 +669,7 @@ Internet-Draft                 changePoll                   January 2018
 
 
 
-Gould & Feher             Expires July 8, 2018                 [Page 12]
+Gould & Feher             Expires July 9, 2018                 [Page 12]
 
 Internet-Draft                 changePoll                   January 2018
 
@@ -725,7 +725,7 @@ Internet-Draft                 changePoll                   January 2018
 
 
 
-Gould & Feher             Expires July 8, 2018                 [Page 13]
+Gould & Feher             Expires July 9, 2018                 [Page 13]
 
 Internet-Draft                 changePoll                   January 2018
 
@@ -781,7 +781,7 @@ Internet-Draft                 changePoll                   January 2018
 
 
 
-Gould & Feher             Expires July 8, 2018                 [Page 14]
+Gould & Feher             Expires July 9, 2018                 [Page 14]
 
 Internet-Draft                 changePoll                   January 2018
 
@@ -837,7 +837,7 @@ Internet-Draft                 changePoll                   January 2018
 
 
 
-Gould & Feher             Expires July 8, 2018                 [Page 15]
+Gould & Feher             Expires July 9, 2018                 [Page 15]
 
 Internet-Draft                 changePoll                   January 2018
 
@@ -893,7 +893,7 @@ Internet-Draft                 changePoll                   January 2018
 
 
 
-Gould & Feher             Expires July 8, 2018                 [Page 16]
+Gould & Feher             Expires July 9, 2018                 [Page 16]
 
 Internet-Draft                 changePoll                   January 2018
 
@@ -949,7 +949,7 @@ Internet-Draft                 changePoll                   January 2018
 
 
 
-Gould & Feher             Expires July 8, 2018                 [Page 17]
+Gould & Feher             Expires July 9, 2018                 [Page 17]
 
 Internet-Draft                 changePoll                   January 2018
 
@@ -1005,7 +1005,7 @@ Internet-Draft                 changePoll                   January 2018
 
 
 
-Gould & Feher             Expires July 8, 2018                 [Page 18]
+Gould & Feher             Expires July 9, 2018                 [Page 18]
 
 Internet-Draft                 changePoll                   January 2018
 
@@ -1061,7 +1061,7 @@ Internet-Draft                 changePoll                   January 2018
 
 
 
-Gould & Feher             Expires July 8, 2018                 [Page 19]
+Gould & Feher             Expires July 9, 2018                 [Page 19]
 
 Internet-Draft                 changePoll                   January 2018
 
@@ -1117,7 +1117,7 @@ Internet-Draft                 changePoll                   January 2018
 
 
 
-Gould & Feher             Expires July 8, 2018                 [Page 20]
+Gould & Feher             Expires July 9, 2018                 [Page 20]
 
 Internet-Draft                 changePoll                   January 2018
 
@@ -1173,7 +1173,7 @@ Internet-Draft                 changePoll                   January 2018
 
 
 
-Gould & Feher             Expires July 8, 2018                 [Page 21]
+Gould & Feher             Expires July 9, 2018                 [Page 21]
 
 Internet-Draft                 changePoll                   January 2018
 
@@ -1229,7 +1229,7 @@ Internet-Draft                 changePoll                   January 2018
 
 
 
-Gould & Feher             Expires July 8, 2018                 [Page 22]
+Gould & Feher             Expires July 9, 2018                 [Page 22]
 
 Internet-Draft                 changePoll                   January 2018
 
@@ -1285,7 +1285,7 @@ A.1.  Change from 00 to 01
 
 
 
-Gould & Feher             Expires July 8, 2018                 [Page 23]
+Gould & Feher             Expires July 9, 2018                 [Page 23]
 
 Internet-Draft                 changePoll                   January 2018
 
@@ -1341,7 +1341,7 @@ A.11.  Change from REGEXT 04 to REGEXT 05
 
 
 
-Gould & Feher             Expires July 8, 2018                 [Page 24]
+Gould & Feher             Expires July 9, 2018                 [Page 24]
 
 Internet-Draft                 changePoll                   January 2018
 
@@ -1397,4 +1397,4 @@ Authors' Addresses
 
 
 
-Gould & Feher             Expires July 8, 2018                 [Page 25]
+Gould & Feher             Expires July 9, 2018                 [Page 25]
