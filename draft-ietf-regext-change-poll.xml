@@ -41,7 +41,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-regext-change-poll-06" ipr="trust200902">
+<rfc category="std" docName="draft-ietf-regext-change-poll-07" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN"
@@ -97,12 +97,12 @@
       </address>
     </author>
 
-    <date day="5" month="January" year="2018"/>
+    <date day="19" month="January" year="2018"/>
 
     <abstract>
       <t>This document describes an Extensible Provisioning Protocol (EPP)
       extension for notifying clients of operations on client sponsored objects
-      that were not initiated by the client through EPP. These operations MAY
+      that were not initiated by the client through EPP. These operations may
       include contractual or policy requirements including but not limited to
       regular batch processes, customer support actions, Uniform Domain-Name
       Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS)
@@ -171,7 +171,8 @@
         <t>An operation consists of any transform operation that impacts
         objects that the client sponsers and SHOULD be notified of.  The
         &lt;changePoll:operation&gt; element defines the operation.  The OPTIONAL "op"
-        attribute is used to define a sub-operation or the name of a "custom" operation.
+        attribute is an identifier, represented in the 7-bit US-ASCII character set, that 
+        is used to define a sub-operation or the name of a "custom" operation.
         The enumerated list of &lt;changePoll:operation&gt; values include:</t>
 
 		  <t><list hangIndent="4" style="hanging">
@@ -290,7 +291,9 @@
 			  <t hangText="&lt;changePoll:svTRID&gt;:">Server transaction identifier of the operation.</t>
 			  <t hangText="&lt;changePoll:who&gt;:">Who executed the operation as defined in <xref target="who"/>.</t>
 			  <t hangText="&lt;changePoll:caseId&gt;:">OPTIONAL case identifer associated with the operation.  The required
-			  "type" attribute defines the type of case with an enumerated list of case types including:</t>
+			  "type" attribute defines the type of case.  The OPTIONAL "name" attribute is an identifier, 
+			  represented in the 7-bit US-ASCII character set, that is used to define the name of the "custom" case type.  
+			  The enumerated list of case types include:</t>
 			    <t><list hangIndent="4" style="hanging">
 			      <t hangText="udrp:">a Uniform Domain-Name Dispute-Resolution Policy (UDRP) case.</t>
 			      <t hangText="urs:">a Uniform Rapid Suspension (URS) case.</t>
@@ -827,11 +830,26 @@ END]]></artwork>
              The following URI assignment is requested of IANA:
          </t>
 
+         <t>Registration request for the changePoll namespace:</t>
+         
+         <t><list>
          <t>URI: urn:ietf:params:xml:ns:changePoll-1.0</t>
-
-         <t>Registrant Contact: See the "Author's Address" section of this document.</t>
-
+         
+         <t>Registrant Contact: IESG</t>
+          
+         <t>XML: None. Namespace URIs do not represent an XML specification.</t>
+         </list></t>
+         
+         <t>Registration request for the changePoll XML schema:</t>
+         
+         <t><list>
+         <t>URI: urn:ietf:params:xml:ns:changePoll-1.0</t>
+         
+         <t>Registrant Contact: IESG</t>
+          
          <t>XML: See the "Formal Syntax" section of this document.</t>
+         
+         </list></t>
 
        </section>
 
@@ -960,7 +978,7 @@ END]]></artwork>
       efforts in the initial versions of this draft by Trung Tran and Sharon Wodjenski.</t>
 
       <t>Special suggestions that have been incorporated into this document
-      were provided by Michael Holloway and Patrick Mevzek.</t>
+      were provided by Soctt Hollenbeck, Michael Holloway, and Patrick Mevzek.</t>
     </section>
 
   </middle>
@@ -1076,6 +1094,19 @@ END]]></artwork>
         <t>Added the "State" sub-section to the "Object Attributes" section to describe the expected 
         behavior for the "before" and "after" states, based on feedback from Patrick Mevzek.</t>
         <t>Added a colon suffix to each hangText entry to provide better separation.</t>
+      </list></t>
+    </section>
+    
+    <section title="Change from REGEXT 06 to REGEXT 07" anchor="version-WG06-to-WG07">
+      <t><list style="numbers">
+        <t>Updates based on feedback from Scott Hollenbeck, that include:
+          <list style="numbers">
+            <t>Changed MAY to may in the Abstract.</t>
+            <t>Revised the "IANA Considerations" section to include the registration of the XML schema.</t>
+            <t>Revised the description of the &lt;changePoll:caseId&gt; "name" attribute and the "changePoll:operation&gt; 
+            "op" attribute as containing 7-bit US-ASCII identifiers for the case type or the operation type, respectively.</t>
+          </list>
+        </t>
       </list></t>
     </section>
     

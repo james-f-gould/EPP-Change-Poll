@@ -418,6 +418,7 @@
 <link href="#rfc.appendix.A.10" rel="Chapter" title="A.10 Change from REGEXT 03 to REGEXT 04"/>
 <link href="#rfc.appendix.A.11" rel="Chapter" title="A.11 Change from REGEXT 04 to REGEXT 05"/>
 <link href="#rfc.appendix.A.12" rel="Chapter" title="A.12 Change from REGEXT 05 to REGEXT 06"/>
+<link href="#rfc.appendix.A.13" rel="Chapter" title="A.13 Change from REGEXT 06 to REGEXT 07"/>
 <link href="#rfc.authors" rel="Chapter"/>
 
 
@@ -425,10 +426,10 @@
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Gould, J. and K. Feher" />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-regext-change-poll-06" />
-  <meta name="dct.issued" scheme="ISO8601" content="2018-1-5" />
-  <meta name="dct.abstract" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client sponsored objects that were not initiated by the client through EPP. These operations MAY include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why." />
-  <meta name="description" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client sponsored objects that were not initiated by the client through EPP. These operations MAY include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why." />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-regext-change-poll-07" />
+  <meta name="dct.issued" scheme="ISO8601" content="2018-1-19" />
+  <meta name="dct.abstract" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client sponsored objects that were not initiated by the client through EPP. These operations may include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why." />
+  <meta name="description" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client sponsored objects that were not initiated by the client through EPP. These operations may include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why." />
 
 </head>
 
@@ -450,12 +451,12 @@
   <td class="right">K. Feher</td>
 </tr>
 <tr>
-  <td class="left">Expires: July 9, 2018</td>
+  <td class="left">Expires: July 23, 2018</td>
   <td class="right">Neustar</td>
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">January 5, 2018</td>
+  <td class="right">January 19, 2018</td>
 </tr>
 
     	
@@ -463,19 +464,19 @@
   </table>
 
   <p class="title">Change Poll Extension for the Extensible Provisioning Protocol (EPP)<br />
-  <span class="filename">draft-ietf-regext-change-poll-06</span></p>
+  <span class="filename">draft-ietf-regext-change-poll-07</span></p>
   
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
 </h1>
-<p>This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client sponsored objects that were not initiated by the client through EPP. These operations MAY include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why.</p>
+<p>This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client sponsored objects that were not initiated by the client through EPP. These operations may include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why.</p>
 <h1 id="rfc.status">
   <a href="#rfc.status">Status of This Memo</a>
 </h1>
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on July 9, 2018.</p>
+<p>This Internet-Draft will expire on July 23, 2018.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -531,6 +532,7 @@
 <li>A.10.   <a href="#rfc.appendix.A.10">Change from REGEXT 03 to REGEXT 04</a></li>
 <li>A.11.   <a href="#rfc.appendix.A.11">Change from REGEXT 04 to REGEXT 05</a></li>
 <li>A.12.   <a href="#rfc.appendix.A.12">Change from REGEXT 05 to REGEXT 06</a></li>
+<li>A.13.   <a href="#rfc.appendix.A.13">Change from REGEXT 06 to REGEXT 07</a></li>
 </ul><li><a href="#rfc.authors">Authors' Addresses</a></li>
 
 
@@ -546,7 +548,7 @@
 <h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#attrs" id="attrs">Object Attributes</a></h1>
 <p id="rfc.section.2.p.1">This extension adds additional elements to EPP object mappings like the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite>. Only those new elements are described here.</p>
 <h1 id="rfc.section.2.1"><a href="#rfc.section.2.1">2.1.</a> <a href="#operation" id="operation">Operation</a></h1>
-<p id="rfc.section.2.1.p.1">An operation consists of any transform operation that impacts objects that the client sponsers and SHOULD be notified of.  The &lt;changePoll:operation&gt; element defines the operation.  The OPTIONAL "op" attribute is used to define a sub-operation or the name of a "custom" operation.  The enumerated list of &lt;changePoll:operation&gt; values include:</p>
+<p id="rfc.section.2.1.p.1">An operation consists of any transform operation that impacts objects that the client sponsers and SHOULD be notified of.  The &lt;changePoll:operation&gt; element defines the operation.  The OPTIONAL "op" attribute is an identifier, represented in the 7-bit US-ASCII character set, that is used to define a sub-operation or the name of a "custom" operation.  The enumerated list of &lt;changePoll:operation&gt; values include:</p>
 <p/>
 
 <dl>
@@ -610,7 +612,7 @@
   <dt>&lt;changePoll:who&gt;:</dt>
   <dd style="margin-left: 4">Who executed the operation as defined in <a href="#who">Section 2.3</a>.</dd>
   <dt>&lt;changePoll:caseId&gt;:</dt>
-  <dd style="margin-left: 4">OPTIONAL case identifer associated with the operation.  The required "type" attribute defines the type of case with an enumerated list of case types including:</dd>
+  <dd style="margin-left: 4">OPTIONAL case identifer associated with the operation.  The required "type" attribute defines the type of case.  The OPTIONAL "name" attribute is an identifier, represented in the 7-bit US-ASCII character set, that is used to define the name of the "custom" case type.  The enumerated list of case types include:</dd>
   <dt></dt>
   <dd style="margin-left: 4">
     <dl>
@@ -1037,9 +1039,22 @@ END</pre>
 <h1 id="rfc.section.5"><a href="#rfc.section.5">5.</a> <a href="#IANA" id="IANA">IANA Considerations</a></h1>
 <h1 id="rfc.section.5.1"><a href="#rfc.section.5.1">5.1.</a> <a href="#IANA-XML-Namespace" id="IANA-XML-Namespace">XML Namespace</a></h1>
 <p id="rfc.section.5.1.p.1">This document uses URNs to describe XML namespaces and XML schemas conforming to a registry mechanism described in <a href="#RFC3688">[RFC3688]</a>.  The following URI assignment is requested of IANA: </p>
-<p id="rfc.section.5.1.p.2">URI: urn:ietf:params:xml:ns:changePoll-1.0</p>
-<p id="rfc.section.5.1.p.3">Registrant Contact: See the "Author's Address" section of this document.</p>
-<p id="rfc.section.5.1.p.4">XML: See the "Formal Syntax" section of this document.</p>
+<p id="rfc.section.5.1.p.2">Registration request for the changePoll namespace:</p>
+<p/>
+
+<ul class="empty">
+  <li>URI: urn:ietf:params:xml:ns:changePoll-1.0</li>
+  <li>Registrant Contact: IESG</li>
+  <li>XML: None. Namespace URIs do not represent an XML specification.</li>
+</ul>
+<p id="rfc.section.5.1.p.4">Registration request for the changePoll XML schema:</p>
+<p/>
+
+<ul class="empty">
+  <li>URI: urn:ietf:params:xml:ns:changePoll-1.0</li>
+  <li>Registrant Contact: IESG</li>
+  <li>XML: See the "Formal Syntax" section of this document.</li>
+</ul>
 <h1 id="rfc.section.5.2"><a href="#rfc.section.5.2">5.2.</a> <a href="#EPP-Extension-Registry" id="EPP-Extension-Registry">EPP Extension Registry</a></h1>
 <p id="rfc.section.5.2.p.1">The EPP extension described in this document should be registered by the IANA in the EPP Extension Registry described in <a href="#RFC7451">[RFC7451]</a>.  The details of the registration are as follows: </p>
 <p id="rfc.section.5.2.p.2">Name of Extension: "Change Poll Extension for the Extensible Provisioning Protocol (EPP)" </p>
@@ -1091,7 +1106,7 @@ END</pre>
 <p id="rfc.section.7.p.1">The mapping extensions described in this document do not provide any security services beyond those described by <a href="#RFC5730">EPP</a> <cite title="NONE">[RFC5730]</cite> and protocol layers used by EPP. The security considerations described in these other specifications apply to this specification as well.</p>
 <h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#Acknowledgements" id="Acknowledgements">Acknowledgements</a></h1>
 <p id="rfc.section.8.p.1">The authors wish to acknowledge the original concept for this draft and the efforts in the initial versions of this draft by Trung Tran and Sharon Wodjenski.</p>
-<p id="rfc.section.8.p.2">Special suggestions that have been incorporated into this document were provided by Michael Holloway and Patrick Mevzek.</p>
+<p id="rfc.section.8.p.2">Special suggestions that have been incorporated into this document were provided by Soctt Hollenbeck, Michael Holloway, and Patrick Mevzek.</p>
 <h1 id="rfc.references"><a href="#rfc.references">9.</a> Normative References</h1>
 <table>
   <tbody>
@@ -1219,6 +1234,12 @@ END</pre>
 <ol>
   <li>Added the "State" sub-section to the "Object Attributes" section to describe the expected behavior for the "before" and "after" states, based on feedback from Patrick Mevzek.</li>
   <li>Added a colon suffix to each hangText entry to provide better separation.</li>
+</ol>
+<h1 id="rfc.appendix.A.13"><a href="#rfc.appendix.A.13">A.13.</a> <a href="#version-WG06-to-WG07" id="version-WG06-to-WG07">Change from REGEXT 06 to REGEXT 07</a></h1>
+<p/>
+
+<ol>
+  <li>Updates based on feedback from Scott Hollenbeck, that include: <ol><li>Changed MAY to may in the Abstract.</li><li>Revised the "IANA Considerations" section to include the registration of the XML schema.</li><li>Revised the description of the &lt;changePoll:caseId&gt; "name" attribute and the "changePoll:operation&gt; "op" attribute as containing 7-bit US-ASCII identifiers for the case type or the operation type, respectively.</li></ol><p> </p></li>
 </ol>
 <h1 id="rfc.authors">
   <a href="#rfc.authors">Authors' Addresses</a>
