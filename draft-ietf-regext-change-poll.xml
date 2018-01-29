@@ -97,7 +97,7 @@
       </address>
     </author>
 
-    <date day="19" month="January" year="2018"/>
+    <date day="29" month="January" year="2018"/>
 
     <abstract>
       <t>This document describes an Extensible Provisioning Protocol (EPP)
@@ -978,7 +978,7 @@ END]]></artwork>
       efforts in the initial versions of this draft by Trung Tran and Sharon Wodjenski.</t>
 
       <t>Special suggestions that have been incorporated into this document
-      were provided by Soctt Hollenbeck, Michael Holloway, and Patrick Mevzek.</t>
+      were provided by Scott Hollenbeck, Michael Holloway, and Patrick Mevzek.</t>
     </section>
 
   </middle>
