@@ -8,7 +8,7 @@
 <!ENTITY RFC3915 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3915.xml">
 <!ENTITY RFC5730 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5730.xml">
 <!ENTITY RFC5731 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5731.xml">
-<!ENTITY RFC6982 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.6982.xml">
+<!ENTITY RFC7942 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7942.xml">
 <!ENTITY RFC7451 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7451.xml">
 <!ENTITY I-D.narten-iana-considerations-rfc2434bis SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.narten-iana-considerations-rfc2434bis.xml">
 <!ENTITY W3C.REC-xmlschema-2-20041028 PUBLIC '' 'http://xml2rfc.ietf.org/public/rfc/bibxml4/reference.W3C.REC-xmlschema-2-20041028.xml'>]>
@@ -41,7 +41,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-regext-change-poll-07" ipr="trust200902">
+<rfc category="std" docName="draft-ietf-regext-change-poll-08" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN"
@@ -91,13 +91,13 @@
              <country>AU</country>
           </postal>
 
-         <email>kal.feher@team.neustar</email>
+         <email>ietf@feherfamily.org</email>
 
          <uri>http://www.neustar.biz</uri>
       </address>
     </author>
 
-    <date day="29" month="January" year="2018"/>
+    <date day="16" month="May" year="2018"/>
 
     <abstract>
       <t>This document describes an Extensible Provisioning Protocol (EPP)
@@ -899,11 +899,11 @@ END]]></artwork>
 
     <section anchor="Implementation" title="Implementation Status">
       <t>Note to RFC Editor: Please remove this section and the reference to
-         <xref target="RFC6982">RFC 6982</xref> before publication.</t>
+         <xref target="RFC7942">RFC 7942</xref> before publication.</t>
       <t>This section records the status of known implementations of the
       protocol defined by this specification at the time of posting of
-      this Internet-Draft, and is based on a proposal described in <xref target="RFC6982">RFC
-      6982</xref>.  The description of implementations in this section is
+      this Internet-Draft, and is based on a proposal described in <xref target="RFC7942">RFC
+      7942</xref>.  The description of implementations in this section is
       intended to assist the IETF in its decision processes in
       progressing drafts to RFCs.  Please note that the listing of any
       individual implementation here does not imply endorsement by the
@@ -912,7 +912,7 @@ END]]></artwork>
       This is not intended as, and must not be construed to be, a
       catalog of available implementations or their features.  Readers
       are advised to note that other implementations may exist.</t>
-      <t>According to <xref target="RFC6982">RFC 6982</xref>, "this will allow reviewers and working
+      <t>According to <xref target="RFC7942">RFC 7942</xref>, "this will allow reviewers and working
       groups to assign due consideration to documents that have the
       benefit of running code, which may serve as evidence of valuable
       experimentation and feedback that have made the implemented
@@ -959,7 +959,7 @@ END]]></artwork>
         <t>Level of maturity: Production</t>
         <t>Coverage: All client side aspects of the protocol are implemented.</t>
         <t>Licensing: GNU Lesser General Public License</t>
-        <t>Contact: kal.feher@team.neustar</t>
+        <t>Contact: quoc-anh.np@team.neustar</t>
       </section>
     </section>
 
@@ -1011,12 +1011,16 @@ END]]></artwork>
 
       &RFC5731;
 
-      &RFC6982;
-
-      &RFC7451;
+      &RFC7942;
       
       &W3C.REC-xmlschema-2-20041028;
 
+    </references>
+
+    <references title="Informative References">  
+    
+      &RFC7451; 
+      
     </references>
 
    <section title="Change History">
@@ -1109,7 +1113,16 @@ END]]></artwork>
         </t>
       </list></t>
     </section>
-    
+ 
+    <section title="Change from REGEXT 07 to REGEXT 08" anchor="version-WG07-to-WG08">
+      <t><list style="numbers">
+        <t>Updated obsoleted RFC 6982 to RFC 7942.</t>
+        <t>Moved RFC 7451 to an informational reference based on a check done by the Idnits Tool.</t>
+        <t>Changed Kal Feher's contact e-mail address.</t>
+        <t>Changed Neustar's Implementation Status contact e-mail address.</t> 
+      </list></t>
+    </section>
+     
    </section>
 
   </back>

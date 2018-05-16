@@ -404,7 +404,9 @@
 <link href="#rfc.section.6.4" rel="Chapter" title="6.4 Neustar EPP SDK"/>
 <link href="#rfc.section.7" rel="Chapter" title="7 Security Considerations"/>
 <link href="#rfc.section.8" rel="Chapter" title="8 Acknowledgements"/>
-<link href="#rfc.references" rel="Chapter" title="9 Normative References"/>
+<link href="#rfc.references" rel="Chapter" title="9 References"/>
+<link href="#rfc.references.1" rel="Chapter" title="9.1 Normative References"/>
+<link href="#rfc.references.2" rel="Chapter" title="9.2 Informative References"/>
 <link href="#rfc.appendix.A" rel="Chapter" title="A Change History"/>
 <link href="#rfc.appendix.A.1" rel="Chapter" title="A.1 Change from 00 to 01"/>
 <link href="#rfc.appendix.A.2" rel="Chapter" title="A.2 Change from 01 to 02"/>
@@ -419,6 +421,7 @@
 <link href="#rfc.appendix.A.11" rel="Chapter" title="A.11 Change from REGEXT 04 to REGEXT 05"/>
 <link href="#rfc.appendix.A.12" rel="Chapter" title="A.12 Change from REGEXT 05 to REGEXT 06"/>
 <link href="#rfc.appendix.A.13" rel="Chapter" title="A.13 Change from REGEXT 06 to REGEXT 07"/>
+<link href="#rfc.appendix.A.14" rel="Chapter" title="A.14 Change from REGEXT 07 to REGEXT 08"/>
 <link href="#rfc.authors" rel="Chapter"/>
 
 
@@ -426,8 +429,8 @@
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Gould, J. and K. Feher" />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-regext-change-poll-07" />
-  <meta name="dct.issued" scheme="ISO8601" content="2018-1-29" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-regext-change-poll-08" />
+  <meta name="dct.issued" scheme="ISO8601" content="2018-5-16" />
   <meta name="dct.abstract" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client sponsored objects that were not initiated by the client through EPP. These operations may include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why." />
   <meta name="description" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client sponsored objects that were not initiated by the client through EPP. These operations may include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why." />
 
@@ -451,12 +454,12 @@
   <td class="right">K. Feher</td>
 </tr>
 <tr>
-  <td class="left">Expires: August 2, 2018</td>
+  <td class="left">Expires: November 17, 2018</td>
   <td class="right">Neustar</td>
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">January 29, 2018</td>
+  <td class="right">May 16, 2018</td>
 </tr>
 
     	
@@ -464,7 +467,7 @@
   </table>
 
   <p class="title">Change Poll Extension for the Extensible Provisioning Protocol (EPP)<br />
-  <span class="filename">draft-ietf-regext-change-poll-07</span></p>
+  <span class="filename">draft-ietf-regext-change-poll-08</span></p>
   
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
@@ -476,7 +479,7 @@
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on August 2, 2018.</p>
+<p>This Internet-Draft will expire on November 17, 2018.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -518,8 +521,10 @@
 <li>6.4.   <a href="#rfc.section.6.4">Neustar EPP SDK</a></li>
 </ul><li>7.   <a href="#rfc.section.7">Security Considerations</a></li>
 <li>8.   <a href="#rfc.section.8">Acknowledgements</a></li>
-<li>9.   <a href="#rfc.references">Normative References</a></li>
-<li>Appendix A.   <a href="#rfc.appendix.A">Change History</a></li>
+<li>9.   <a href="#rfc.references">References</a></li>
+<ul><li>9.1.   <a href="#rfc.references.1">Normative References</a></li>
+<li>9.2.   <a href="#rfc.references.2">Informative References</a></li>
+</ul><li>Appendix A.   <a href="#rfc.appendix.A">Change History</a></li>
 <ul><li>A.1.   <a href="#rfc.appendix.A.1">Change from 00 to 01</a></li>
 <li>A.2.   <a href="#rfc.appendix.A.2">Change from 01 to 02</a></li>
 <li>A.3.   <a href="#rfc.appendix.A.3">Change from 02 to 03</a></li>
@@ -533,6 +538,7 @@
 <li>A.11.   <a href="#rfc.appendix.A.11">Change from REGEXT 04 to REGEXT 05</a></li>
 <li>A.12.   <a href="#rfc.appendix.A.12">Change from REGEXT 05 to REGEXT 06</a></li>
 <li>A.13.   <a href="#rfc.appendix.A.13">Change from REGEXT 06 to REGEXT 07</a></li>
+<li>A.14.   <a href="#rfc.appendix.A.14">Change from REGEXT 07 to REGEXT 08</a></li>
 </ul><li><a href="#rfc.authors">Authors' Addresses</a></li>
 
 
@@ -1066,9 +1072,9 @@ END</pre>
 <p id="rfc.section.5.2.p.8">Status: Active </p>
 <p id="rfc.section.5.2.p.9">Notes: None </p>
 <h1 id="rfc.section.6"><a href="#rfc.section.6">6.</a> <a href="#Implementation" id="Implementation">Implementation Status</a></h1>
-<p id="rfc.section.6.p.1">Note to RFC Editor: Please remove this section and the reference to <a href="#RFC6982">RFC 6982</a> <cite title="NONE">[RFC6982]</cite> before publication.</p>
-<p id="rfc.section.6.p.2">This section records the status of known implementations of the protocol defined by this specification at the time of posting of this Internet-Draft, and is based on a proposal described in <a href="#RFC6982">RFC 6982</a> <cite title="NONE">[RFC6982]</cite>.  The description of implementations in this section is intended to assist the IETF in its decision processes in progressing drafts to RFCs.  Please note that the listing of any individual implementation here does not imply endorsement by the IETF.  Furthermore, no effort has been spent to verify the information presented here that was supplied by IETF contributors.  This is not intended as, and must not be construed to be, a catalog of available implementations or their features.  Readers are advised to note that other implementations may exist.</p>
-<p id="rfc.section.6.p.3">According to <a href="#RFC6982">RFC 6982</a> <cite title="NONE">[RFC6982]</cite>, "this will allow reviewers and working groups to assign due consideration to documents that have the benefit of running code, which may serve as evidence of valuable experimentation and feedback that have made the implemented protocols more mature.  It is up to the individual working groups to use this information as they see fit".</p>
+<p id="rfc.section.6.p.1">Note to RFC Editor: Please remove this section and the reference to <a href="#RFC7942">RFC 7942</a> <cite title="NONE">[RFC7942]</cite> before publication.</p>
+<p id="rfc.section.6.p.2">This section records the status of known implementations of the protocol defined by this specification at the time of posting of this Internet-Draft, and is based on a proposal described in <a href="#RFC7942">RFC 7942</a> <cite title="NONE">[RFC7942]</cite>.  The description of implementations in this section is intended to assist the IETF in its decision processes in progressing drafts to RFCs.  Please note that the listing of any individual implementation here does not imply endorsement by the IETF.  Furthermore, no effort has been spent to verify the information presented here that was supplied by IETF contributors.  This is not intended as, and must not be construed to be, a catalog of available implementations or their features.  Readers are advised to note that other implementations may exist.</p>
+<p id="rfc.section.6.p.3">According to <a href="#RFC7942">RFC 7942</a> <cite title="NONE">[RFC7942]</cite>, "this will allow reviewers and working groups to assign due consideration to documents that have the benefit of running code, which may serve as evidence of valuable experimentation and feedback that have made the implemented protocols more mature.  It is up to the individual working groups to use this information as they see fit".</p>
 <h1 id="rfc.section.6.1"><a href="#rfc.section.6.1">6.1.</a> Verisign EPP SDK</h1>
 <p id="rfc.section.6.1.p.1">Organization: Verisign Inc.</p>
 <p id="rfc.section.6.1.p.2">Name: Verisign EPP SDK</p>
@@ -1101,13 +1107,14 @@ END</pre>
 <p id="rfc.section.6.4.p.4">Level of maturity: Production</p>
 <p id="rfc.section.6.4.p.5">Coverage: All client side aspects of the protocol are implemented.</p>
 <p id="rfc.section.6.4.p.6">Licensing: GNU Lesser General Public License</p>
-<p id="rfc.section.6.4.p.7">Contact: kal.feher@team.neustar</p>
+<p id="rfc.section.6.4.p.7">Contact: quoc-anh.np@team.neustar</p>
 <h1 id="rfc.section.7"><a href="#rfc.section.7">7.</a> <a href="#Security" id="Security">Security Considerations</a></h1>
 <p id="rfc.section.7.p.1">The mapping extensions described in this document do not provide any security services beyond those described by <a href="#RFC5730">EPP</a> <cite title="NONE">[RFC5730]</cite> and protocol layers used by EPP. The security considerations described in these other specifications apply to this specification as well.</p>
 <h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#Acknowledgements" id="Acknowledgements">Acknowledgements</a></h1>
 <p id="rfc.section.8.p.1">The authors wish to acknowledge the original concept for this draft and the efforts in the initial versions of this draft by Trung Tran and Sharon Wodjenski.</p>
 <p id="rfc.section.8.p.2">Special suggestions that have been incorporated into this document were provided by Scott Hollenbeck, Michael Holloway, and Patrick Mevzek.</p>
-<h1 id="rfc.references"><a href="#rfc.references">9.</a> Normative References</h1>
+<h1 id="rfc.references"><a href="#rfc.references">9.</a> References</h1>
+<h1 id="rfc.references.1"><a href="#rfc.references.1">9.1.</a> Normative References</h1>
 <table>
   <tbody>
     <tr>
@@ -1142,21 +1149,26 @@ END</pre>
     </tr>
     <tr>
       <td class="reference">
-        <b id="RFC6982">[RFC6982]</b>
+        <b id="RFC7942">[RFC7942]</b>
       </td>
-      <td class="top"><a>Sheffer, Y.</a> and <a>A. Farrel</a>, "<a href="http://tools.ietf.org/html/rfc6982">Improving Awareness of Running Code: The Implementation Status Section</a>", RFC 6982, DOI 10.17487/RFC6982, July 2013.</td>
-    </tr>
-    <tr>
-      <td class="reference">
-        <b id="RFC7451">[RFC7451]</b>
-      </td>
-      <td class="top"><a>Hollenbeck, S.</a>, "<a href="http://tools.ietf.org/html/rfc7451">Extension Registry for the Extensible Provisioning Protocol</a>", RFC 7451, DOI 10.17487/RFC7451, February 2015.</td>
+      <td class="top"><a>Sheffer, Y.</a> and <a>A. Farrel</a>, "<a href="http://tools.ietf.org/html/rfc7942">Improving Awareness of Running Code: The Implementation Status Section</a>", BCP 205, RFC 7942, DOI 10.17487/RFC7942, July 2016.</td>
     </tr>
     <tr>
       <td class="reference">
         <b id="W3C.REC-xmlschema-2-20041028">[W3C.REC-xmlschema-2-20041028]</b>
       </td>
       <td class="top"><a>Biron, P.</a> and <a>A. Malhotra</a>, "<a href="http://www.w3.org/TR/2004/REC-xmlschema-2-20041028">XML Schema Part 2: Datatypes Second Edition</a>", World Wide Web Consortium Recommendation REC-xmlschema-2-20041028, October 2004.</td>
+    </tr>
+  </tbody>
+</table>
+<h1 id="rfc.references.2"><a href="#rfc.references.2">9.2.</a> Informative References</h1>
+<table>
+  <tbody>
+    <tr>
+      <td class="reference">
+        <b id="RFC7451">[RFC7451]</b>
+      </td>
+      <td class="top"><a>Hollenbeck, S.</a>, "<a href="http://tools.ietf.org/html/rfc7451">Extension Registry for the Extensible Provisioning Protocol</a>", RFC 7451, DOI 10.17487/RFC7451, February 2015.</td>
     </tr>
   </tbody>
 </table>
@@ -1241,6 +1253,15 @@ END</pre>
 <ol>
   <li>Updates based on feedback from Scott Hollenbeck, that include: <ol><li>Changed MAY to may in the Abstract.</li><li>Revised the "IANA Considerations" section to include the registration of the XML schema.</li><li>Revised the description of the &lt;changePoll:caseId&gt; "name" attribute and the "changePoll:operation&gt; "op" attribute as containing 7-bit US-ASCII identifiers for the case type or the operation type, respectively.</li></ol><p> </p></li>
 </ol>
+<h1 id="rfc.appendix.A.14"><a href="#rfc.appendix.A.14">A.14.</a> <a href="#version-WG07-to-WG08" id="version-WG07-to-WG08">Change from REGEXT 07 to REGEXT 08</a></h1>
+<p/>
+
+<ol>
+  <li>Updated obsoleted RFC 6982 to RFC 7942.</li>
+  <li>Moved RFC 7451 to an informational reference based on a check done by the Idnits Tool.</li>
+  <li>Changed Kal Feher's contact e-mail address.</li>
+  <li>Changed Neustar's Implementation Status contact e-mail address.</li>
+</ol>
 <h1 id="rfc.authors">
   <a href="#rfc.authors">Authors' Addresses</a>
 </h1>
@@ -1287,7 +1308,7 @@ END</pre>
 	  </span>
 	  <span class="country-name vcardline">AU</span>
 	</span>
-	<span class="vcardline">EMail: <a href="mailto:kal.feher@team.neustar">kal.feher@team.neustar</a></span>
+	<span class="vcardline">EMail: <a href="mailto:ietf@feherfamily.org">ietf@feherfamily.org</a></span>
 
 <span class="vcardline">URI: <a href="http://www.neustar.biz">http://www.neustar.biz</a></span>
 
