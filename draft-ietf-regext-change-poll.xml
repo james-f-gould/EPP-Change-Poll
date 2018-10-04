@@ -10,6 +10,7 @@
 <!ENTITY RFC5731 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.5731.xml">
 <!ENTITY RFC7942 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7942.xml">
 <!ENTITY RFC7451 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.7451.xml">
+<!ENTITY RFC8174 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.8174.xml">
 <!ENTITY I-D.narten-iana-considerations-rfc2434bis SYSTEM "http://xml.resource.org/public/rfc/bibxml3/reference.I-D.narten-iana-considerations-rfc2434bis.xml">
 <!ENTITY W3C.REC-xmlschema-2-20041028 PUBLIC '' 'http://xml2rfc.ietf.org/public/rfc/bibxml4/reference.W3C.REC-xmlschema-2-20041028.xml'>]>
 <?xml-stylesheet type='text/xsl' href='rfc2629.xslt' ?>
@@ -41,7 +42,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-regext-change-poll-08" ipr="trust200902">
+<rfc category="std" docName="draft-ietf-regext-change-poll-09" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN"
@@ -97,7 +98,7 @@
       </address>
     </author>
 
-    <date day="16" month="May" year="2018"/>
+    <date day="4" month="October" year="2018"/>
 
     <abstract>
       <t>This document describes an Extensible Provisioning Protocol (EPP)
@@ -136,11 +137,13 @@
       operation poll message.</t>
 
       <section title="Conventions Used in This Document">
-        <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
-        "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this
-        document are to be interpreted as described in <xref
-        target="RFC2119">RFC 2119</xref>.</t>
-
+        <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
+      NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED",
+      "MAY", and "OPTIONAL" in this document are to be interpreted as
+      described in BCP 14 <xref target="RFC2119"/> <xref target="RFC8174"/>
+      when, and only when, they
+      appear in all capitals, as shown here.</t>
+      
         <t>XML is case sensitive. Unless stated otherwise, XML specifications
         and examples provided in this document MUST be interpreted in the
         character case presented in order to develop a conforming
@@ -1021,6 +1024,8 @@ END]]></artwork>
     
       &RFC7451; 
       
+      &RFC8174;      
+      
     </references>
 
    <section title="Change History">
@@ -1122,6 +1127,13 @@ END]]></artwork>
         <t>Changed Neustar's Implementation Status contact e-mail address.</t> 
       </list></t>
     </section>
+    
+    <section title="Change from REGEXT 08 to REGEXT 09" anchor="version-WG08-to-WG09">
+      <t><list style="numbers">
+        <t>Fixed Section 1.1 (Conventions) to contain the updated language (e.g. "NOT RECOMMENDED", RFC 8174, BCP 14), based on feedback from the Document Shepherd.</t> 
+      </list></t>
+    </section>
+    
      
    </section>
 

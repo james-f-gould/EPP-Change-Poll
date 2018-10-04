@@ -422,6 +422,7 @@
 <link href="#rfc.appendix.A.12" rel="Chapter" title="A.12 Change from REGEXT 05 to REGEXT 06"/>
 <link href="#rfc.appendix.A.13" rel="Chapter" title="A.13 Change from REGEXT 06 to REGEXT 07"/>
 <link href="#rfc.appendix.A.14" rel="Chapter" title="A.14 Change from REGEXT 07 to REGEXT 08"/>
+<link href="#rfc.appendix.A.15" rel="Chapter" title="A.15 Change from REGEXT 08 to REGEXT 09"/>
 <link href="#rfc.authors" rel="Chapter"/>
 
 
@@ -429,8 +430,8 @@
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Gould, J. and K. Feher" />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-regext-change-poll-08" />
-  <meta name="dct.issued" scheme="ISO8601" content="2018-5-16" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-regext-change-poll-09" />
+  <meta name="dct.issued" scheme="ISO8601" content="2018-10-4" />
   <meta name="dct.abstract" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client sponsored objects that were not initiated by the client through EPP. These operations may include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why." />
   <meta name="description" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client sponsored objects that were not initiated by the client through EPP. These operations may include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why." />
 
@@ -454,12 +455,12 @@
   <td class="right">K. Feher</td>
 </tr>
 <tr>
-  <td class="left">Expires: November 17, 2018</td>
+  <td class="left">Expires: April 7, 2019</td>
   <td class="right">Neustar</td>
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">May 16, 2018</td>
+  <td class="right">October 4, 2018</td>
 </tr>
 
     	
@@ -467,7 +468,7 @@
   </table>
 
   <p class="title">Change Poll Extension for the Extensible Provisioning Protocol (EPP)<br />
-  <span class="filename">draft-ietf-regext-change-poll-08</span></p>
+  <span class="filename">draft-ietf-regext-change-poll-09</span></p>
   
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
@@ -479,7 +480,7 @@
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on November 17, 2018.</p>
+<p>This Internet-Draft will expire on April 7, 2019.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -539,6 +540,7 @@
 <li>A.12.   <a href="#rfc.appendix.A.12">Change from REGEXT 05 to REGEXT 06</a></li>
 <li>A.13.   <a href="#rfc.appendix.A.13">Change from REGEXT 06 to REGEXT 07</a></li>
 <li>A.14.   <a href="#rfc.appendix.A.14">Change from REGEXT 07 to REGEXT 08</a></li>
+<li>A.15.   <a href="#rfc.appendix.A.15">Change from REGEXT 08 to REGEXT 09</a></li>
 </ul><li><a href="#rfc.authors">Authors' Addresses</a></li>
 
 
@@ -547,7 +549,7 @@
   <h1 id="rfc.section.1"><a href="#rfc.section.1">1.</a> Introduction</h1>
 <p id="rfc.section.1.p.1">This document describes an extension mapping for version 1.0 of the <a href="#RFC5730">Extensible Provisioning Protocol (EPP)</a> <cite title="NONE">[RFC5730]</cite>.  This mapping, an extension to EPP object mappings like the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite>, is used to notify clients of operations they are not directly involved in, on objects that the client sponsors.  It is up to server policy to determine what transform operations and clients to notify.  Using this extension, clients can more easily keep their systems in-sync with the objects stored in the server.  When a change occurs that a client needs to be notified of, a poll message can be inserted by the server for consumption by the client using the EPP &lt;poll&gt; command and response defined in <a href="#RFC5730">[RFC5730]</a>.  The extension supports including a "before" operation poll message and an "after" operation poll message.</p>
 <h1 id="rfc.section.1.1"><a href="#rfc.section.1.1">1.1.</a> Conventions Used in This Document</h1>
-<p id="rfc.section.1.1.p.1">The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in <a href="#RFC2119">RFC 2119</a> <cite title="NONE">[RFC2119]</cite>.</p>
+<p id="rfc.section.1.1.p.1">The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in BCP 14 <a href="#RFC2119">[RFC2119]</a> <a href="#RFC8174">[RFC8174]</a> when, and only when, they appear in all capitals, as shown here.</p>
 <p id="rfc.section.1.1.p.2">XML is case sensitive. Unless stated otherwise, XML specifications and examples provided in this document MUST be interpreted in the character case presented in order to develop a conforming implementation.</p>
 <p id="rfc.section.1.1.p.3">In examples, "C:" represents lines sent by a protocol client and "S:" represents lines returned by a protocol server.  Indentation and white space in examples are provided only to illustrate element relationships and are not a REQUIRED feature of this protocol.  </p>
 <p id="rfc.section.1.1.p.4">"changePoll-1.0" is used as an abbreviation for "urn:ietf:params:xml:ns:changePoll-1.0". The XML namespace prefix "changePoll" is used, but implementations MUST NOT depend on it and instead employ a proper namespace-aware XML parser and serializer to interpret and output the XML documents.</p>
@@ -1170,6 +1172,12 @@ END</pre>
       </td>
       <td class="top"><a>Hollenbeck, S.</a>, "<a href="http://tools.ietf.org/html/rfc7451">Extension Registry for the Extensible Provisioning Protocol</a>", RFC 7451, DOI 10.17487/RFC7451, February 2015.</td>
     </tr>
+    <tr>
+      <td class="reference">
+        <b id="RFC8174">[RFC8174]</b>
+      </td>
+      <td class="top"><a>Leiba, B.</a>, "<a href="http://tools.ietf.org/html/rfc8174">Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</a>", BCP 14, RFC 8174, DOI 10.17487/RFC8174, May 2017.</td>
+    </tr>
   </tbody>
 </table>
 <h1 id="rfc.appendix.A"><a href="#rfc.appendix.A">Appendix A.</a> Change History</h1>
@@ -1261,6 +1269,12 @@ END</pre>
   <li>Moved RFC 7451 to an informational reference based on a check done by the Idnits Tool.</li>
   <li>Changed Kal Feher's contact e-mail address.</li>
   <li>Changed Neustar's Implementation Status contact e-mail address.</li>
+</ol>
+<h1 id="rfc.appendix.A.15"><a href="#rfc.appendix.A.15">A.15.</a> <a href="#version-WG08-to-WG09" id="version-WG08-to-WG09">Change from REGEXT 08 to REGEXT 09</a></h1>
+<p/>
+
+<ol>
+  <li>Fixed Section 1.1 (Conventions) to contain the updated language (e.g. "NOT RECOMMENDED", RFC 8174, BCP 14), based on feedback from the Document Shepherd.</li>
 </ol>
 <h1 id="rfc.authors">
   <a href="#rfc.authors">Authors' Addresses</a>
