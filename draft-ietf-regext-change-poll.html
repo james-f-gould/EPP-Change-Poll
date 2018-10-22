@@ -423,6 +423,7 @@
 <link href="#rfc.appendix.A.13" rel="Chapter" title="A.13 Change from REGEXT 06 to REGEXT 07"/>
 <link href="#rfc.appendix.A.14" rel="Chapter" title="A.14 Change from REGEXT 07 to REGEXT 08"/>
 <link href="#rfc.appendix.A.15" rel="Chapter" title="A.15 Change from REGEXT 08 to REGEXT 09"/>
+<link href="#rfc.appendix.A.16" rel="Chapter" title="A.16 Change from REGEXT 09 to REGEXT 10"/>
 <link href="#rfc.authors" rel="Chapter"/>
 
 
@@ -430,10 +431,10 @@
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Gould, J. and K. Feher" />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-regext-change-poll-09" />
-  <meta name="dct.issued" scheme="ISO8601" content="2018-10-4" />
-  <meta name="dct.abstract" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client sponsored objects that were not initiated by the client through EPP. These operations may include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why." />
-  <meta name="description" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client sponsored objects that were not initiated by the client through EPP. These operations may include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why." />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-regext-change-poll-10" />
+  <meta name="dct.issued" scheme="ISO8601" content="2018-10-22" />
+  <meta name="dct.abstract" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client-sponsored objects that were not initiated by the client through EPP. These operations may include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court-directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why." />
+  <meta name="description" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client-sponsored objects that were not initiated by the client through EPP. These operations may include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court-directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why." />
 
 </head>
 
@@ -455,12 +456,12 @@
   <td class="right">K. Feher</td>
 </tr>
 <tr>
-  <td class="left">Expires: April 7, 2019</td>
+  <td class="left">Expires: April 25, 2019</td>
   <td class="right">Neustar</td>
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">October 4, 2018</td>
+  <td class="right">October 22, 2018</td>
 </tr>
 
     	
@@ -468,19 +469,19 @@
   </table>
 
   <p class="title">Change Poll Extension for the Extensible Provisioning Protocol (EPP)<br />
-  <span class="filename">draft-ietf-regext-change-poll-09</span></p>
+  <span class="filename">draft-ietf-regext-change-poll-10</span></p>
   
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
 </h1>
-<p>This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client sponsored objects that were not initiated by the client through EPP. These operations may include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why.</p>
+<p>This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client-sponsored objects that were not initiated by the client through EPP. These operations may include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court-directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why.</p>
 <h1 id="rfc.status">
   <a href="#rfc.status">Status of This Memo</a>
 </h1>
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on April 7, 2019.</p>
+<p>This Internet-Draft will expire on April 25, 2019.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -541,22 +542,23 @@
 <li>A.13.   <a href="#rfc.appendix.A.13">Change from REGEXT 06 to REGEXT 07</a></li>
 <li>A.14.   <a href="#rfc.appendix.A.14">Change from REGEXT 07 to REGEXT 08</a></li>
 <li>A.15.   <a href="#rfc.appendix.A.15">Change from REGEXT 08 to REGEXT 09</a></li>
+<li>A.16.   <a href="#rfc.appendix.A.16">Change from REGEXT 09 to REGEXT 10</a></li>
 </ul><li><a href="#rfc.authors">Authors' Addresses</a></li>
 
 
   </ul>
 
   <h1 id="rfc.section.1"><a href="#rfc.section.1">1.</a> Introduction</h1>
-<p id="rfc.section.1.p.1">This document describes an extension mapping for version 1.0 of the <a href="#RFC5730">Extensible Provisioning Protocol (EPP)</a> <cite title="NONE">[RFC5730]</cite>.  This mapping, an extension to EPP object mappings like the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite>, is used to notify clients of operations they are not directly involved in, on objects that the client sponsors.  It is up to server policy to determine what transform operations and clients to notify.  Using this extension, clients can more easily keep their systems in-sync with the objects stored in the server.  When a change occurs that a client needs to be notified of, a poll message can be inserted by the server for consumption by the client using the EPP &lt;poll&gt; command and response defined in <a href="#RFC5730">[RFC5730]</a>.  The extension supports including a "before" operation poll message and an "after" operation poll message.</p>
+<p id="rfc.section.1.p.1">This document describes an extension mapping for version 1.0 of the <a href="#RFC5730">Extensible Provisioning Protocol (EPP)</a> <cite title="NONE">[RFC5730]</cite>.  This mapping, an extension to EPP object mappings like the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite>, is used to notify clients of operations they are not directly involved in, on objects that the client sponsors.  It is up to server policy to determine what transform operations and clients to notify.  Using this extension, clients can more easily keep their systems in-sync with the objects stored in the server.  When a change occurs that a client needs to be notified of, a poll message can be inserted by the server for consumption by the client using the EPP &lt;poll&gt; command and response defined in <a href="#RFC5730">[RFC5730]</a>.  The extension supports including a "before" operation poll message and an "after" operation poll message.  The extension only extends the EPP &lt;poll&gt; response in <a href="#RFC5730">[RFC5730]</a> and does not extend the EPP &lt;poll&gt; command.  Please refer to <a href="#RFC5730">[RFC5730]</a> for information and examples of the EPP &lt;poll&gt; command.</p>
 <h1 id="rfc.section.1.1"><a href="#rfc.section.1.1">1.1.</a> Conventions Used in This Document</h1>
 <p id="rfc.section.1.1.p.1">The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and "OPTIONAL" in this document are to be interpreted as described in BCP 14 <a href="#RFC2119">[RFC2119]</a> <a href="#RFC8174">[RFC8174]</a> when, and only when, they appear in all capitals, as shown here.</p>
 <p id="rfc.section.1.1.p.2">XML is case sensitive. Unless stated otherwise, XML specifications and examples provided in this document MUST be interpreted in the character case presented in order to develop a conforming implementation.</p>
 <p id="rfc.section.1.1.p.3">In examples, "C:" represents lines sent by a protocol client and "S:" represents lines returned by a protocol server.  Indentation and white space in examples are provided only to illustrate element relationships and are not a REQUIRED feature of this protocol.  </p>
-<p id="rfc.section.1.1.p.4">"changePoll-1.0" is used as an abbreviation for "urn:ietf:params:xml:ns:changePoll-1.0". The XML namespace prefix "changePoll" is used, but implementations MUST NOT depend on it and instead employ a proper namespace-aware XML parser and serializer to interpret and output the XML documents.</p>
+<p id="rfc.section.1.1.p.4">The XML namespace prefix "changePoll" is used for the namespace "urn:ietf:params:xml:ns:changePoll-1.0", but implementations MUST NOT depend on it and instead employ a proper namespace-aware XML parser and serializer to interpret and output the XML documents.</p>
 <h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#attrs" id="attrs">Object Attributes</a></h1>
 <p id="rfc.section.2.p.1">This extension adds additional elements to EPP object mappings like the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite>. Only those new elements are described here.</p>
 <h1 id="rfc.section.2.1"><a href="#rfc.section.2.1">2.1.</a> <a href="#operation" id="operation">Operation</a></h1>
-<p id="rfc.section.2.1.p.1">An operation consists of any transform operation that impacts objects that the client sponsers and SHOULD be notified of.  The &lt;changePoll:operation&gt; element defines the operation.  The OPTIONAL "op" attribute is an identifier, represented in the 7-bit US-ASCII character set, that is used to define a sub-operation or the name of a "custom" operation.  The enumerated list of &lt;changePoll:operation&gt; values include:</p>
+<p id="rfc.section.2.1.p.1">An operation consists of any transform operation that impacts objects that the client sponsers and should be notified of.  The &lt;changePoll:operation&gt; element defines the operation.  The OPTIONAL "op" attribute is an identifier, represented in the 7-bit US-ASCII character set defined in <a href="#RFC0020">[RFC0020]</a>, that is used to define a sub-operation or the name of a "custom" operation.  The enumerated list of &lt;changePoll:operation&gt; values include:</p>
 <p/>
 
 <dl>
@@ -579,7 +581,7 @@
   <dt>"autoPurge":</dt>
   <dd style="margin-left: 4">Auto purge operation executed by the server when removing the object after it had the "pendingDelete" status.</dd>
   <dt>"custom":</dt>
-  <dd style="margin-left: 4">Custom operation that MUST set the "op" attribute with the custom operation name.</dd>
+  <dd style="margin-left: 4">Custom operation that MUST set the "op" attribute with the custom operation name.  The custom operations supported is up to server policy.</dd>
 </dl>
 <h1 id="rfc.section.2.2"><a href="#rfc.section.2.2">2.2.</a> <a href="#state" id="state">State</a></h1>
 <p id="rfc.section.2.2.p.1">The state attribute reflects the state of the object "before" or "after" the operation.  The state is defined using the OPTIONAL "state" attribute of the &lt;changePoll:changeData&gt; element, with the possible values "before" or "after" and with a default value of "after".  The server MAY support both the "before" state and the "after" state of the operation, by using one poll message for the "before" state and one poll message for the "after" state.  The "before" state poll message MUST be inserted prior to the "after" state poll message.</p>
@@ -607,7 +609,7 @@
 <p id="rfc.section.3.1.1.p.1">This extension does not add any elements to the EPP &lt;check&gt; command or &lt;check&gt; response described in the <a href="#RFC5730">[RFC5730]</a>.</p>
 <h1 id="rfc.section.3.1.2"><a href="#rfc.section.3.1.2">3.1.2.</a> <a href="#infoCommand" id="infoCommand">EPP &lt;info&gt; Command</a></h1>
 <p id="rfc.section.3.1.2.p.1">This extension does not add any elements to the EPP &lt;info&gt; command described in the <a href="#RFC5730">[RFC5730]</a>.</p>
-<p id="rfc.section.3.1.2.p.2">This extension adds operation detail of EPP object mapping operations <a href="#operation">Section 2.1</a> to an EPP poll response, as described in <a href="#RFC5730">[RFC5730]</a>, that is an extension of the EPP object mapping info response.  Any transform operation to an object defined in an EPP object mapping, by a client other than the sponsoring client, MAY result in extending the &lt;info&gt; response of the object for inserting an EPP poll message with the operation detail.  The sponsoring client will then receive the state of the object with operation detail like what, who, when, and why the object was changed.  The &lt;changePoll:changeData&gt; element contains the operation detail along with an indication of whether the object reflects the state before or after the operation as defined in <a href="#state">Section 2.2</a>.  The &lt;changePoll:changeData&gt; element includes the operation detail with the following child elements:</p>
+<p id="rfc.section.3.1.2.p.2">This extension adds operation detail of EPP object mapping operations <a href="#operation">Section 2.1</a> to an EPP poll response, as described in <a href="#RFC5730">[RFC5730]</a>.  The extension is an extension of the EPP object mapping info response.  Any transform operation to an object defined in an EPP object mapping by a client other than the sponsoring client MAY result in extending the &lt;info&gt; response of the object for inserting an EPP poll message with the operation detail.  The sponsoring client will then receive the state of the object with operation detail like what, who, when, and why the object was changed.  The &lt;changePoll:changeData&gt; element contains the operation detail along with an indication of whether the object reflects the state before or after the operation as defined in <a href="#state">Section 2.2</a>.  The &lt;changePoll:changeData&gt; element includes the operation detail with the following child elements:</p>
 <p/>
 
 <dl>
@@ -620,7 +622,7 @@
   <dt>&lt;changePoll:who&gt;:</dt>
   <dd style="margin-left: 4">Who executed the operation as defined in <a href="#who">Section 2.3</a>.</dd>
   <dt>&lt;changePoll:caseId&gt;:</dt>
-  <dd style="margin-left: 4">OPTIONAL case identifer associated with the operation.  The required "type" attribute defines the type of case.  The OPTIONAL "name" attribute is an identifier, represented in the 7-bit US-ASCII character set, that is used to define the name of the "custom" case type.  The enumerated list of case types include:</dd>
+  <dd style="margin-left: 4">OPTIONAL case identifer associated with the operation.  The required "type" attribute defines the type of case.  The OPTIONAL "name" attribute is an identifier, represented in the 7-bit US-ASCII character set defined in <a href="#RFC0020">[RFC0020]</a>, that is used to define the name of the "custom" case type.  The enumerated list of case types include:</dd>
   <dt></dt>
   <dd style="margin-left: 4">
     <dl>
@@ -778,82 +780,92 @@ S:      &lt;svTRID&gt;54321-XYZ&lt;/svTRID&gt;
 S:    &lt;/trID&gt;
 S:   &lt;/response&gt;
 S:&lt;/epp&gt;</pre>
-<p>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; extension for a "delete" operation on the domain.example domain name that is immediately purged, with the default "after" state.  The "after" state is reflected in the &lt;resData&gt; block:</p>
+<p>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; extension for a "delete" operation on the domain.example domain name that is immediately purged, with the "before" state.  The "before" state is reflected in the &lt;resData&gt; block:</p>
 <pre>
 S:&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 S:&lt;epp xmlns="urn:ietf:params:xml:ns:epp-1.0"&gt;
-S:   &lt;response&gt;
-S:      &lt;result code="1301"&gt;
-S:         &lt;msg&gt;Command completed successfully; ack to dequeue&lt;/msg&gt;
-S:      &lt;/result&gt;
-S:      &lt;msgQ id="200" count="1"&gt;
-S:         &lt;qDate&gt;2013-10-22T14:25:57.0Z&lt;/qDate&gt;
-S:         &lt;msg&gt;Registry initiated delete of
+S:  &lt;response&gt;
+S:    &lt;result code="1301"&gt;
+S:      &lt;msg&gt;Command completed successfully; ack to dequeue&lt;/msg&gt;
+S:    &lt;/result&gt;
+S:    &lt;msgQ id="200" count="1"&gt;
+S:      &lt;qDate&gt;2013-10-22T14:25:57.0Z&lt;/qDate&gt;
+S:      &lt;msg&gt;Registry initiated delete of 
 S:         domain resulting in immediate purge.&lt;/msg&gt;
-S:      &lt;/msgQ&gt;
-S:      &lt;resData&gt;
-S:        &lt;domain:infData
-S:          xmlns:domain="urn:ietf:params:xml:ns:domain-1.0"&gt;
-S:          &lt;domain:name&gt;domain.example&lt;/domain:name&gt;
-S:          &lt;domain:roid&gt;EXAMPLE1-REP&lt;/domain:roid&gt;
-S:          &lt;domain:clID&gt;ClientX&lt;/domain:clID&gt;
-S:        &lt;/domain:infData&gt;
-S:      &lt;/resData&gt;
-S:      &lt;extension&gt;
-S:        &lt;changePoll:changeData
-S:          xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"&gt;
-S:          &lt;changePoll:operation op="purge"&gt;
-S:            delete&lt;/changePoll:operation&gt;
-S:          &lt;changePoll:date&gt;2013-10-22T14:25:57.0Z&lt;/changePoll:date&gt;
-S:          &lt;changePoll:svTRID&gt;12345-XYZ&lt;/changePoll:svTRID&gt;
-S:          &lt;changePoll:who&gt;ClientZ&lt;/changePoll:who&gt;
-S:          &lt;changePoll:reason&gt;Court order&lt;/changePoll:reason&gt;
-S:        &lt;/changePoll:changeData&gt;
-S:      &lt;/extension&gt;
-S:      &lt;trID&gt;
-S:         &lt;clTRID&gt;ABC-12345&lt;/clTRID&gt;
-S:         &lt;svTRID&gt;54321-XYZ&lt;/svTRID&gt;
-S:      &lt;/trID&gt;
-S:   &lt;/response&gt;
+S:    &lt;/msgQ&gt;
+S:    &lt;resData&gt;
+S:      &lt;domain:infData 
+S:        xmlns:domain="urn:ietf:params:xml:ns:domain-1.0"&gt;
+S:        &lt;domain:name&gt;domain.example&lt;/domain:name&gt;
+S:        &lt;domain:roid&gt;EXAMPLE1-REP&lt;/domain:roid&gt;
+S:        &lt;domain:clID&gt;ClientX&lt;/domain:clID&gt;
+S:      &lt;/domain:infData&gt;
+S:    &lt;/resData&gt;
+S:    &lt;extension&gt;
+S:      &lt;changePoll:changeData 
+S:        xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0" 
+S:        state="before"&gt;
+S:        &lt;changePoll:operation op="purge"&gt;delete
+S:        &lt;/changePoll:operation&gt;
+S:        &lt;changePoll:date&gt;2013-10-22T14:25:57.0Z
+S:        &lt;/changePoll:date&gt;
+S:        &lt;changePoll:svTRID&gt;12345-XYZ
+S:        &lt;/changePoll:svTRID&gt;
+S:        &lt;changePoll:who&gt;ClientZ
+S:        &lt;/changePoll:who&gt;
+S:        &lt;changePoll:reason&gt;Court order
+S:        &lt;/changePoll:reason&gt;
+S:      &lt;/changePoll:changeData&gt;
+S:    &lt;/extension&gt;
+S:    &lt;trID&gt;
+S:      &lt;clTRID&gt;ABC-12345&lt;/clTRID&gt;
+S:      &lt;svTRID&gt;54321-XYZ&lt;/svTRID&gt;
+S:    &lt;/trID&gt;
+S:  &lt;/response&gt;
 S:&lt;/epp&gt;</pre>
-<p>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; extension for an "autoPurge" operation on the domain.example domain name that previously had the "pendingDelete" status, with the default "after" state.  The "after" state is reflected in the &lt;resData&gt; block:</p>
+<p>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; extension for an "autoPurge" operation on the domain.example domain name that previously had the "pendingDelete" status, with the "before" state.  The "before" state is reflected in the &lt;resData&gt; block:</p>
 <pre>
 S:&lt;?xml version="1.0" encoding="UTF-8"?&gt;
 S:&lt;epp xmlns="urn:ietf:params:xml:ns:epp-1.0"&gt;
-S:   &lt;response&gt;
-S:      &lt;result code="1301"&gt;
-S:         &lt;msg&gt;Command completed successfully; ack to dequeue&lt;/msg&gt;
-S:      &lt;/result&gt;
-S:      &lt;msgQ id="200" count="1"&gt;
-S:         &lt;qDate&gt;2013-10-22T14:25:57.0Z&lt;/qDate&gt;
-S:    &lt;msg&gt;Registry purged domain with pendingDelete status.&lt;/msg&gt;
-S:      &lt;/msgQ&gt;
-S:      &lt;resData&gt;
-S:        &lt;domain:infData
-S:          xmlns:domain="urn:ietf:params:xml:ns:domain-1.0"&gt;
-S:          &lt;domain:name&gt;domain.example&lt;/domain:name&gt;
-S:          &lt;domain:roid&gt;EXAMPLE1-REP&lt;/domain:roid&gt;
-S:          &lt;domain:clID&gt;ClientX&lt;/domain:clID&gt;
-S:        &lt;/domain:infData&gt;
-S:      &lt;/resData&gt;
-S:      &lt;extension&gt;
-S:        &lt;changePoll:changeData
-S:          xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"&gt;
-S:          &lt;changePoll:operation&gt;
-S:            autoPurge&lt;/changePoll:operation&gt;
-S:          &lt;changePoll:date&gt;2013-10-22T14:25:57.0Z&lt;/changePoll:date&gt;
-S:          &lt;changePoll:svTRID&gt;12345-XYZ&lt;/changePoll:svTRID&gt;
-S:          &lt;changePoll:who&gt;Batch&lt;/changePoll:who&gt;
-S:          &lt;changePoll:reason&gt;
-S:            Past pendingDelete 5 day period
-S:          &lt;/changePoll:reason&gt;
-S:        &lt;/changePoll:changeData&gt;
-S:      &lt;/extension&gt;
-S:      &lt;trID&gt;
-S:         &lt;clTRID&gt;ABC-12345&lt;/clTRID&gt;
-S:         &lt;svTRID&gt;54321-XYZ&lt;/svTRID&gt;
-S:      &lt;/trID&gt;
-S:   &lt;/response&gt;
+S:  &lt;response&gt;
+S:    &lt;result code="1301"&gt;
+S:      &lt;msg&gt;Command completed successfully; ack to dequeue
+S:      &lt;/msg&gt;
+S:    &lt;/result&gt;
+S:    &lt;msgQ id="200" count="1"&gt;
+S:      &lt;qDate&gt;2013-10-22T14:25:57.0Z&lt;/qDate&gt;
+S:      &lt;msg&gt;Registry purged domain with pendingDelete status.
+S:      &lt;/msg&gt;
+S:    &lt;/msgQ&gt;
+S:    &lt;resData&gt;
+S:      &lt;domain:infData 
+S:        xmlns:domain="urn:ietf:params:xml:ns:domain-1.0"&gt;
+S:        &lt;domain:name&gt;domain.example&lt;/domain:name&gt;
+S:        &lt;domain:roid&gt;EXAMPLE1-REP&lt;/domain:roid&gt;
+S:        &lt;domain:clID&gt;ClientX&lt;/domain:clID&gt;
+S:      &lt;/domain:infData&gt;
+S:    &lt;/resData&gt;
+S:    &lt;extension&gt;
+S:      &lt;changePoll:changeData 
+S:        xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"
+S:        state="before"&gt;
+S:        &lt;changePoll:operation&gt;autoPurge
+S:        &lt;/changePoll:operation&gt;
+S:        &lt;changePoll:date&gt;2013-10-22T14:25:57.0Z
+S:        &lt;/changePoll:date&gt;
+S:        &lt;changePoll:svTRID&gt;12345-XYZ
+S:        &lt;/changePoll:svTRID&gt;
+S:        &lt;changePoll:who&gt;Batch
+S:        &lt;/changePoll:who&gt;
+S:        &lt;changePoll:reason&gt;Past pendingDelete 5 day period
+S:        &lt;/changePoll:reason&gt;
+S:      &lt;/changePoll:changeData&gt;
+S:    &lt;/extension&gt;
+S:    &lt;trID&gt;
+S:      &lt;clTRID&gt;ABC-12345&lt;/clTRID&gt;
+S:      &lt;svTRID&gt;54321-XYZ&lt;/svTRID&gt;
+S:    &lt;/trID&gt;
+S:  &lt;/response&gt;
 S:&lt;/epp&gt;</pre>
 <p>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt; extension for an "update" operation on the ns1.domain.example host, with the default "after" state.  The "after" state is reflected in the &lt;resData&gt; block:</p>
 <pre>
@@ -876,7 +888,7 @@ S:        &lt;host:status s="linked"/&gt;
 S:        &lt;host:status s="serverUpdateProhibited"/&gt;
 S:        &lt;host:status s="serverDeleteProhibited"/&gt;
 S:        &lt;host:addr ip="v4"&gt;192.0.2.2&lt;/host:addr&gt;
-S:        &lt;host:addr ip="v6"&gt;1080:0:0:0:8:800:200C:417A&lt;/host:addr&gt;
+S:        &lt;host:addr ip="v6"&gt;2001:db8:0:0:1:0:0:1&lt;/host:addr&gt;
 S:        &lt;host:clID&gt;ClientX&lt;/host:clID&gt;
 S:        &lt;host:crID&gt;ClientY&lt;/host:crID&gt;
 S:        &lt;host:crDate&gt;2012-04-03T22:00:00.0Z&lt;/host:crDate&gt;
@@ -1121,6 +1133,12 @@ END</pre>
   <tbody>
     <tr>
       <td class="reference">
+        <b id="RFC0020">[RFC0020]</b>
+      </td>
+      <td class="top"><a>Cerf, V.</a>, "<a href="http://tools.ietf.org/html/rfc20">ASCII format for network interchange</a>", STD 80, RFC 20, DOI 10.17487/RFC0020, October 1969.</td>
+    </tr>
+    <tr>
+      <td class="reference">
         <b id="RFC2119">[RFC2119]</b>
       </td>
       <td class="top"><a>Bradner, S.</a>, "<a href="http://tools.ietf.org/html/rfc2119">Key words for use in RFCs to Indicate Requirement Levels</a>", BCP 14, RFC 2119, DOI 10.17487/RFC2119, March 1997.</td>
@@ -1275,6 +1293,12 @@ END</pre>
 
 <ol>
   <li>Fixed Section 1.1 (Conventions) to contain the updated language (e.g. "NOT RECOMMENDED", RFC 8174, BCP 14), based on feedback from the Document Shepherd.</li>
+</ol>
+<h1 id="rfc.appendix.A.16"><a href="#rfc.appendix.A.16">A.16.</a> <a href="#version-WG09-to-WG10" id="version-WG09-to-WG10">Change from REGEXT 09 to REGEXT 10</a></h1>
+<p/>
+
+<ol>
+  <li>Updates based on the AD review by Adam Roach, that include: <ol><li>Fix the "purge" and "autoPurge" examples to use the normative "before" state instead of the default "after" state.</li><li>Added the sentences "The extension only extends the EPP &lt;poll&gt; response in <a href="#RFC5730">[RFC5730]</a> and does not extend the EPP &lt;poll&gt; command.  Please refer to <a href="#RFC5730">[RFC5730]</a> for information and examples of the EPP &lt;poll&gt; command." in the "Introduction" to clarify what is extended and reference <a href="#RFC5730">[RFC5730]</a> for the EPP &lt;poll&gt; command.</li><li>Added missing hyphens to "client-sponsored" and "court-directed".</li><li>Removed "changePoll-1.0" is used as an abbreviation for "urn:ietf:params:xml:ns:changePoll-1.0" and replaced the paragraph based on what was done in draft-ietf-regext-allocation-token.</li><li>Changed normative "SHOULD" to non-normative "should" in "An operation consists of any transform operation that impacts objects that the client sponsers and should be notified of."</li><li>Added normative reference to <a href="#RFC0020">[RFC0020]</a> to define "7-bit US-ASCII".</li><li>Added the sentence "The custom operations supported is up to server policy." to the description of the "custom" operation.</li><li>Broke up the "This extension adds operation detail..." sentence into two seperate sentences to address the "does" and the "is" seperately.</li><li>Removed the commas from "Any transform operation to an object..." sentence.</li><li>Changed to use an IPv6 address from the documentation-only prefix "2001:DB8::/32" in RFC 3849.  The IPv6 address 2001:db8:0:0:1:0:0:1 was used.</li></ol><p> </p></li>
 </ol>
 <h1 id="rfc.authors">
   <a href="#rfc.authors">Authors' Addresses</a>

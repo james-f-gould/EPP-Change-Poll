@@ -17,7 +17,7 @@
         <host:status s="serverUpdateProhibited"/>
         <host:status s="serverDeleteProhibited"/>
         <host:addr ip="v4">192.0.2.2</host:addr>
-        <host:addr ip="v6">1080:0:0:0:8:800:200C:417A</host:addr>
+        <host:addr ip="v6">2001:db8:0:0:1:0:0:1</host:addr>
         <host:clID>ClientX</host:clID>
         <host:crID>ClientY</host:crID>
         <host:crDate>2012-04-03T22:00:00.0Z</host:crDate>

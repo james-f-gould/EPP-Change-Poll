@@ -3,6 +3,7 @@
 <!-- One method to get references from the online citation libraries.
      There has to be one entity for each item to be referenced.
      An alternate method (rfc include) is described in the references. -->
+<!ENTITY RFC0020 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.0020.xml">
 <!ENTITY RFC2119 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.2119.xml">
 <!ENTITY RFC3688 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3688.xml">
 <!ENTITY RFC3915 SYSTEM "http://xml.resource.org/public/rfc/bibxml/reference.RFC.3915.xml">
@@ -42,7 +43,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-regext-change-poll-09" ipr="trust200902">
+<rfc category="std" docName="draft-ietf-regext-change-poll-10" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN"
@@ -98,16 +99,16 @@
       </address>
     </author>
 
-    <date day="4" month="October" year="2018"/>
+    <date day="22" month="October" year="2018"/>
 
     <abstract>
       <t>This document describes an Extensible Provisioning Protocol (EPP)
-      extension for notifying clients of operations on client sponsored objects
+      extension for notifying clients of operations on client-sponsored objects
       that were not initiated by the client through EPP. These operations may
       include contractual or policy requirements including but not limited to
       regular batch processes, customer support actions, Uniform Domain-Name
       Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS)
-      actions, court directed actions, and bulk updates based on customer
+      actions, court-directed actions, and bulk updates based on customer
       requests.  Since the client is not directly involved or knowledgable of
       these operations, the extension is used along with an EPP object mapping
       to provide the resulting state of the post-operation object, and
@@ -134,7 +135,11 @@
       consumption by the client using the EPP &lt;poll&gt; command and
       response defined in <xref target="RFC5730"/>.  The extension supports
       including a "before" operation poll message and an "after"
-      operation poll message.</t>
+      operation poll message.  
+      The extension only extends the EPP &lt;poll&gt; response in 
+      <xref target="RFC5730"/> and does not extend the EPP &lt;poll&gt; command.  
+      Please refer to <xref target="RFC5730"/> for information and examples of 
+      the EPP &lt;poll&gt; command.</t>
 
       <section title="Conventions Used in This Document">
         <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL
@@ -154,12 +159,10 @@
         and are not a REQUIRED feature of this protocol.
         </t>
 
-        <t>"changePoll-1.0" is used as an abbreviation for
-        "urn:ietf:params:xml:ns:changePoll-1.0". The XML namespace prefix
-        "changePoll" is used, but implementations MUST NOT depend on
-        it and instead employ
-        a proper namespace-aware XML parser and serializer to interpret and
-        output the XML documents.</t>
+        <t>The XML namespace prefix "changePoll" is used for the namespace
+           "urn:ietf:params:xml:ns:changePoll-1.0", but implementations
+           MUST NOT depend on it and instead employ a proper namespace-aware XML
+           parser and serializer to interpret and output the XML documents.</t>
       </section>
     </section>
 
@@ -172,9 +175,9 @@
       <section anchor="operation" title="Operation">
 
         <t>An operation consists of any transform operation that impacts
-        objects that the client sponsers and SHOULD be notified of.  The
+        objects that the client sponsers and should be notified of.  The
         &lt;changePoll:operation&gt; element defines the operation.  The OPTIONAL "op"
-        attribute is an identifier, represented in the 7-bit US-ASCII character set, that 
+        attribute is an identifier, represented in the 7-bit US-ASCII character set defined in <xref target="RFC0020"/>, that 
         is used to define a sub-operation or the name of a "custom" operation.
         The enumerated list of &lt;changePoll:operation&gt; values include:</t>
 
@@ -193,7 +196,8 @@
 				purge of the object, then the "op" attribute MUST be set to "purge".</t>
 				<t hangText="&quot;autoPurge&quot;:">Auto purge operation executed by the server when removing the object
 				after it had the "pendingDelete" status.</t>
-				<t hangText="&quot;custom&quot;:">Custom operation that MUST set the "op" attribute with the custom operation name.</t>
+				<t hangText="&quot;custom&quot;:">Custom operation that MUST set the "op" attribute with the custom operation name.  
+				The custom operations supported is up to server policy.</t>
 		  </list></t>
 
       </section>
@@ -276,10 +280,10 @@
         described in the <xref target="RFC5730"/>.</t>
 
         <t>This extension adds operation detail of EPP object mapping operations 
-        <xref target="operation"/> to an EPP poll response, as described in <xref target="RFC5730"/>, that is an extension of the 
-        EPP object mapping info response.  Any transform operation
-        to an object defined in an EPP object mapping, by a client other than the sponsoring
-        client, MAY result in extending the &lt;info&gt; response of the object for
+        <xref target="operation"/> to an EPP poll response, as described in <xref target="RFC5730"/>.  
+        The extension is an extension of the EPP object mapping info response.  Any transform operation
+        to an object defined in an EPP object mapping by a client other than the sponsoring
+        client MAY result in extending the &lt;info&gt; response of the object for
         inserting an EPP poll message with the operation detail.
         The sponsoring client will then receive the
         state of the object with operation detail like what, who, when, and why the object
@@ -295,7 +299,7 @@
 			  <t hangText="&lt;changePoll:who&gt;:">Who executed the operation as defined in <xref target="who"/>.</t>
 			  <t hangText="&lt;changePoll:caseId&gt;:">OPTIONAL case identifer associated with the operation.  The required
 			  "type" attribute defines the type of case.  The OPTIONAL "name" attribute is an identifier, 
-			  represented in the 7-bit US-ASCII character set, that is used to define the name of the "custom" case type.  
+			  represented in the 7-bit US-ASCII character set defined in <xref target="RFC0020"/>, that is used to define the name of the "custom" case type.  
 			  The enumerated list of case types include:</t>
 			    <t><list hangIndent="4" style="hanging">
 			      <t hangText="udrp:">a Uniform Domain-Name Dispute-Resolution Policy (UDRP) case.</t>
@@ -474,91 +478,101 @@ S:</epp>]]></artwork>
        <figure>
             <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt;
             extension for a "delete" operation on the domain.example domain name that is
-            immediately purged, with the default "after" state.  The "after" state is reflected in the
+            immediately purged, with the "before" state.  The "before" state is reflected in the
             &lt;resData&gt; block:</preamble>
 
             <artwork><![CDATA[
 S:<?xml version="1.0" encoding="UTF-8"?>
 S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
-S:   <response>
-S:      <result code="1301">
-S:         <msg>Command completed successfully; ack to dequeue</msg>
-S:      </result>
-S:      <msgQ id="200" count="1">
-S:         <qDate>2013-10-22T14:25:57.0Z</qDate>
-S:         <msg>Registry initiated delete of
+S:  <response>
+S:    <result code="1301">
+S:      <msg>Command completed successfully; ack to dequeue</msg>
+S:    </result>
+S:    <msgQ id="200" count="1">
+S:      <qDate>2013-10-22T14:25:57.0Z</qDate>
+S:      <msg>Registry initiated delete of 
 S:         domain resulting in immediate purge.</msg>
-S:      </msgQ>
-S:      <resData>
-S:        <domain:infData
-S:          xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-S:          <domain:name>domain.example</domain:name>
-S:          <domain:roid>EXAMPLE1-REP</domain:roid>
-S:          <domain:clID>ClientX</domain:clID>
-S:        </domain:infData>
-S:      </resData>
-S:      <extension>
-S:        <changePoll:changeData
-S:          xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0">
-S:          <changePoll:operation op="purge">
-S:            delete</changePoll:operation>
-S:          <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
-S:          <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
-S:          <changePoll:who>ClientZ</changePoll:who>
-S:          <changePoll:reason>Court order</changePoll:reason>
-S:        </changePoll:changeData>
-S:      </extension>
-S:      <trID>
-S:         <clTRID>ABC-12345</clTRID>
-S:         <svTRID>54321-XYZ</svTRID>
-S:      </trID>
-S:   </response>
+S:    </msgQ>
+S:    <resData>
+S:      <domain:infData 
+S:        xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
+S:        <domain:name>domain.example</domain:name>
+S:        <domain:roid>EXAMPLE1-REP</domain:roid>
+S:        <domain:clID>ClientX</domain:clID>
+S:      </domain:infData>
+S:    </resData>
+S:    <extension>
+S:      <changePoll:changeData 
+S:        xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0" 
+S:        state="before">
+S:        <changePoll:operation op="purge">delete
+S:        </changePoll:operation>
+S:        <changePoll:date>2013-10-22T14:25:57.0Z
+S:        </changePoll:date>
+S:        <changePoll:svTRID>12345-XYZ
+S:        </changePoll:svTRID>
+S:        <changePoll:who>ClientZ
+S:        </changePoll:who>
+S:        <changePoll:reason>Court order
+S:        </changePoll:reason>
+S:      </changePoll:changeData>
+S:    </extension>
+S:    <trID>
+S:      <clTRID>ABC-12345</clTRID>
+S:      <svTRID>54321-XYZ</svTRID>
+S:    </trID>
+S:  </response>
 S:</epp>]]></artwork>
        </figure>
 
        <figure>
             <preamble>Example poll &lt;info&gt; response with the &lt;changePoll:changeData&gt;
             extension for an "autoPurge" operation on the domain.example domain name that
-            previously had the "pendingDelete" status, with the default "after" state.
-            The "after" state is reflected in the &lt;resData&gt; block:</preamble>
+            previously had the "pendingDelete" status, with the "before" state.
+            The "before" state is reflected in the &lt;resData&gt; block:</preamble>
 
             <artwork><![CDATA[
 S:<?xml version="1.0" encoding="UTF-8"?>
 S:<epp xmlns="urn:ietf:params:xml:ns:epp-1.0">
-S:   <response>
-S:      <result code="1301">
-S:         <msg>Command completed successfully; ack to dequeue</msg>
-S:      </result>
-S:      <msgQ id="200" count="1">
-S:         <qDate>2013-10-22T14:25:57.0Z</qDate>
-S:    <msg>Registry purged domain with pendingDelete status.</msg>
-S:      </msgQ>
-S:      <resData>
-S:        <domain:infData
-S:          xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
-S:          <domain:name>domain.example</domain:name>
-S:          <domain:roid>EXAMPLE1-REP</domain:roid>
-S:          <domain:clID>ClientX</domain:clID>
-S:        </domain:infData>
-S:      </resData>
-S:      <extension>
-S:        <changePoll:changeData
-S:          xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0">
-S:          <changePoll:operation>
-S:            autoPurge</changePoll:operation>
-S:          <changePoll:date>2013-10-22T14:25:57.0Z</changePoll:date>
-S:          <changePoll:svTRID>12345-XYZ</changePoll:svTRID>
-S:          <changePoll:who>Batch</changePoll:who>
-S:          <changePoll:reason>
-S:            Past pendingDelete 5 day period
-S:          </changePoll:reason>
-S:        </changePoll:changeData>
-S:      </extension>
-S:      <trID>
-S:         <clTRID>ABC-12345</clTRID>
-S:         <svTRID>54321-XYZ</svTRID>
-S:      </trID>
-S:   </response>
+S:  <response>
+S:    <result code="1301">
+S:      <msg>Command completed successfully; ack to dequeue
+S:      </msg>
+S:    </result>
+S:    <msgQ id="200" count="1">
+S:      <qDate>2013-10-22T14:25:57.0Z</qDate>
+S:      <msg>Registry purged domain with pendingDelete status.
+S:      </msg>
+S:    </msgQ>
+S:    <resData>
+S:      <domain:infData 
+S:        xmlns:domain="urn:ietf:params:xml:ns:domain-1.0">
+S:        <domain:name>domain.example</domain:name>
+S:        <domain:roid>EXAMPLE1-REP</domain:roid>
+S:        <domain:clID>ClientX</domain:clID>
+S:      </domain:infData>
+S:    </resData>
+S:    <extension>
+S:      <changePoll:changeData 
+S:        xmlns:changePoll="urn:ietf:params:xml:ns:changePoll-1.0"
+S:        state="before">
+S:        <changePoll:operation>autoPurge
+S:        </changePoll:operation>
+S:        <changePoll:date>2013-10-22T14:25:57.0Z
+S:        </changePoll:date>
+S:        <changePoll:svTRID>12345-XYZ
+S:        </changePoll:svTRID>
+S:        <changePoll:who>Batch
+S:        </changePoll:who>
+S:        <changePoll:reason>Past pendingDelete 5 day period
+S:        </changePoll:reason>
+S:      </changePoll:changeData>
+S:    </extension>
+S:    <trID>
+S:      <clTRID>ABC-12345</clTRID>
+S:      <svTRID>54321-XYZ</svTRID>
+S:    </trID>
+S:  </response>
 S:</epp>]]></artwork>
        </figure>
 
@@ -587,7 +601,7 @@ S:        <host:status s="linked"/>
 S:        <host:status s="serverUpdateProhibited"/>
 S:        <host:status s="serverDeleteProhibited"/>
 S:        <host:addr ip="v4">192.0.2.2</host:addr>
-S:        <host:addr ip="v6">1080:0:0:0:8:800:200C:417A</host:addr>
+S:        <host:addr ip="v6">2001:db8:0:0:1:0:0:1</host:addr>
 S:        <host:clID>ClientX</host:clID>
 S:        <host:crID>ClientY</host:crID>
 S:        <host:crDate>2012-04-03T22:00:00.0Z</host:crDate>
@@ -1004,6 +1018,8 @@ END]]></artwork>
 
     <references title="Normative References">
 
+      &RFC0020;
+
       &RFC2119;
 
       &RFC3688;
@@ -1134,6 +1150,34 @@ END]]></artwork>
       </list></t>
     </section>
     
+    <section title="Change from REGEXT 09 to REGEXT 10" anchor="version-WG09-to-WG10">
+      <t><list style="numbers">
+        <t>Updates based on the AD review by Adam Roach, that include:
+          <list style="numbers">
+            <t>Fix the "purge" and "autoPurge" examples to use the normative "before" state instead of the default "after" state.</t>
+            <t>Added the sentences "The extension only extends the EPP &lt;poll&gt; response in 
+               <xref target="RFC5730"/> and does not extend the EPP &lt;poll&gt; command.  
+               Please refer to <xref target="RFC5730"/> for information and examples of 
+               the EPP &lt;poll&gt; command." in the "Introduction" to 
+               clarify what is extended and reference <xref target="RFC5730"/> 
+               for the EPP &lt;poll&gt; command.</t>
+            <t>Added missing hyphens to "client-sponsored" and "court-directed".</t>
+            <t>Removed "changePoll-1.0" is used as an abbreviation for
+            "urn:ietf:params:xml:ns:changePoll-1.0" and replaced the paragraph 
+            based on what was done in draft-ietf-regext-allocation-token.</t>
+            <t>Changed normative "SHOULD" to non-normative "should" in "An operation consists 
+            of any transform operation that impacts objects that the client sponsers and should be notified of."</t>
+            <t>Added normative reference to <xref target="RFC0020"/> to define "7-bit US-ASCII".</t> 
+            <t>Added the sentence "The custom operations supported is up to server policy." to the description of the "custom" operation.</t>
+            <t>Broke up the "This extension adds operation detail..." sentence into two seperate sentences to address the "does" and the "is" 
+            seperately.</t>
+            <t>Removed the commas from "Any transform operation to an object..." sentence.</t>
+            <t>Changed to use an IPv6 address from the documentation-only prefix "2001:DB8::/32" in RFC 3849.  The IPv6 address
+            2001:db8:0:0:1:0:0:1 was used.</t>
+          </list>
+        </t>
+      </list></t>
+    </section>
      
    </section>
 
