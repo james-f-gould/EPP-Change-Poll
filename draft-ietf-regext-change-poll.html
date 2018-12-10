@@ -424,6 +424,7 @@
 <link href="#rfc.appendix.A.14" rel="Chapter" title="A.14 Change from REGEXT 07 to REGEXT 08"/>
 <link href="#rfc.appendix.A.15" rel="Chapter" title="A.15 Change from REGEXT 08 to REGEXT 09"/>
 <link href="#rfc.appendix.A.16" rel="Chapter" title="A.16 Change from REGEXT 09 to REGEXT 10"/>
+<link href="#rfc.appendix.A.17" rel="Chapter" title="A.17 Change from REGEXT 10 to REGEXT 10"/>
 <link href="#rfc.authors" rel="Chapter"/>
 
 
@@ -431,8 +432,8 @@
   <link rel="schema.dct" href="http://purl.org/dc/terms/" />
 
   <meta name="dct.creator" content="Gould, J. and K. Feher" />
-  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-regext-change-poll-10" />
-  <meta name="dct.issued" scheme="ISO8601" content="2018-10-22" />
+  <meta name="dct.identifier" content="urn:ietf:id:draft-ietf-regext-change-poll-11" />
+  <meta name="dct.issued" scheme="ISO8601" content="2018-12-10" />
   <meta name="dct.abstract" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client-sponsored objects that were not initiated by the client through EPP. These operations may include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court-directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why." />
   <meta name="description" content="This document describes an Extensible Provisioning Protocol (EPP) extension for notifying clients of operations on client-sponsored objects that were not initiated by the client through EPP. These operations may include contractual or policy requirements including but not limited to regular batch processes, customer support actions, Uniform Domain-Name Dispute-Resolution Policy (UDRP) or Uniform Rapid Suspension (URS) actions, court-directed actions, and bulk updates based on customer requests.  Since the client is not directly involved or knowledgable of these operations, the extension is used along with an EPP object mapping to provide the resulting state of the post-operation object, and optionally a pre-operation object, with the operation meta-data of what, when, who, and why." />
 
@@ -456,12 +457,12 @@
   <td class="right">K. Feher</td>
 </tr>
 <tr>
-  <td class="left">Expires: April 25, 2019</td>
+  <td class="left">Expires: June 13, 2019</td>
   <td class="right">Neustar</td>
 </tr>
 <tr>
   <td class="left"></td>
-  <td class="right">October 22, 2018</td>
+  <td class="right">December 10, 2018</td>
 </tr>
 
     	
@@ -469,7 +470,7 @@
   </table>
 
   <p class="title">Change Poll Extension for the Extensible Provisioning Protocol (EPP)<br />
-  <span class="filename">draft-ietf-regext-change-poll-10</span></p>
+  <span class="filename">draft-ietf-regext-change-poll-11</span></p>
   
   <h1 id="rfc.abstract">
   <a href="#rfc.abstract">Abstract</a>
@@ -481,7 +482,7 @@
 <p>This Internet-Draft is submitted in full conformance with the provisions of BCP 78 and BCP 79.</p>
 <p>Internet-Drafts are working documents of the Internet Engineering Task Force (IETF).  Note that other groups may also distribute working documents as Internet-Drafts.  The list of current Internet-Drafts is at http://datatracker.ietf.org/drafts/current/.</p>
 <p>Internet-Drafts are draft documents valid for a maximum of six months and may be updated, replaced, or obsoleted by other documents at any time.  It is inappropriate to use Internet-Drafts as reference material or to cite them other than as "work in progress."</p>
-<p>This Internet-Draft will expire on April 25, 2019.</p>
+<p>This Internet-Draft will expire on June 13, 2019.</p>
 <h1 id="rfc.copyrightnotice">
   <a href="#rfc.copyrightnotice">Copyright Notice</a>
 </h1>
@@ -543,6 +544,7 @@
 <li>A.14.   <a href="#rfc.appendix.A.14">Change from REGEXT 07 to REGEXT 08</a></li>
 <li>A.15.   <a href="#rfc.appendix.A.15">Change from REGEXT 08 to REGEXT 09</a></li>
 <li>A.16.   <a href="#rfc.appendix.A.16">Change from REGEXT 09 to REGEXT 10</a></li>
+<li>A.17.   <a href="#rfc.appendix.A.17">Change from REGEXT 10 to REGEXT 10</a></li>
 </ul><li><a href="#rfc.authors">Authors' Addresses</a></li>
 
 
@@ -558,7 +560,7 @@
 <h1 id="rfc.section.2"><a href="#rfc.section.2">2.</a> <a href="#attrs" id="attrs">Object Attributes</a></h1>
 <p id="rfc.section.2.p.1">This extension adds additional elements to EPP object mappings like the <a href="#RFC5731">EPP domain name mapping</a> <cite title="NONE">[RFC5731]</cite>. Only those new elements are described here.</p>
 <h1 id="rfc.section.2.1"><a href="#rfc.section.2.1">2.1.</a> <a href="#operation" id="operation">Operation</a></h1>
-<p id="rfc.section.2.1.p.1">An operation consists of any transform operation that impacts objects that the client sponsers and should be notified of.  The &lt;changePoll:operation&gt; element defines the operation.  The OPTIONAL "op" attribute is an identifier, represented in the 7-bit US-ASCII character set defined in <a href="#RFC0020">[RFC0020]</a>, that is used to define a sub-operation or the name of a "custom" operation.  The enumerated list of &lt;changePoll:operation&gt; values include:</p>
+<p id="rfc.section.2.1.p.1">An operation consists of any transform operation that impacts objects that the client sponsers and should be notified of.  The &lt;changePoll:operation&gt; element defines the operation.  The OPTIONAL "op" attribute is an identifier, represented in the 7-bit US-ASCII character set defined in <a href="#RFC0020">[RFC0020]</a>, that is used to define a sub-operation or the name of a "custom" operation.  The enumerated list of &lt;changePoll:operation&gt; values is:</p>
 <p/>
 
 <dl>
@@ -584,7 +586,7 @@
   <dd style="margin-left: 4">Custom operation that MUST set the "op" attribute with the custom operation name.  The custom operations supported is up to server policy.</dd>
 </dl>
 <h1 id="rfc.section.2.2"><a href="#rfc.section.2.2">2.2.</a> <a href="#state" id="state">State</a></h1>
-<p id="rfc.section.2.2.p.1">The state attribute reflects the state of the object "before" or "after" the operation.  The state is defined using the OPTIONAL "state" attribute of the &lt;changePoll:changeData&gt; element, with the possible values "before" or "after" and with a default value of "after".  The server MAY support both the "before" state and the "after" state of the operation, by using one poll message for the "before" state and one poll message for the "after" state.  The "before" state poll message MUST be inserted prior to the "after" state poll message.</p>
+<p id="rfc.section.2.2.p.1">The state attribute reflects the state of the object "before" or "after" the operation.  The state is defined using the OPTIONAL "state" attribute of the &lt;changePoll:changeData&gt; element, with the possible values "before" or "after" and with a default value of "after".  The server MAY support both the "before" state and the "after" state of the operation, by using one poll message for the "before" state and one poll message for the "after" state.  The "before" state poll message MUST be inserted into the message queue prior to the "after" state poll message.</p>
 <p id="rfc.section.2.2.p.2">For operations in <a href="#operation">Section 2.1</a> that don't have an "after" state, the server MUST use the "before" state poll message.  For example, for the "delete" operation with the "op" attribute set to "purge", or the "autoPurge" operation, the server includes the state of the object prior to being purged in the "before" state poll message.</p>
 <p id="rfc.section.2.2.p.3">For operations in <a href="#operation">Section 2.1</a> that don't have a "before" state, the server MUST use the "after" state poll message.  For example, for the "create" operation, the server includes the state of the object after creation in the "after" state poll message.</p>
 <h1 id="rfc.section.2.3"><a href="#rfc.section.2.3">2.3.</a> <a href="#who" id="who">Who</a></h1>
@@ -622,7 +624,7 @@
   <dt>&lt;changePoll:who&gt;:</dt>
   <dd style="margin-left: 4">Who executed the operation as defined in <a href="#who">Section 2.3</a>.</dd>
   <dt>&lt;changePoll:caseId&gt;:</dt>
-  <dd style="margin-left: 4">OPTIONAL case identifer associated with the operation.  The required "type" attribute defines the type of case.  The OPTIONAL "name" attribute is an identifier, represented in the 7-bit US-ASCII character set defined in <a href="#RFC0020">[RFC0020]</a>, that is used to define the name of the "custom" case type.  The enumerated list of case types include:</dd>
+  <dd style="margin-left: 4">OPTIONAL case identifer associated with the operation.  The required "type" attribute defines the type of case.  The OPTIONAL "name" attribute is an identifier, represented in the 7-bit US-ASCII character set defined in <a href="#RFC0020">[RFC0020]</a>, that is used to define the name of the "custom" case type.  The enumerated list of case types is:</dd>
   <dt></dt>
   <dd style="margin-left: 4">
     <dl>
@@ -1126,7 +1128,7 @@ END</pre>
 <p id="rfc.section.7.p.1">The mapping extensions described in this document do not provide any security services beyond those described by <a href="#RFC5730">EPP</a> <cite title="NONE">[RFC5730]</cite> and protocol layers used by EPP. The security considerations described in these other specifications apply to this specification as well.</p>
 <h1 id="rfc.section.8"><a href="#rfc.section.8">8.</a> <a href="#Acknowledgements" id="Acknowledgements">Acknowledgements</a></h1>
 <p id="rfc.section.8.p.1">The authors wish to acknowledge the original concept for this draft and the efforts in the initial versions of this draft by Trung Tran and Sharon Wodjenski.</p>
-<p id="rfc.section.8.p.2">Special suggestions that have been incorporated into this document were provided by Scott Hollenbeck, Michael Holloway, and Patrick Mevzek.</p>
+<p id="rfc.section.8.p.2">Special suggestions that have been incorporated into this document were provided by Scott Hollenbeck, Michael Holloway, Benjamin Kaduk, and Patrick Mevzek.</p>
 <h1 id="rfc.references"><a href="#rfc.references">9.</a> References</h1>
 <h1 id="rfc.references.1"><a href="#rfc.references.1">9.1.</a> Normative References</h1>
 <table>
@@ -1299,6 +1301,12 @@ END</pre>
 
 <ol>
   <li>Updates based on the AD review by Adam Roach, that include: <ol><li>Fix the "purge" and "autoPurge" examples to use the normative "before" state instead of the default "after" state.</li><li>Added the sentences "The extension only extends the EPP &lt;poll&gt; response in <a href="#RFC5730">[RFC5730]</a> and does not extend the EPP &lt;poll&gt; command.  Please refer to <a href="#RFC5730">[RFC5730]</a> for information and examples of the EPP &lt;poll&gt; command." in the "Introduction" to clarify what is extended and reference <a href="#RFC5730">[RFC5730]</a> for the EPP &lt;poll&gt; command.</li><li>Added missing hyphens to "client-sponsored" and "court-directed".</li><li>Removed "changePoll-1.0" is used as an abbreviation for "urn:ietf:params:xml:ns:changePoll-1.0" and replaced the paragraph based on what was done in draft-ietf-regext-allocation-token.</li><li>Changed normative "SHOULD" to non-normative "should" in "An operation consists of any transform operation that impacts objects that the client sponsers and should be notified of."</li><li>Added normative reference to <a href="#RFC0020">[RFC0020]</a> to define "7-bit US-ASCII".</li><li>Added the sentence "The custom operations supported is up to server policy." to the description of the "custom" operation.</li><li>Broke up the "This extension adds operation detail..." sentence into two seperate sentences to address the "does" and the "is" seperately.</li><li>Removed the commas from "Any transform operation to an object..." sentence.</li><li>Changed to use an IPv6 address from the documentation-only prefix "2001:DB8::/32" in RFC 3849.  The IPv6 address 2001:db8:0:0:1:0:0:1 was used.</li></ol><p> </p></li>
+</ol>
+<h1 id="rfc.appendix.A.17"><a href="#rfc.appendix.A.17">A.17.</a> <a href="#version-WG10-to-WG11" id="version-WG10-to-WG11">Change from REGEXT 10 to REGEXT 10</a></h1>
+<p/>
+
+<ol>
+  <li>Updates based on the review by Benjamin Kaduk, that include: <ol><li>Change references of "The enumerated list ... include:" to "the enumerated list ... is:"</li><li>In section 2.2, explicitly state what the message is inserted into, with the change of "... MUST be inserted prior to ..." to "... MUST be inserted into the message queue to ...".</li></ol><p> </p></li>
 </ol>
 <h1 id="rfc.authors">
   <a href="#rfc.authors">Authors' Addresses</a>

@@ -43,7 +43,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-regext-change-poll-10" ipr="trust200902">
+<rfc category="std" docName="draft-ietf-regext-change-poll-11" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN"
@@ -99,7 +99,7 @@
       </address>
     </author>
 
-    <date day="22" month="October" year="2018"/>
+    <date day="10" month="December" year="2018"/>
 
     <abstract>
       <t>This document describes an Extensible Provisioning Protocol (EPP)
@@ -179,7 +179,7 @@
         &lt;changePoll:operation&gt; element defines the operation.  The OPTIONAL "op"
         attribute is an identifier, represented in the 7-bit US-ASCII character set defined in <xref target="RFC0020"/>, that 
         is used to define a sub-operation or the name of a "custom" operation.
-        The enumerated list of &lt;changePoll:operation&gt; values include:</t>
+        The enumerated list of &lt;changePoll:operation&gt; values is:</t>
 
 		  <t><list hangIndent="4" style="hanging">
 				<t hangText="&quot;create&quot;:">Create operation as defined in <xref target="RFC5730"/>.</t>
@@ -209,7 +209,7 @@
         with the possible values "before" or "after" and with a default value of "after".  
         The server MAY support both the "before" state and the "after" state of the operation, by using one
         poll message for the "before" state and one poll message for the "after" state.  
-        The "before" state poll message MUST be inserted prior to the "after" state poll message.</t>
+        The "before" state poll message MUST be inserted into the message queue prior to the "after" state poll message.</t>
         <t>For operations in <xref target="operation"/> that don't have an "after" state, 
         the server MUST use the "before" state poll message.  
         For example, for the "delete" operation with the "op" attribute set to "purge", 
@@ -300,7 +300,7 @@
 			  <t hangText="&lt;changePoll:caseId&gt;:">OPTIONAL case identifer associated with the operation.  The required
 			  "type" attribute defines the type of case.  The OPTIONAL "name" attribute is an identifier, 
 			  represented in the 7-bit US-ASCII character set defined in <xref target="RFC0020"/>, that is used to define the name of the "custom" case type.  
-			  The enumerated list of case types include:</t>
+			  The enumerated list of case types is:</t>
 			    <t><list hangIndent="4" style="hanging">
 			      <t hangText="udrp:">a Uniform Domain-Name Dispute-Resolution Policy (UDRP) case.</t>
 			      <t hangText="urs:">a Uniform Rapid Suspension (URS) case.</t>
@@ -995,7 +995,7 @@ END]]></artwork>
       efforts in the initial versions of this draft by Trung Tran and Sharon Wodjenski.</t>
 
       <t>Special suggestions that have been incorporated into this document
-      were provided by Scott Hollenbeck, Michael Holloway, and Patrick Mevzek.</t>
+      were provided by Scott Hollenbeck, Michael Holloway, Benjamin Kaduk, and Patrick Mevzek.</t>
     </section>
 
   </middle>
@@ -1174,6 +1174,17 @@ END]]></artwork>
             <t>Removed the commas from "Any transform operation to an object..." sentence.</t>
             <t>Changed to use an IPv6 address from the documentation-only prefix "2001:DB8::/32" in RFC 3849.  The IPv6 address
             2001:db8:0:0:1:0:0:1 was used.</t>
+          </list>
+        </t>
+      </list></t>
+    </section>
+     
+    <section title="Change from REGEXT 10 to REGEXT 10" anchor="version-WG10-to-WG11">
+      <t><list style="numbers">
+        <t>Updates based on the review by Benjamin Kaduk, that include:
+          <list style="numbers">
+            <t>Change references of "The enumerated list ... include:" to "the enumerated list ... is:"</t>
+            <t>In section 2.2, explicitly state what the message is inserted into, with the change of "... MUST be inserted prior to ..." to "... MUST be inserted into the message queue to ...".</t>
           </list>
         </t>
       </list></t>
