@@ -128,7 +128,7 @@ Internet-Draft                 changePoll                  December 2018
      A.14. Change from REGEXT 07 to REGEXT 08  . . . . . . . . . . .  26
      A.15. Change from REGEXT 08 to REGEXT 09  . . . . . . . . . . .  26
      A.16. Change from REGEXT 09 to REGEXT 10  . . . . . . . . . . .  26
-     A.17. Change from REGEXT 10 to REGEXT 10  . . . . . . . . . . .  27
+     A.17. Change from REGEXT 10 to REGEXT 11  . . . . . . . . . . .  27
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  27
 
 1.  Introduction
@@ -1235,8 +1235,8 @@ Internet-Draft                 changePoll                  December 2018
 
 
    Special suggestions that have been incorporated into this document
-   were provided by Scott Hollenbeck, Michael Holloway, Benjamin Kaduk,
-   and Patrick Mevzek.
+   were provided by Scott Hollenbeck, Michael Holloway, and Patrick
+   Mevzek.
 
 9.  References
 
@@ -1467,15 +1467,16 @@ Internet-Draft                 changePoll                  December 2018
             prefix "2001:DB8::/32" in RFC 3849.  The IPv6 address
             2001:db8:0:0:1:0:0:1 was used.
 
-A.17.  Change from REGEXT 10 to REGEXT 10
+A.17.  Change from REGEXT 10 to REGEXT 11
 
    1.  Updates based on the review by Benjamin Kaduk, that include:
 
        1.  Change references of "The enumerated list ... include:" to
-           "the enumerated list ... is:"
+           "The enumerated list ... is:".
        2.  In section 2.2, explicitly state what the message is inserted
            into, with the change of "... MUST be inserted prior to ..."
-           to "... MUST be inserted into the message queue to ...".
+           to "... MUST be inserted into the message queue prior to
+           ...".
 
 Authors' Addresses
 
@@ -1486,7 +1487,7 @@ Authors' Addresses
    US
 
    Email: jgould@verisign.com
-   URI:   http://www.verisigninc.com
+   URI:   http://www.verisign.com
 
 
    Kal Feher
@@ -1497,7 +1498,6 @@ Authors' Addresses
 
    Email: ietf@feherfamily.org
    URI:   http://www.neustar.biz
-
 
 
 

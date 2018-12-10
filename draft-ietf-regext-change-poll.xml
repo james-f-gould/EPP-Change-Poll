@@ -73,7 +73,7 @@
 
         <email>jgould@verisign.com</email>
 
-        <uri>http://www.verisigninc.com</uri>
+        <uri>http://www.verisign.com</uri>
       </address>
     </author>
 
@@ -995,7 +995,7 @@ END]]></artwork>
       efforts in the initial versions of this draft by Trung Tran and Sharon Wodjenski.</t>
 
       <t>Special suggestions that have been incorporated into this document
-      were provided by Scott Hollenbeck, Michael Holloway, Benjamin Kaduk, and Patrick Mevzek.</t>
+      were provided by Scott Hollenbeck, Michael Holloway, and Patrick Mevzek.</t>
     </section>
 
   </middle>
@@ -1179,12 +1179,12 @@ END]]></artwork>
       </list></t>
     </section>
      
-    <section title="Change from REGEXT 10 to REGEXT 10" anchor="version-WG10-to-WG11">
+    <section title="Change from REGEXT 10 to REGEXT 11" anchor="version-WG10-to-WG11">
       <t><list style="numbers">
         <t>Updates based on the review by Benjamin Kaduk, that include:
           <list style="numbers">
-            <t>Change references of "The enumerated list ... include:" to "the enumerated list ... is:"</t>
-            <t>In section 2.2, explicitly state what the message is inserted into, with the change of "... MUST be inserted prior to ..." to "... MUST be inserted into the message queue to ...".</t>
+            <t>Change references of "The enumerated list ... include:" to "The enumerated list ... is:".</t>
+            <t>In section 2.2, explicitly state what the message is inserted into, with the change of "... MUST be inserted prior to ..." to "... MUST be inserted into the message queue prior to ...".</t>
           </list>
         </t>
       </list></t>
