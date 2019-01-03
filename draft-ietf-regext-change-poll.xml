@@ -43,7 +43,7 @@
 <?rfc inline="yes" ?>
 <!-- inline cref output -->
 <!-- end of list of popular I-D processing instructions -->
-<rfc category="std" docName="draft-ietf-regext-change-poll-11" ipr="trust200902">
+<rfc category="std" docName="draft-ietf-regext-change-poll-12" ipr="trust200902">
   <!-- category values: std, bcp, info, exp, and historic
      ipr values: full3667, noModification3667, noDerivatives3667
      you can add the attributes updates="NNNN" and obsoletes="NNNN"
@@ -99,7 +99,7 @@
       </address>
     </author>
 
-    <date day="10" month="December" year="2018"/>
+    <date day="3" month="January" year="2019"/>
 
     <abstract>
       <t>This document describes an Extensible Provisioning Protocol (EPP)
@@ -227,6 +227,7 @@
       <section anchor="who" title="Who">
 
         <t>The &lt;changePoll:who&gt; element defines who executed the operation for audit purposes.
+        It is a freeform value that is strictly meant for audit purposes and not meant to drive client-side logic.
         The scheme used for the possible set of &lt;changePoll:who&gt; element
         values is up to server policy.  The server MAY identify the &lt;changePoll:who&gt; element value based on:
         </t>
@@ -1187,6 +1188,12 @@ END]]></artwork>
             <t>In section 2.2, explicitly state what the message is inserted into, with the change of "... MUST be inserted prior to ..." to "... MUST be inserted into the message queue prior to ...".</t>
           </list>
         </t>
+      </list></t>
+    </section>
+
+    <section title="Change from REGEXT 11 to REGEXT 12" anchor="version-WG11-to-WG12">
+      <t><list style="numbers">
+        <t>Added clarification for the &lt;changePoll:who&gt; element based on the feedback from Benjamin Kaduk.</t>
       </list></t>
     </section>
      
